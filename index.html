@@ -2360,11 +2360,11 @@ async function sendChatMsg(text) {
   const loading = addChatLoading();
 
   try {
-    const r = await fetch("https://api.anthropic.com/v1/messages", {
+    const r = await fetch("https://pecheprotect-chat.alexis2004-ab.workers.dev", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
-        model: "claude-sonnet-4-20250514",
+        model: "claude-sonnet-4-5-20250929",
         max_tokens: 800,
         system: systemPrompt,
         messages: chatHistory
@@ -2415,3 +2415,4 @@ setTimeout(initMap, 300);
 </script>
 </body>
 </html>
+
