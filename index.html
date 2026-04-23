@@ -13,24 +13,24 @@
 <style>
 /* ========== THEME & BASE ========== */
 :root {
-  --navy: #0a1f33;
-  --navy-light: #1a3a5c;
-  --sea: #e8f1f5;
-  --foam: #f7fafb;
-  --sand: #f5e6d3;
-  --coral: #e8734f;
-  --coral-dark: #d45f3d;
-  --seaweed: #4a7c74;
+  --navy: #1a3a5c;            /* Bleu ciel foncé (moins sombre) */
+  --navy-light: #2d5580;      /* Bleu moyen */
+  --sea: #e0f2fe;             /* Bleu ciel clair */
+  --foam: #ffffff;            /* Blanc pur → fond général lumineux */
+  --sand: #fef3e2;            /* Sable très pâle chaud */
+  --coral: #f97461;           /* Corail plus vif et lumineux */
+  --coral-dark: #e85a47;      /* Corail foncé (hover) */
+  --seaweed: #0ea5b7;         /* Turquoise/cyan énergique */
   --shell: #ffffff;
-  --silver: #8a9ba8;
-  --text: #1a2430;
-  --text-soft: #5a6b7a;
-  --border: rgba(0,0,0,0.08);
-  --shadow: 0 2px 12px rgba(10, 31, 51, 0.08);
-  --shadow-lg: 0 8px 32px rgba(10, 31, 51, 0.12);
+  --silver: #94a3b8;
+  --text: #0f172a;            /* Texte principal (presque noir) */
+  --text-soft: #64748b;       /* Texte secondaire (gris) */
+  --border: rgba(15, 23, 42, 0.08);
+  --shadow: 0 2px 12px rgba(59, 130, 246, 0.06);
+  --shadow-lg: 0 8px 32px rgba(59, 130, 246, 0.12);
   --card-bg: #ffffff;
-  --header-bg: #0a1f33;
-  --header-text: #ffffff;
+  --header-bg: #ffffff;       /* HEADER BLANC (au lieu de navy !) */
+  --header-text: #0f172a;     /* Texte du header en foncé */
 }
 
 [data-theme="dark"] {
@@ -170,8 +170,8 @@ nav.main-nav { display: flex; gap: 4px; }
 .hero {
   position: relative;
   overflow: hidden;
-  background: linear-gradient(135deg, #0a1f33 0%, #1a3a5c 50%, #4a7c74 100%);
-  color: white;
+  background: linear-gradient(135deg, #bae6fd 0%, #7dd3fc 40%, #38bdf8 80%, #0ea5e9 100%);
+  color: #0f172a;
   padding: 80px 24px 100px;
   text-align: center;
 }
@@ -215,9 +215,9 @@ nav.main-nav { display: flex; gap: 4px; }
 }
 .hero-badge {
   display: inline-block;
-  background: rgba(232, 115, 79, 0.2);
-  border: 1px solid rgba(232, 115, 79, 0.4);
-  color: var(--sand);
+  background: rgba(249, 116, 97, 0.15);
+  border: 1px solid rgba(249, 116, 97, 0.3);
+  color: var(--coral-dark);
   padding: 6px 14px;
   border-radius: 20px;
   font-size: 12px;
