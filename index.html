@@ -90,14 +90,10 @@ button { font-family: inherit; cursor: pointer; }
   cursor: pointer;
 }
 .logo-mark {
-  width: 32px; height: 32px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, var(--coral), var(--sand));
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 16px;
-  box-shadow: 0 2px 8px rgba(232, 115, 79, 0.35);
+  width: 36px; 
+  height: 36px;
+  object-fit: contain;
+  display: block;
 }
 .logo-text { line-height: 1.1; }
 .logo-text small { font-size: 10px; opacity: 0.6; font-weight: 400; letter-spacing: 0.02em; display: block; }
@@ -1185,7 +1181,7 @@ footer {
 <!-- ============ HEADER ============ -->
 <header class="topbar">
   <div class="logo" onclick="goTo('home')">
-    <span class="logo-mark">⚓</span>
+    <img src="sparus-logo-s.png" alt="Sparus" class="logo-mark">
     <div class="logo-text">
       <div>Sparus</div>
       <small>Le compagnon du pêcheur moderne</small>
