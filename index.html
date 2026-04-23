@@ -330,14 +330,27 @@ nav.main-nav { display: flex; gap: 4px; }
 }
 .feature-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); border-color: var(--coral); }
 .feature-icon {
-  width: 48px; height: 48px;
+  width: 52px; 
+  height: 52px;
   border-radius: 12px;
-  background: linear-gradient(135deg, var(--coral), var(--sand));
+  background: linear-gradient(135deg, rgba(249, 116, 97, 0.12), rgba(254, 243, 226, 0.4));
+  border: 1px solid rgba(249, 116, 97, 0.25);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 22px;
-  margin-bottom: 16px;
+  margin-bottom: 18px;
+  color: var(--coral);
+  transition: all 0.3s;
+}
+.feature-icon svg {
+  width: 26px;
+  height: 26px;
+}
+.feature-card:hover .feature-icon {
+  background: linear-gradient(135deg, var(--coral), var(--coral-dark));
+  color: white;
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(249, 116, 97, 0.3);
 }
 .feature-title { font-family: 'Fraunces', serif; font-size: 19px; font-weight: 600; margin-bottom: 8px; }
 .feature-desc { color: var(--text-soft); font-size: 14px; line-height: 1.6; }
@@ -1352,37 +1365,73 @@ footer {
     <p class="section-subtitle">Une plateforme pensée par et pour les pêcheurs de la Côte d'Azur. Finis les arrêtés préfectoraux éparpillés et les forums approximatifs.</p>
     <div class="feature-grid">
       <div class="feature-card" onclick="goTo('map')">
-        <div class="feature-icon">🗺️</div>
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 6l6-3 6 3 6-3v15l-6 3-6-3-6 3V6z"/>
+            <path d="M9 3v15M15 6v15"/>
+            <circle cx="12" cy="10" r="2" fill="currentColor" stroke="none"/>
+          </svg>
+        </div>
         <div class="feature-title">Carte intelligente</div>
         <div class="feature-desc">Zones protégées, spots, magasins, guides. Clique n'importe où, sache instantanément ce qui s'applique.</div>
       </div>
       <div class="feature-card" onclick="toggleChat()">
-        <div class="feature-icon">🤖</div>
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+            <path d="M12 7l1.2 2.5L16 10l-2 2 .5 2.8L12 13.5 9.5 14.8 10 12 8 10l2.8-.5L12 7z" fill="currentColor" stroke="none" opacity="0.8"/>
+          </svg>
+        </div>
         <div class="feature-title">Assistant IA pêche</div>
         <div class="feature-desc">Pose tes questions sur la réglementation, les espèces, les techniques. Réponses précises et contextualisées.</div>
       </div>
       <div class="feature-card" onclick="goTo('species')">
-        <div class="feature-icon">🐟</div>
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 12c2-4 6-6 10-6 3 0 6 1.5 8 4-2 2.5-5 4-8 4-4 0-8-2-10-2z"/>
+            <path d="M13 6l4-2-1 4M13 14l4 2-1-4"/>
+            <circle cx="16" cy="10" r="0.8" fill="currentColor" stroke="none"/>
+          </svg>
+        </div>
         <div class="feature-title">Encyclopédie des espèces</div>
         <div class="feature-desc">Fiches détaillées : habitat, saison, techniques, records. Reconnaissance photo par IA en un clic.</div>
       </div>
       <div class="feature-card" onclick="goTo('community')">
-        <div class="feature-icon">👥</div>
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
+            <circle cx="9" cy="7" r="4"/>
+            <path d="M22 21v-2a4 4 0 0 0-3-3.87"/>
+            <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+          </svg>
+        </div>
         <div class="feature-title">Communauté UGC</div>
         <div class="feature-desc">Partage tes prises, commente les spots, gagne des badges, participe aux défis saisonniers.</div>
       </div>
       <div class="feature-card" onclick="goTo('directory')">
-        <div class="feature-icon">🏪</div>
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 9l2-6h14l2 6"/>
+            <path d="M3 9v11a1 1 0 0 0 1 1h16a1 1 0 0 0 1-1V9"/>
+            <path d="M3 9a3 3 0 0 0 6 0 3 3 0 0 0 6 0 3 3 0 0 0 6 0"/>
+            <path d="M10 21v-6h4v6"/>
+          </svg>
+        </div>
         <div class="feature-title">Annuaire local</div>
         <div class="feature-desc">Magasins partenaires, guides certifiés, avis vérifiés, réservation en ligne et promotions exclusives.</div>
       </div>
       <div class="feature-card" onclick="goTo('add-spot')">
-        <div class="feature-icon">📍</div>
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+            <line x1="12" y1="7" x2="12" y2="13"/>
+            <line x1="9" y1="10" x2="15" y2="10"/>
+          </svg>
+        </div>
         <div class="feature-title">Contribue (style wiki)</div>
         <div class="feature-desc">Ajoute tes propres spots (modéré avant publication), fais grandir la plus grande base communautaire.</div>
       </div>
     </div>
-  </div>
 <!-- ============ BANDE PHOTOS DÉFILANTE ============ -->
   <section class="photo-strip">
     <div class="photo-strip-track">
