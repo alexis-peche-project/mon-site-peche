@@ -4,6 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Sparus — L'app du pêcheur méditerranéen</title>
+<link rel="icon" type="image/png" href="sparus-favicon.png">
+<link rel="apple-touch-icon" href="sparus-favicon.png">  
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -180,6 +182,20 @@ nav.main-nav { display: flex; gap: 4px; }
   pointer-events: none;
 }
 .hero-content { position: relative; max-width: 900px; margin: 0 auto; }
+.hero-logo {
+  max-width: 280px;
+  width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto 24px;
+  filter: drop-shadow(0 8px 20px rgba(0,0,0,0.3));
+}
+
+@media (max-width: 768px) {
+  .hero-logo {
+    max-width: 200px;
+  }
+}
 .hero-badge {
   display: inline-block;
   background: rgba(232, 115, 79, 0.2);
@@ -1210,6 +1226,7 @@ footer {
 <section id="page-home" class="page active">
   <div class="hero">
     <div class="hero-content">
+      <img src="sparus-logo-daurade.png" alt="Sparus — daurade royale" class="hero-logo">
       <div class="hero-badge">🇫🇷 Méditerranée · Côte d'Azur</div>
       <h1>La pêche,<br>en mieux <em>informé</em>.</h1>
       <p class="lead">Réglementation en temps réel, encyclopédie des espèces, communauté locale et assistant IA. Pêche mieux, plus responsable, et partage tes aventures.</p>
