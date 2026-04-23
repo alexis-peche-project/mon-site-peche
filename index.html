@@ -157,6 +157,8 @@ nav.main-nav { display: flex; gap: 4px; }
   letter-spacing: 0.1em;
 }
 .lang-btn:hover { opacity: 1; border-color: rgba(255,255,255,0.4); }
+  
+  
 
 /* ========== PAGES ========== */
 .page { display: none; min-height: calc(100vh - 60px); }
@@ -173,6 +175,21 @@ nav.main-nav { display: flex; gap: 4px; }
   padding: 80px 24px 100px;
   text-align: center;
 }
+.hero-tagline {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(20px, 3vw, 32px);
+  font-weight: 500;
+  font-style: italic;
+  color: var(--sand);
+  margin: 0 auto 24px;
+  max-width: 600px;
+  line-height: 1.2;
+  text-align: center;
+}
+.hero-tagline em {
+  color: var(--coral);
+  font-weight: 600;
+}
 .hero::before {
   content: '';
   position: absolute;
@@ -183,17 +200,17 @@ nav.main-nav { display: flex; gap: 4px; }
 }
 .hero-content { position: relative; max-width: 900px; margin: 0 auto; }
 .hero-logo {
-  max-width: 280px;
+  max-width: 380px;   /* plus grand car c'est LE visuel principal */
   width: 100%;
   height: auto;
   display: block;
-  margin: 0 auto 24px;
-  filter: drop-shadow(0 8px 20px rgba(0,0,0,0.3));
+  margin: 0 auto 32px;
+  /* Pas de filter, fond transparent natif */
 }
 
 @media (max-width: 768px) {
   .hero-logo {
-    max-width: 200px;
+    max-width: 260px;
   }
 }
 .hero-badge {
@@ -1228,7 +1245,7 @@ footer {
     <div class="hero-content">
       <img src="sparus-logo-daurade.png" alt="Sparus — daurade royale" class="hero-logo">
       <div class="hero-badge">🇫🇷 Méditerranée · Côte d'Azur</div>
-      <h1>La pêche,<br>en mieux <em>informé</em>.</h1>
+      <h2 class="hero-subtitle">La pêche, en mieux informé.</h2>
       <p class="lead">Réglementation en temps réel, encyclopédie des espèces, communauté locale et assistant IA. Pêche mieux, plus responsable, et partage tes aventures.</p>
       <div class="hero-cta">
         <button class="btn-primary" onclick="goTo('map')">🗺️ Explorer la carte</button>
