@@ -1532,7 +1532,7 @@ footer {
         <div class="filter-item active" data-filter="spots"><span class="filter-dot spot"></span>Spots de pêche <span class="filter-count" id="count-spots">12</span></div>
         <div class="filter-item active" data-filter="shops"><span class="filter-dot shop"></span>Magasins <span class="filter-count" id="count-shops">7</span></div>
         <div class="filter-item active" data-filter="guides"><span class="filter-dot guide"></span>Guides <span class="filter-count" id="count-guides">6</span></div>
-        <div class="filter-item active" data-filter="protected"><span class="filter-dot protected"></span>Zones protégées <span class="filter-count">3</span></div>
+        <div class="filter-item active" data-filter="protected"><span class="filter-dot protected"></span>Zones protégées <span class="filter-count">9</span></div>
       </div>
 
       <div class="sidebar-title">Couches</div>
@@ -2015,9 +2015,69 @@ const LEADERBOARD = [
 ];
 
 const PROTECTED_ZONES = [
-  { name: "Cœur du Parc National des Calanques", type: "Parc National", restriction: "Pêche restreinte, quotas spécifiques par espèce", polygon: [[43.215, 5.41], [43.225, 5.52], [43.185, 5.565], [43.15, 5.515], [43.158, 5.42]] },
-  { name: "Parc National de Port-Cros", type: "Parc National marin", restriction: "Pêche interdite dans le cœur du parc", polygon: [[43.015, 6.37], [43.04, 6.42], [43.03, 6.45], [43.005, 6.425]] },
-  { name: "Parc Naturel Marin du Cap Corse-Agriate", type: "Aire marine protégée", restriction: "Certaines espèces interdites", polygon: [[42.98, 9.32], [43.02, 9.55], [42.85, 9.60], [42.82, 9.38]] }
+  {
+    name: "Cœur du Parc National de Port-Cros",
+    type: "Parc National marin",
+    level: "interdit",
+    restriction: "Pêche de loisir totalement interdite (poissons + crustacés). Toute capture est prohibée pour préserver l'écosystème.",
+    polygon: [[42.99, 6.36], [43.025, 6.39], [43.045, 6.43], [43.025, 6.46], [42.99, 6.46], [42.97, 6.42]]
+  },
+  {
+    name: "Réserve intégrale de la Gabinière",
+    type: "Réserve intégrale",
+    level: "interdit",
+    restriction: "Zone de protection maximale dans Port-Cros. Tout est strictement interdit (pêche, plongée, mouillage).",
+    polygon: [[42.985, 6.385], [42.992, 6.395], [42.988, 6.405], [42.978, 6.40]]
+  },
+  {
+    name: "Cantonnement de pêche du Cap Roux",
+    type: "Cantonnement de pêche",
+    level: "interdit",
+    restriction: "Pêche de loisir et professionnelle interdite. Zone de repeuplement créée en 2003, résultats spectaculaires sur le mérou et le corb.",
+    polygon: [[43.43, 6.92], [43.46, 6.94], [43.475, 6.965], [43.46, 6.985], [43.435, 6.97], [43.422, 6.945]]
+  },
+  {
+    name: "Cœur du Parc National des Calanques",
+    type: "Parc National",
+    level: "encadre",
+    restriction: "Pêche très restreinte, quotas spécifiques par espèce. Zones de no-take en plusieurs endroits. Vérifier sur calanques-parcnational.fr",
+    polygon: [[43.215, 5.41], [43.225, 5.52], [43.185, 5.565], [43.15, 5.515], [43.158, 5.42]]
+  },
+  {
+    name: "Zone Natura 2000 — Cap Ferrat",
+    type: "Natura 2000",
+    level: "encadre",
+    restriction: "Habitat protégé (herbiers de posidonies). Pêche autorisée mais espèces sensibles encadrées (corb interdit, mérou interdit). Mouillage réglementé.",
+    polygon: [[43.685, 7.31], [43.705, 7.335], [43.71, 7.355], [43.69, 7.36], [43.675, 7.34]]
+  },
+  {
+    name: "Zone Natura 2000 — Estérel & Esterellet",
+    type: "Natura 2000",
+    level: "encadre",
+    restriction: "Massif rocheux protégé. Réglementation spécifique sur certaines espèces. Posidonies préservées.",
+    polygon: [[43.41, 6.85], [43.46, 6.92], [43.48, 7.0], [43.45, 7.04], [43.42, 7.0], [43.4, 6.93]]
+  },
+  {
+    name: "Parc Naturel Marin du Golfe du Lion",
+    type: "Parc Naturel Marin",
+    level: "encadre",
+    restriction: "Quota de 3 poissons max/jour pour certaines espèces. Denti interdit. Réglementation détaillée sur parc-marin-golfe-lion.fr",
+    polygon: [[42.55, 3.0], [42.85, 3.05], [42.85, 3.4], [42.42, 3.35], [42.42, 3.05]]
+  },
+  {
+    name: "Parc Naturel Marin du Cap Corse et de l'Agriate",
+    type: "Parc Naturel Marin",
+    level: "encadre",
+    restriction: "Espèces protégées renforcées. Réglementation spécifique. Plus grande aire marine protégée de Méditerranée française.",
+    polygon: [[42.98, 9.32], [43.02, 9.55], [42.85, 9.60], [42.82, 9.38]]
+  },
+  {
+    name: "Sanctuaire Pelagos (mammifères marins)",
+    type: "Sanctuaire international",
+    level: "info",
+    restriction: "Zone de protection des cétacés (87 500 km²). Pêche autorisée mais : approche cétacés interdite à moins de 100m, vitesse réduite recommandée. Se signaler à PelagosObs si rencontre.",
+    polygon: [[43.0, 5.5], [44.0, 5.5], [44.0, 9.7], [42.5, 10.5], [42.5, 9.5], [42.7, 7.5], [43.0, 6.0]]
+  }
 ];
 
 // ==========================================
@@ -2130,10 +2190,31 @@ function initMap() {
     markers.guides.push(m);
   });
 
-  // Protected zones
+// Protected zones (avec couleur selon niveau de protection)
   PROTECTED_ZONES.forEach(z => {
-    const poly = L.polygon(z.polygon, { color: '#e8734f', weight: 2, fillColor: '#e8734f', fillOpacity: 0.22, dashArray: '5,5' }).addTo(map);
-    poly.bindPopup(`<strong>${z.name}</strong><br><em>${z.type}</em><br><br>${z.restriction}`);
+    let style;
+    if (z.level === 'interdit') {
+      style = { color: '#dc2626', weight: 2.5, fillColor: '#dc2626', fillOpacity: 0.28, dashArray: '6,4' };
+    } else if (z.level === 'encadre') {
+      style = { color: '#f59e0b', weight: 2, fillColor: '#f59e0b', fillOpacity: 0.18, dashArray: '5,5' };
+    } else {
+      style = { color: '#3b82f6', weight: 1.5, fillColor: '#3b82f6', fillOpacity: 0.08, dashArray: '2,4' };
+    }
+
+    const poly = L.polygon(z.polygon, style).addTo(map);
+
+    // Popup enrichi avec icône et couleurs cohérentes
+    const icon = z.level === 'interdit' ? '🚫' : z.level === 'encadre' ? '⚠️' : 'ℹ️';
+    const labelColor = z.level === 'interdit' ? '#dc2626' : z.level === 'encadre' ? '#f59e0b' : '#3b82f6';
+
+    poly.bindPopup(`
+      <div style="min-width: 240px;">
+        <div style="font-size: 24px; margin-bottom: 4px;">${icon}</div>
+        <strong style="font-family: Fraunces, serif; font-size: 15px;">${z.name}</strong>
+        <div style="color: ${labelColor}; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; margin: 4px 0 8px;">${z.type}</div>
+        <div style="font-size: 12px; line-height: 1.5;">${z.restriction}</div>
+      </div>
+    `);
     poly.on('click', () => { currentZone = z.name; });
     markers.protected.push(poly);
   });
