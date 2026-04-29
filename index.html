@@ -2143,17 +2143,11 @@ function initMap() {
   map = L.map('map').setView([43.72, 7.20], 9);
   window._mapInstance = map;
 
-  // Carte de base : Esri Ocean (style marin)
-  L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Ocean/World_Ocean_Base/MapServer/tile/{z}/{y}/{x}', {
-    attribution: 'Tiles © Esri — Sources: GEBCO, NOAA, National Geographic',
-    maxZoom: 13
-  }).addTo(map);
-
-  // Surcouche labels (noms de villes/lieux par-dessus)
-  L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Ocean/World_Ocean_Reference/MapServer/tile/{z}/{y}/{x}', {
-    attribution: '',
-    maxZoom: 13,
-    pane: 'shadowPane'
+    // Carte de base : CartoDB Voyager (style élégant moderne)
+  L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
+    attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> · © <a href="https://carto.com/attributions">CARTO</a>',
+    subdomains: 'abcd',
+    maxZoom: 19
   }).addTo(map);
 
   // Spots
