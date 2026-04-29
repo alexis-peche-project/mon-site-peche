@@ -1531,7 +1531,7 @@ footer {
       <div class="filter-list">
         <div class="filter-item active" data-filter="spots"><span class="filter-dot spot"></span>Spots de pêche <span class="filter-count" id="count-spots">50</span></div>
         <div class="filter-item active" data-filter="shops"><span class="filter-dot shop"></span>Magasins <span class="filter-count" id="count-shops">7</span></div>
-        <div class="filter-item active" data-filter="guides"><span class="filter-dot guide"></span>Guides <span class="filter-count" id="count-guides">6</span></div>
+        <div class="filter-item active" data-filter="guides"><span class="filter-dot guide"></span>Guides <span class="filter-count" id="count-guides">54</span></div>
         <div class="filter-item active" data-filter="protected"><span class="filter-dot protected"></span>Zones protégées <span class="filter-count">119</span></div>
       </div>
 
@@ -1995,14 +1995,7 @@ const SPOTS = [
 
 let SHOPS = []; // sera rempli depuis magasins.json au chargement
 
-const GUIDES = [
-  { id: 1, name: "Antoine Laurent", lat: 43.7009, lng: 7.2683, city: "Nice", desc: "Spécialiste loup au leurre. 15 ans d'expérience, bateau 8m équipé.", rating: 4.9, reviews: 67, tags: ["Loup au leurre", "Débutants OK", "Demi-journée"], promo: "250€/demi-jour" },
-  { id: 2, name: "Marc Dubois", lat: 43.5528, lng: 7.0174, city: "Cannes", desc: "Pêche au gros, traîne, jigging profond. Thon rouge saison.", rating: 4.8, reviews: 52, tags: ["Pêche au gros", "Thon", "Traîne"], promo: "450€/jour" },
-  { id: 3, name: "Sophie Martin", lat: 43.5804, lng: 7.1251, city: "Antibes", desc: "Initiation famille et enfants. Pédagogue certifiée.", rating: 5.0, reviews: 84, tags: ["Famille", "Enfants", "Initiation"], promo: "180€/demi-jour" },
-  { id: 4, name: "Jean-Luc Pellegrin", lat: 43.7760, lng: 7.5020, city: "Menton", desc: "Pêche traditionnelle, palangre et techniques ancestrales italiennes.", rating: 4.7, reviews: 38, tags: ["Traditionnel", "Palangre", "Italien"], promo: "" },
-  { id: 5, name: "Thomas Guillaume", lat: 43.4253, lng: 6.7650, city: "Saint-Raphaël", desc: "Spécialiste jigging et slow jigging. Matériel haut de gamme fourni.", rating: 4.9, reviews: 41, tags: ["Jigging", "Slow jig", "Haut de gamme"], promo: "320€/demi-jour" },
-  { id: 6, name: "Laurent Ferrara", lat: 43.6949, lng: 7.3319, city: "Cap Ferrat", desc: "Denti, sars et pêches fines aux leurres. Bateau silencieux.", rating: 4.8, reviews: 29, tags: ["Denti", "Pêche fine", "Aube"], promo: "280€/demi-jour" }
-];
+let GUIDES = []; // sera rempli depuis guides.json au chargement
 
 const SPECIES = [
   { id: "bar", name: "Bar (Loup)", latin: "Dicentrarchus labrax", photo: null, status: "ok", cat: "pelagic", size: "30 cm", quota: "—", note: "Autorisé toute l'année en Médit.", record: "89 cm", techniques: ["Leurres souples", "Poisson-nageur", "Vif", "Surfcasting"], habitat: "Côte rocheuse, plages à l'aube/crépuscule, embouchures", desc: "Prédateur emblématique de la Méditerranée, se nourrit de petits poissons. Les plus grosses prises se font aux heures bleues.", seasons: { best: [3,4,5,9,10,11], good: [1,2,6,7,8,12], closed: [] } },
@@ -2152,16 +2145,25 @@ function initMap() {
     })
     .catch(err => console.error('❌ Erreur chargement magasins:', err));
 
-  // Guides
-  GUIDES.forEach(g => {
-    const icon = L.divIcon({
-      html: `<div style="background: #8a3ad6; width: 22px; height: 22px; border-radius: 50%; border: 3px solid white; box-shadow: 0 2px 6px rgba(0,0,0,0.3); display: flex; align-items: center; justify-content: center; color: white; font-size: 11px;">🎯</div>`,
-      className: '', iconSize: [22, 22], iconAnchor: [11, 11]
-    });
-    const m = L.marker([g.lat, g.lng], { icon }).addTo(map);
-    m.bindPopup(guidePopupHTML(g));
-    markers.guides.push(m);
-  });
+ // Guides — chargés depuis guides.json (Google Maps)
+  fetch('guides.json')
+    .then(r => r.json())
+    .then(data => {
+      GUIDES = data;
+      data.forEach(g => {
+        const icon = L.divIcon({
+          html: `<div style="background: #8a3ad6; width: 22px; height: 22px; border-radius: 50%; border: 3px solid white; box-shadow: 0 2px 6px rgba(0,0,0,0.3); display: flex; align-items: center; justify-content: center; color: white; font-size: 11px;">🎯</div>`,
+          className: '', iconSize: [22, 22], iconAnchor: [11, 11]
+        });
+        const m = L.marker([g.lat, g.lng], { icon }).addTo(map);
+        m.bindPopup(guidePopupHTML(g));
+        markers.guides.push(m);
+      });
+      console.log(`✅ ${data.length} guides chargés depuis Google Maps`);
+      const counter = document.getElementById('count-guides');
+      if (counter) counter.textContent = data.length;
+    })
+    .catch(err => console.error('❌ Erreur chargement guides:', err));
 
 // Charger les vraies zones protégées officielles (OFB / INPN)
   fetch('zones-protegees-mediterranee.geojson')
@@ -2293,14 +2295,18 @@ function shopPopupHTML(s) {
 }
 
 function guidePopupHTML(g) {
+  const ratingHTML = g.rating ? `⭐ ${g.rating} · ${g.reviews} avis` : '<em style="color: #999;">Pas encore noté</em>';
+  const phoneHTML = g.phone ? `<div style="font-size: 11px; margin-top: 4px;">📞 <a href="tel:${g.phone.replace(/\s/g, '')}" style="color: #e8734f;">${g.phone}</a></div>` : '';
+  const webHTML = g.website ? `<a href="${g.website}" target="_blank" style="display: block; background: #8a3ad6; color: white; padding: 8px 12px; border-radius: 6px; font-size: 12px; cursor: pointer; width: 100%; margin-top: 8px; text-align: center; text-decoration: none; font-weight: 600;">🌐 Voir le site / Réserver</a>` : '';
+
   return `
-    <div style="min-width: 220px;">
+    <div style="min-width: 240px;">
       <strong style="font-family: Fraunces, serif; font-size: 15px;">🎯 ${g.name}</strong>
-      <div style="color: #666; font-size: 11px; margin-bottom: 6px;">Guide · ${g.city}</div>
-      <div style="font-size: 12px; margin-bottom: 8px;">${g.desc}</div>
-      <div style="font-size: 11px; color: #333;">⭐ ${g.rating} · ${g.reviews} avis</div>
-      ${g.promo ? `<div style="font-size: 12px; font-weight: 600; color: #e8734f; margin-top: 6px;">💰 ${g.promo}</div>` : ''}
-      <button onclick="showToast('Réservation bientôt dispo — démo')" style="background: #e8734f; color: white; border: none; padding: 6px 12px; border-radius: 6px; font-size: 12px; cursor: pointer; width: 100%; margin-top: 6px;">Réserver</button>
+      <div style="color: #666; font-size: 11px; margin: 4px 0;">${g.address || ''}</div>
+      <div style="font-size: 11px; color: #333; margin-top: 6px;">${ratingHTML}</div>
+      ${phoneHTML}
+      ${webHTML}
+      <div style="font-size: 10px; color: #999; margin-top: 8px; padding-top: 6px; border-top: 1px solid #eee;">Données Google Maps · Vous êtes ce guide ? Contactez-nous</div>
     </div>
   `;
 }
