@@ -645,13 +645,22 @@ nav.main-nav { display: flex; gap: 4px; }
   font-family: 'Fraunces', serif;
   color: var(--navy);
   font-weight: 600;
-  text-align: right;
   white-space: nowrap;
-  display: flex;
+  display: grid;
+  grid-template-columns: 50px 50px;
   align-items: baseline;
-  justify-content: flex-end;
   gap: 4px;
-  min-width: 80px;
+}
+[data-theme="dark"] .marine-row b { color: var(--text); }
+.marine-row b > span:first-child {
+  text-align: right;
+}
+.marine-row b .sub {
+  font-size: 10px;
+  color: var(--text-soft);
+  font-weight: normal;
+  font-family: 'Manrope', sans-serif;
+  text-align: left;
 }
 [data-theme="dark"] .marine-row b { color: var(--text); }
 .marine-row b .sub {
@@ -2413,38 +2422,38 @@ async function loadWeather(lat, lng, locationName) {
     widget.innerHTML = `
       <div class="marine-row">
         <span>🌡️ Air</span>
-        <b>${Math.round(weather.temperature_2m)}°C <span class="sub">(${Math.round(weather.apparent_temperature)}° ressenti)</span></b>
+        <b><span>${Math.round(weather.temperature_2m)}°C</span><span class="sub">(${Math.round(weather.apparent_temperature)}°)</span></b>
       </div>
       ${marine.sea_surface_temperature !== undefined ? `
       <div class="marine-row">
         <span>🌊 Eau</span>
-        <b>${marine.sea_surface_temperature.toFixed(1)}°C</b>
+        <b><span>${marine.sea_surface_temperature.toFixed(1)}°C</span><span class="sub"></span></b>
       </div>` : ''}
       <div class="marine-row">
         <span>💨 Vent ${windDir}</span>
-        <b>${Math.round(weather.wind_speed_10m)} <span class="sub">km/h</span></b>
+        <b><span>${Math.round(weather.wind_speed_10m)}</span><span class="sub">km/h</span></b>
       </div>
       <div class="marine-row">
         <span style="padding-left: 22px; font-size: 11px;">↳ Rafales</span>
-        <b>${Math.round(weather.wind_gusts_10m)} <span class="sub">km/h</span></b>
+        <b><span>${Math.round(weather.wind_gusts_10m)}</span><span class="sub">km/h</span></b>
       </div>
       ${marine.wave_height !== undefined ? `
       <div class="marine-row">
         <span>🌊 Houle ${waveDir}</span>
-        <b>${marine.wave_height.toFixed(1)} <span class="sub">m</span></b>
+        <b><span>${marine.wave_height.toFixed(1)}</span><span class="sub">m</span></b>
       </div>
       <div class="marine-row">
         <span style="padding-left: 22px; font-size: 11px;">↳ Période</span>
-        <b>${marine.wave_period?.toFixed(1) || '–'} <span class="sub">s</span></b>
+        <b><span>${marine.wave_period?.toFixed(1) || '–'}</span><span class="sub">s</span></b>
       </div>` : ''}
       ${marine.ocean_current_velocity !== undefined ? `
       <div class="marine-row">
         <span>🌀 Courant ${currentDir}</span>
-        <b>${(marine.ocean_current_velocity * 3.6).toFixed(1)} <span class="sub">km/h</span></b>
+        <b><span>${(marine.ocean_current_velocity * 3.6).toFixed(1)}</span><span class="sub">km/h</span></b>
       </div>` : ''}
       <div class="marine-row">
         <span>📊 Pression</span>
-        <b>${Math.round(weather.pressure_msl)} <span class="sub">hPa</span></b>
+        <b><span>${Math.round(weather.pressure_msl)}</span><span class="sub">hPa</span></b>
       </div>
       <div class="weather-status ${conditions.class}">${conditions.text}</div>
     `;
