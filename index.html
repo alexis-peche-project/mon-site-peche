@@ -1993,15 +1993,7 @@ const SPOTS = [
   { id: 50, name: "Embouchure du Grand Rhône", lat: 43.3300, lng: 4.8517, type: "Embouchure", species: ["Loup", "Mulet", "Daurade royale"], desc: "Spot mythique pour les loups. Eaux saumâtres, courants. Spot très technique mais récompensant.", rating: 4.8, reviews: 32, difficulty: "Moyenne" }
 ];
 
-const SHOPS = [
-  { id: 1, name: "Pêche Bleue Nice", lat: 43.7009, lng: 7.2683, city: "Nice", desc: "Spécialiste appâts vivants et matos mer. Conseil local reconnu.", rating: 4.8, reviews: 124, tags: ["Appâts vivants", "Leurres", "Cannes mer"], promo: "-10% membres" },
-  { id: 2, name: "Captain Lure", lat: 43.5804, lng: 7.1251, city: "Antibes", desc: "LE shop des spécialistes du bar au leurre sur la Côte.", rating: 4.9, reviews: 89, tags: ["Leurres", "Carnassier mer", "Jigging"], promo: "" },
-  { id: 3, name: "Mediterranean Fishing", lat: 43.5528, lng: 7.0174, city: "Cannes", desc: "Haut de gamme, cannes japonaises et américaines. Service VIP.", rating: 4.7, reviews: 56, tags: ["Premium", "Fly fishing", "Saltwater"], promo: "" },
-  { id: 4, name: "L'Hameçon d'Or", lat: 43.7760, lng: 7.5020, city: "Menton", desc: "Boutique familiale, accueil exceptionnel et prix doux.", rating: 4.6, reviews: 78, tags: ["Familial", "Débutants", "Occasion"], promo: "Conseil gratuit" },
-  { id: 5, name: "Surfcasting Store", lat: 43.6770, lng: 7.1890, city: "Saint-Laurent-du-Var", desc: "Temple du surfcasting méditerranéen. Gros choix de montages.", rating: 4.5, reviews: 42, tags: ["Surfcasting", "Bas de ligne", "Cannes longues"], promo: "" },
-  { id: 6, name: "Pêche Sous-Marine Riviera", lat: 43.7042, lng: 7.3122, city: "Villefranche", desc: "Chasse sous-marine et apnée. Matériel et conseils d'experts.", rating: 4.8, reviews: 33, tags: ["Chasse SM", "Apnée", "Arbalètes"], promo: "-15% combinaisons" },
-  { id: 7, name: "La Boîte à Pêche", lat: 43.5480, lng: 7.0125, city: "Cannes", desc: "Tout pour la pêche du bord et de la plage. Économique.", rating: 4.3, reviews: 65, tags: ["Économique", "Plage", "Bord"], promo: "" }
-];
+let SHOPS = []; // sera rempli depuis magasins.json au chargement
 
 const GUIDES = [
   { id: 1, name: "Antoine Laurent", lat: 43.7009, lng: 7.2683, city: "Nice", desc: "Spécialiste loup au leurre. 15 ans d'expérience, bateau 8m équipé.", rating: 4.9, reviews: 67, tags: ["Loup au leurre", "Débutants OK", "Demi-journée"], promo: "250€/demi-jour" },
@@ -2138,16 +2130,27 @@ function initMap() {
     markers.spots.push(m);
   });
 
-  // Shops
-  SHOPS.forEach(s => {
-    const icon = L.divIcon({
-      html: `<div style="background: #d6a23a; width: 22px; height: 22px; border-radius: 50%; border: 3px solid white; box-shadow: 0 2px 6px rgba(0,0,0,0.3); display: flex; align-items: center; justify-content: center; color: white; font-size: 11px;">🏪</div>`,
-      className: '', iconSize: [22, 22], iconAnchor: [11, 11]
-    });
-    const m = L.marker([s.lat, s.lng], { icon }).addTo(map);
-    m.bindPopup(shopPopupHTML(s));
-    markers.shops.push(m);
-  });
+// Shops — chargés depuis magasins.json (Google Maps)
+  fetch('magasins.json')
+    .then(r => r.json())
+    .then(data => {
+      SHOPS = data;
+      data.forEach(s => {
+        const isDecathlon = s.name.toLowerCase().includes('decathlon');
+        const bgColor = isDecathlon ? '#0082C3' : '#d6a23a';
+        const icon = L.divIcon({
+          html: `<div style="background: ${bgColor}; width: 22px; height: 22px; border-radius: 50%; border: 3px solid white; box-shadow: 0 2px 6px rgba(0,0,0,0.3); display: flex; align-items: center; justify-content: center; color: white; font-size: 11px;">🏪</div>`,
+          className: '', iconSize: [22, 22], iconAnchor: [11, 11]
+        });
+        const m = L.marker([s.lat, s.lng], { icon }).addTo(map);
+        m.bindPopup(shopPopupHTML(s));
+        markers.shops.push(m);
+      });
+      console.log(`✅ ${data.length} magasins chargés depuis Google Maps`);
+      const counter = document.getElementById('count-shops');
+      if (counter) counter.textContent = data.length;
+    })
+    .catch(err => console.error('❌ Erreur chargement magasins:', err));
 
   // Guides
   GUIDES.forEach(g => {
@@ -2271,13 +2274,20 @@ function spotPopupHTML(s) {
 }
 
 function shopPopupHTML(s) {
+  const isDecathlon = s.name.toLowerCase().includes('decathlon');
+  const badge = isDecathlon ? '<span style="background: #0082C3; color: white; padding: 2px 6px; border-radius: 4px; font-size: 9px; font-weight: 700; margin-left: 4px;">DECATHLON</span>' : '';
+  const ratingHTML = s.rating ? `⭐ ${s.rating} · ${s.reviews} avis` : '<em style="color: #999;">Pas encore noté</em>';
+  const phoneHTML = s.phone ? `<div style="font-size: 11px; margin-top: 4px;">📞 <a href="tel:${s.phone.replace(/\s/g, '')}" style="color: #e8734f;">${s.phone}</a></div>` : '';
+  const webHTML = s.website ? `<div style="font-size: 11px; margin-top: 4px;">🌐 <a href="${s.website}" target="_blank" style="color: #e8734f;">Site web</a></div>` : '';
+
   return `
-    <div style="min-width: 220px;">
-      <strong style="font-family: Fraunces, serif; font-size: 15px;">🏪 ${s.name}</strong>
-      <div style="color: #666; font-size: 11px; margin-bottom: 6px;">${s.city}</div>
-      <div style="font-size: 12px; margin-bottom: 8px;">${s.desc}</div>
-      <div style="font-size: 11px; color: #333;">⭐ ${s.rating} · ${s.reviews} avis</div>
-      ${s.promo ? `<div style="background: rgba(232, 115, 79, 0.1); color: #e8734f; padding: 4px 8px; border-radius: 6px; font-size: 11px; margin-top: 6px; font-weight: 600;">🎁 ${s.promo}</div>` : ''}
+    <div style="min-width: 240px;">
+      <strong style="font-family: Fraunces, serif; font-size: 15px;">🏪 ${s.name}</strong>${badge}
+      <div style="color: #666; font-size: 11px; margin: 4px 0;">${s.address || ''}</div>
+      <div style="font-size: 11px; color: #333; margin-top: 6px;">${ratingHTML}</div>
+      ${phoneHTML}
+      ${webHTML}
+      <div style="font-size: 10px; color: #999; margin-top: 8px; padding-top: 6px; border-top: 1px solid #eee;">Données Google Maps</div>
     </div>
   `;
 }
