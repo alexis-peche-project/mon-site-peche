@@ -600,11 +600,82 @@ nav.main-nav { display: flex; gap: 4px; }
   background: var(--card-bg);
   border: 1px solid var(--border);
   border-radius: 12px;
-  padding: 12px 14px;
+  padding: 14px 16px;
   z-index: 400;
   box-shadow: var(--shadow);
-  min-width: 180px;
+  min-width: 220px;
+  max-width: 260px;
 }
+.marine-widget-title {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--coral);
+  margin-bottom: 10px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.marine-widget-title::before {
+  content: '🔴';
+  font-size: 8px;
+  animation: pulse 2s infinite;
+}
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+.marine-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 12.5px;
+  padding: 5px 0;
+}
+.marine-row span:first-child {
+  color: var(--text-soft);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.marine-row b {
+  font-family: 'Fraunces', serif;
+  color: var(--navy);
+  font-weight: 600;
+}
+[data-theme="dark"] .marine-row b { color: var(--text); }
+.marine-row .sub {
+  font-size: 10px;
+  color: var(--text-soft);
+  margin-left: 6px;
+  font-weight: normal;
+  font-family: 'Manrope', sans-serif;
+}
+.marine-widget-update {
+  font-size: 10px;
+  color: var(--text-soft);
+  margin-top: 8px;
+  padding-top: 6px;
+  border-top: 1px solid var(--border);
+  text-align: center;
+}
+.weather-status {
+  margin-top: 8px;
+  padding: 6px 8px;
+  border-radius: 6px;
+  font-size: 11px;
+  text-align: center;
+  font-weight: 600;
+}
+.weather-status.good { background: rgba(74, 124, 116, 0.15); color: #2d6a64; }
+.weather-status.fair { background: rgba(232, 154, 60, 0.15); color: #b07020; }
+.weather-status.bad { background: rgba(208, 74, 58, 0.15); color: #b03020; }
+[data-theme="dark"] .weather-status.good { color: #6ea89f; }
+[data-theme="dark"] .weather-status.fair { color: #f5a854; }
+[data-theme="dark"] .weather-status.bad { color: #ff8a76; }
 .marine-widget-title { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-soft); margin-bottom: 6px; }
 .marine-row { display: flex; justify-content: space-between; font-size: 12px; padding: 3px 0; }
 .marine-row b { font-family: 'Fraunces', serif; color: var(--navy); }
@@ -1572,13 +1643,15 @@ footer {
         <button class="btn-sm" onclick="goTo('add-spot')">➕ Ajouter</button>
       </div>
       <div id="map"></div>
-      <div class="marine-widget">
-        <div class="marine-widget-title">Météo marine · Nice</div>
-        <div class="marine-row"><span>🌡️ Eau</span><b>16.2°C</b></div>
-        <div class="marine-row"><span>💨 Vent</span><b>S-E 12 km/h</b></div>
-        <div class="marine-row"><span>🌊 Houle</span><b>0.5 m</b></div>
-        <div class="marine-row"><span>👁️ Visi.</span><b>Excellente</b></div>
-      </div>
+      <div class="marine-widget" id="marine-widget">
+  <div class="marine-widget-title">
+    <span id="weather-location">Météo marine · Nice</span>
+  </div>
+  <div id="weather-content">
+    <div class="marine-row"><span>⏳ Chargement...</span></div>
+  </div>
+  <div class="marine-widget-update" id="weather-update"></div>
+</div>
     </div>
   </div>
 </section>
@@ -2274,6 +2347,115 @@ function spotPopupHTML(s) {
     </div>
   `;
 }
+// ==========================================
+// MÉTÉO LIVE (Open-Meteo)
+// ==========================================
+const WEATHER_DEFAULT = { lat: 43.7009, lng: 7.2683, name: "Nice" };
+
+// Convertir direction degrés → cardinaux (N, NE, E, SE, S, SO, O, NO)
+function degToCardinal(deg) {
+  const dirs = ['N', 'NE', 'E', 'SE', 'S', 'SO', 'O', 'NO'];
+  return dirs[Math.round(deg / 45) % 8];
+}
+
+// Évaluer les conditions globales
+function evaluateConditions(weather, marine) {
+  const wind = weather.wind_speed_10m || 0;
+  const gusts = weather.wind_gusts_10m || 0;
+  const wave = marine.wave_height || 0;
+
+  // Mauvaises : vent fort, rafales, grosses vagues
+  if (wind > 30 || gusts > 45 || wave > 1.5) {
+    return { class: 'bad', text: '⚠️ Conditions difficiles' };
+  }
+  // Moyennes
+  if (wind > 18 || gusts > 28 || wave > 0.8) {
+    return { class: 'fair', text: '🌤️ Conditions correctes' };
+  }
+  // Bonnes
+  return { class: 'good', text: '✅ Conditions favorables' };
+}
+
+async function loadWeather(lat, lng, locationName) {
+  const widget = document.getElementById('weather-content');
+  const titleEl = document.getElementById('weather-location');
+  const updateEl = document.getElementById('weather-update');
+  if (!widget) return null;
+
+  if (titleEl && locationName) titleEl.textContent = `Météo · ${locationName}`;
+  widget.innerHTML = '<div class="marine-row"><span>⏳ Chargement...</span></div>';
+
+  try {
+    // Appels parallèles aux 2 API
+    const [weatherRes, marineRes] = await Promise.all([
+      fetch(`https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lng}&current=temperature_2m,apparent_temperature,wind_speed_10m,wind_direction_10m,wind_gusts_10m,pressure_msl&timezone=Europe%2FBerlin`),
+      fetch(`https://marine-api.open-meteo.com/v1/marine?latitude=${lat}&longitude=${lng}&current=wave_height,wave_direction,wave_period,sea_surface_temperature,ocean_current_velocity,ocean_current_direction&timezone=Europe%2FBerlin`)
+    ]);
+    const weather = (await weatherRes.json()).current || {};
+    const marine = (await marineRes.json()).current || {};
+
+    // Construire le contenu
+    const windDir = degToCardinal(weather.wind_direction_10m || 0);
+    const waveDir = degToCardinal(marine.wave_direction || 0);
+    const currentDir = degToCardinal(marine.ocean_current_direction || 0);
+    const conditions = evaluateConditions(weather, marine);
+
+    widget.innerHTML = `
+      <div class="marine-row">
+        <span>🌡️ Air</span>
+        <b>${Math.round(weather.temperature_2m)}°C <span class="sub">(${Math.round(weather.apparent_temperature)}° ressenti)</span></b>
+      </div>
+      ${marine.sea_surface_temperature !== undefined ? `
+      <div class="marine-row">
+        <span>🌊 Eau</span>
+        <b>${marine.sea_surface_temperature.toFixed(1)}°C</b>
+      </div>` : ''}
+      <div class="marine-row">
+        <span>💨 Vent ${windDir}</span>
+        <b>${Math.round(weather.wind_speed_10m)} <span class="sub">km/h</span></b>
+      </div>
+      <div class="marine-row">
+        <span style="padding-left: 22px; font-size: 11px;">↳ Rafales</span>
+        <b>${Math.round(weather.wind_gusts_10m)} <span class="sub">km/h</span></b>
+      </div>
+      ${marine.wave_height !== undefined ? `
+      <div class="marine-row">
+        <span>🌊 Houle ${waveDir}</span>
+        <b>${marine.wave_height.toFixed(1)} <span class="sub">m</span></b>
+      </div>
+      <div class="marine-row">
+        <span style="padding-left: 22px; font-size: 11px;">↳ Période</span>
+        <b>${marine.wave_period?.toFixed(1) || '–'} <span class="sub">s</span></b>
+      </div>` : ''}
+      ${marine.ocean_current_velocity !== undefined ? `
+      <div class="marine-row">
+        <span>🌀 Courant ${currentDir}</span>
+        <b>${(marine.ocean_current_velocity * 3.6).toFixed(1)} <span class="sub">km/h</span></b>
+      </div>` : ''}
+      <div class="marine-row">
+        <span>📊 Pression</span>
+        <b>${Math.round(weather.pressure_msl)} <span class="sub">hPa</span></b>
+      </div>
+      <div class="weather-status ${conditions.class}">${conditions.text}</div>
+    `;
+
+    if (updateEl) {
+      const now = new Date();
+      const time = now.toLocaleTimeString('fr-FR', { hour: '2-digit', minute: '2-digit' });
+      updateEl.textContent = `Mis à jour à ${time}`;
+    }
+
+    return { weather, marine, conditions };
+  } catch (err) {
+    console.error('Erreur météo:', err);
+    widget.innerHTML = '<div class="marine-row" style="color: #d04a3a;"><span>❌ Météo indisponible</span></div>';
+    return null;
+  }
+}
+
+// Charger la météo au démarrage et la rafraîchir toutes les 30 min
+loadWeather(WEATHER_DEFAULT.lat, WEATHER_DEFAULT.lng, WEATHER_DEFAULT.name);
+setInterval(() => loadWeather(WEATHER_DEFAULT.lat, WEATHER_DEFAULT.lng, WEATHER_DEFAULT.name), 30 * 60 * 1000);  
 
 function shopPopupHTML(s) {
   const isDecathlon = s.name.toLowerCase().includes('decathlon');
@@ -2338,7 +2520,10 @@ function openSpotDetail(id) {
           ${s.species.map(sp => `<span style="background: var(--sea); padding: 6px 12px; border-radius: 10px; font-size: 12.5px; cursor: pointer;" onclick="openSpeciesDetailByName('${sp}')">${sp} →</span>`).join('')}
         </div>
       </div>
-      <div class="info-block"><h4>Météo marine actuelle</h4><p style="font-size: 13px;">🌡️ 16.2°C · 💨 S-E 12 km/h · 🌊 Houle 0.5m · <b style="color: var(--seaweed);">Conditions favorables</b></p></div>
+      <div class="info-block">
+        <h4>Météo marine en direct sur ce spot</h4>
+        <div id="spot-weather-${s.id}" style="font-size: 13px; line-height: 1.6;">⏳ Chargement...</div>
+      </div>
       <div class="info-block"><h4>Marées du jour</h4><p style="font-size: 13px;">⬆️ Haute 14h32 (+0.42m) · ⬇️ Basse 20h18 (-0.08m) · Coef 68</p></div>
       <div class="info-block">
         <h4>💬 Commentaires communauté (${comments.length})</h4>
@@ -2367,6 +2552,50 @@ function openSpotDetail(id) {
     </div>
   `;
   document.getElementById('modal-overlay').classList.add('active');
+
+  // Charger la météo en direct du spot
+  loadSpotWeather(s);
+}
+
+async function loadSpotWeather(spot) {
+  const el = document.getElementById(`spot-weather-${spot.id}`);
+  if (!el) return;
+  try {
+    const [weatherRes, marineRes] = await Promise.all([
+      fetch(`https://api.open-meteo.com/v1/forecast?latitude=${spot.lat}&longitude=${spot.lng}&current=temperature_2m,wind_speed_10m,wind_direction_10m,wind_gusts_10m&timezone=Europe%2FBerlin`),
+      fetch(`https://marine-api.open-meteo.com/v1/marine?latitude=${spot.lat}&longitude=${spot.lng}&current=wave_height,wave_direction,sea_surface_temperature&timezone=Europe%2FBerlin`)
+    ]);
+    const w = (await weatherRes.json()).current || {};
+    const m = (await marineRes.json()).current || {};
+    const cond = evaluateConditions(w, m);
+    const windDir = degToCardinal(w.wind_direction_10m || 0);
+    const waveDir = degToCardinal(m.wave_direction || 0);
+
+    el.innerHTML = `
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 10px;">
+        <div style="background: var(--sea); padding: 8px 10px; border-radius: 8px;">
+          <div style="font-size: 10px; color: var(--text-soft); text-transform: uppercase;">🌡️ Air</div>
+          <div style="font-family: Fraunces, serif; font-size: 18px; font-weight: 600;">${Math.round(w.temperature_2m)}°C</div>
+        </div>
+        <div style="background: var(--sea); padding: 8px 10px; border-radius: 8px;">
+          <div style="font-size: 10px; color: var(--text-soft); text-transform: uppercase;">🌊 Eau</div>
+          <div style="font-family: Fraunces, serif; font-size: 18px; font-weight: 600;">${m.sea_surface_temperature ? m.sea_surface_temperature.toFixed(1) + '°C' : '—'}</div>
+        </div>
+        <div style="background: var(--sea); padding: 8px 10px; border-radius: 8px;">
+          <div style="font-size: 10px; color: var(--text-soft); text-transform: uppercase;">💨 Vent ${windDir}</div>
+          <div style="font-family: Fraunces, serif; font-size: 18px; font-weight: 600;">${Math.round(w.wind_speed_10m)} km/h</div>
+          <div style="font-size: 10px; color: var(--text-soft);">Rafales ${Math.round(w.wind_gusts_10m)} km/h</div>
+        </div>
+        <div style="background: var(--sea); padding: 8px 10px; border-radius: 8px;">
+          <div style="font-size: 10px; color: var(--text-soft); text-transform: uppercase;">🌊 Houle ${waveDir}</div>
+          <div style="font-family: Fraunces, serif; font-size: 18px; font-weight: 600;">${m.wave_height ? m.wave_height.toFixed(1) + ' m' : '—'}</div>
+        </div>
+      </div>
+      <div class="weather-status ${cond.class}" style="margin: 0;">${cond.text}</div>
+    `;
+  } catch (err) {
+    el.innerHTML = '<em style="color: #d04a3a;">Météo non disponible pour ce spot</em>';
+  }
 }
 
 function closeModal() {
