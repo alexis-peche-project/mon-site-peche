@@ -645,15 +645,25 @@ nav.main-nav { display: flex; gap: 4px; }
   font-family: 'Fraunces', serif;
   color: var(--navy);
   font-weight: 600;
+  text-align: right;
+  white-space: nowrap;
+  display: flex;
+  align-items: baseline;
+  justify-content: flex-end;
+  gap: 4px;
+  min-width: 80px;
 }
 [data-theme="dark"] .marine-row b { color: var(--text); }
-.marine-row .sub {
+.marine-row b .sub {
   font-size: 10px;
   color: var(--text-soft);
-  margin-left: 6px;
   font-weight: normal;
   font-family: 'Manrope', sans-serif;
+  min-width: 32px;
+  text-align: left;
 }
+[data-theme="dark"] .marine-row b { color: var(--text); }
+
 .marine-widget-update {
   font-size: 10px;
   color: var(--text-soft);
