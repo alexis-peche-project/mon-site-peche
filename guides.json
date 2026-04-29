@@ -1,0 +1,1028 @@
+[
+  {
+    "id": 1,
+    "name": "Guide de pêche 04 en mer et eau douce",
+    "lat": 43.6568061,
+    "lng": 7.1818133,
+    "address": "326 Quai la Pérouse, 06700 Saint-Laurent-du-Var, France",
+    "rating": 5,
+    "reviews": 86,
+    "phone": "06 50 42 82 05",
+    "website": "http://www.guidedepeche04.fr/",
+    "types": [
+      "point_of_interest",
+      "establishment"
+    ],
+    "googleId": "ChIJWbW1uxxBzBIRnOKk3CCGpgs"
+  },
+  {
+    "id": 2,
+    "name": "🎣Riviera Fishing 🎣👉Guide de pêche en mer 💯 Venez vivre l'expérience...",
+    "lat": 43.6575113,
+    "lng": 7.1844109,
+    "address": "Port, 136 Quai la Pérouse, 06700 Saint-Laurent-du-Var, France",
+    "rating": 4.9,
+    "reviews": 104,
+    "phone": "06 63 96 40 27",
+    "website": "https://www.rivierafishing.fr/",
+    "types": [
+      "tourist_attraction",
+      "tour_agency",
+      "travel_agency",
+      "sports_club",
+      "association_or_organization",
+      "service",
+      "point_of_interest",
+      "establishment"
+    ],
+    "googleId": "ChIJVRCy8WKZf6sRtzmZFwmyWoU"
+  },
+  {
+    "id": 3,
+    "name": "Sorties pêche en mer à Menton - AM Fishing",
+    "lat": 43.7763241,
+    "lng": 7.5092943,
+    "address": "Vieux port, 06500 Menton, France",
+    "rating": 4.9,
+    "reviews": 57,
+    "phone": "06 32 47 87 41",
+    "website": "https://www.amfishing06.com/",
+    "types": [
+      "sports_club",
+      "association_or_organization",
+      "point_of_interest",
+      "establishment"
+    ],
+    "googleId": "ChIJxwKkDerrzRIRTNFDMSo9D5c"
+  },
+  {
+    "id": 4,
+    "name": "Freddy Fremont Guide de peche 06",
+    "lat": 43.658669599999996,
+    "lng": 7.1392444,
+    "address": "Av. de Grasse, 06800 Cagnes-sur-Mer, France",
+    "rating": null,
+    "reviews": 0,
+    "phone": "06 81 68 22 06",
+    "website": "https://www.sites.google.com/view/freddyfremontguidedepeche",
+    "types": [
+      "sports_club",
+      "association_or_organization",
+      "point_of_interest",
+      "establishment"
+    ],
+    "googleId": "ChIJrXDfXngck6gR8RQA2ep3KJc"
+  },
+  {
+    "id": 5,
+    "name": "Fishing Trip",
+    "lat": 43.4236493,
+    "lng": 6.7459102,
+    "address": "Av. du Maréchal Leclerc, 83600 Fréjus, France",
+    "rating": 4.7,
+    "reviews": 95,
+    "phone": "06 07 14 51 14",
+    "website": "http://fishingtrip.fr/",
+    "types": [
+      "sports_club",
+      "association_or_organization",
+      "point_of_interest",
+      "establishment"
+    ],
+    "googleId": "ChIJ3-cCxV69zhIR9eOZEDQ8N-M"
+  },
+  {
+    "id": 6,
+    "name": "Rêve de Pêche by Titouan Moniteur Guide de Pêche le Lavandou Var",
+    "lat": 43.137519,
+    "lng": 6.3704858,
+    "address": "Quai Gabriel Péri, 83980 Le Lavandou, France",
+    "rating": 5,
+    "reviews": 187,
+    "phone": "06 74 96 91 07",
+    "website": "http://www.revedepeche.com/",
+    "types": [
+      "adventure_sports_center",
+      "sports_complex",
+      "sports_club",
+      "association_or_organization",
+      "sports_activity_location",
+      "store",
+      "point_of_interest",
+      "establishment"
+    ],
+    "googleId": "ChIJV3-j0CwtyRIRylROewhZHB0"
+  },
+  {
+    "id": 7,
+    "name": "Jérôme Guide de Pêche",
+    "lat": 43.586438,
+    "lng": 6.790305099999999,
+    "address": "Plage de l'américain, 83440 Tanneron, France",
+    "rating": null,
+    "reviews": 0,
+    "phone": "06 87 05 45 65",
+    "website": "https://jeromeguidedepeche.wixsite.com/peche/home",
+    "types": [
+      "sports_club",
+      "association_or_organization",
+      "point_of_interest",
+      "establishment"
+    ],
+    "googleId": "ChIJY_pgJYifzhIRe_OmnSjr-sk"
+  },
+  {
+    "id": 8,
+    "name": "Méditerranée Pêche Découverte",
+    "lat": 43.7071377,
+    "lng": 7.335039399999999,
+    "address": "Quai É Whitechurch, 06310 Beaulieu-sur-Mer, France",
+    "rating": 5,
+    "reviews": 11,
+    "phone": "06 33 34 16 98",
+    "website": "http://www.whalewatching.fr/",
+    "types": [
+      "tour_agency",
+      "travel_agency",
+      "service",
+      "point_of_interest",
+      "establishment"
+    ],
+    "googleId": "ChIJw74flR_bzRIRkppAZ97ldYc"
+  },
+  {
+    "id": 9,
+    "name": "Jean louis le Pêcheur - promenades en mer et pesca tourisme",
+    "lat": 43.6571248,
+    "lng": 7.1719961,
+    "address": "7 Rue du Capitaine de Frégate Hippolyte Vial, 06800 Cagnes-sur-Mer, France",
+    "rating": 4.2,
+    "reviews": 21,
+    "phone": "06 11 53 85 09",
+    "website": "",
+    "types": [
+      "tour_agency",
+      "travel_agency",
+      "service",
+      "point_of_interest",
+      "establishment"
+    ],
+    "googleId": "ChIJT0NBnubTzRIRy6HjkB1nxm0"
+  },
+  {
+    "id": 10,
+    "name": "Cap Couronne Peche Guide de pêche en mer 13",
+    "lat": 43.3292538,
+    "lng": 5.041407899999999,
+    "address": "Quai Jean Verandy, 13500 Martigues, France",
+    "rating": 4.9,
+    "reviews": 116,
+    "phone": "06 22 92 34 44",
+    "website": "http://capcouronnepeche.fr/",
+    "types": [
+      "fishing_charter",
+      "sports_club",
+      "point_of_interest",
+      "association_or_organization",
+      "establishment"
+    ],
+    "googleId": "ChIJ67xWHn0gthIRtOt1jxjzGww"
+  },
+  {
+    "id": 11,
+    "name": "L'escale pêche, excursion et promenade en mer, skipper, moniteur guide de pêche.",
+    "lat": 41.6763801,
+    "lng": 8.9036647,
+    "address": "Av. Napoléon III, 20110 Propriano, France",
+    "rating": 4.9,
+    "reviews": 173,
+    "phone": "06 15 63 39 84",
+    "website": "http://www.lescalepeche.com/",
+    "types": [
+      "fishing_charter",
+      "tour_agency",
+      "travel_agency",
+      "service",
+      "sports_club",
+      "point_of_interest",
+      "association_or_organization",
+      "establishment"
+    ],
+    "googleId": "ChIJic2_eOo22hIRCSMQ-HE08IQ"
+  },
+  {
+    "id": 12,
+    "name": "Le Minot des Mers – Pêche au Gros et Sorties en Mer près de Marseille",
+    "lat": 43.3305601,
+    "lng": 5.1070306,
+    "address": "Port de, 13960 Sausset-les-Pins, France",
+    "rating": 5,
+    "reviews": 159,
+    "phone": "06 13 26 58 35",
+    "website": "http://leminotdesmers.fr/",
+    "types": [
+      "fishing_charter",
+      "point_of_interest",
+      "establishment"
+    ],
+    "googleId": "ChIJgQ6G533fyRIRhPlrpKvHWlM"
+  },
+  {
+    "id": 13,
+    "name": "Lavandou Sport Fishing Vincent Palun Moniteur / Guide de pêche",
+    "lat": 43.1377088,
+    "lng": 6.3734443,
+    "address": "Quai des Pêcheurs, 83980 Le Lavandou, France",
+    "rating": 4,
+    "reviews": 22,
+    "phone": "06 28 29 17 01",
+    "website": "http://www.lavandou-sportfishing.com/",
+    "types": [
+      "adventure_sports_center",
+      "tour_agency",
+      "travel_agency",
+      "sports_complex",
+      "sports_activity_location",
+      "service",
+      "sports_club",
+      "point_of_interest",
+      "association_or_organization",
+      "establishment"
+    ],
+    "googleId": "ChIJrWcHKnItyRIRHiDco3YoAt4"
+  },
+  {
+    "id": 14,
+    "name": "MAI-MAI 2 - Bateau de Pêche au Gros - Big Game Fishing Charter - French Riviera",
+    "lat": 43.708917,
+    "lng": 7.335398,
+    "address": "50 Bd du Maréchal Leclerc, 06310 Beaulieu-sur-Mer, France",
+    "rating": null,
+    "reviews": 0,
+    "phone": "06 08 90 77 23",
+    "website": "",
+    "types": [
+      "fishing_charter",
+      "point_of_interest",
+      "establishment"
+    ],
+    "googleId": "ChIJI-FwV7PEzRIRIEYBKqStUys"
+  },
+  {
+    "id": 15,
+    "name": "Yachting Fishing specialist",
+    "lat": 43.7339263,
+    "lng": 7.4170899,
+    "address": "5 Allee, Av. Crovetto Frères, 98000 Monaco",
+    "rating": 5,
+    "reviews": 45,
+    "phone": "06 10 10 48 09",
+    "website": "http://www.yfspecialist.com/",
+    "types": [
+      "fishing_charter",
+      "tour_agency",
+      "travel_agency",
+      "point_of_interest",
+      "service",
+      "establishment"
+    ],
+    "googleId": "ChIJse7qKI3CzRIRBE8L7gRwJY8"
+  },
+  {
+    "id": 16,
+    "name": "Beaulieu Boat Charters",
+    "lat": 43.7091205,
+    "lng": 7.335129399999999,
+    "address": "Port de Plaisance, 06310 Beaulieu-sur-Mer, France",
+    "rating": 5,
+    "reviews": 105,
+    "phone": "06 33 46 18 72",
+    "website": "http://www.beaulieuboatcharters.com/",
+    "types": [
+      "tour_agency",
+      "travel_agency",
+      "point_of_interest",
+      "service",
+      "establishment"
+    ],
+    "googleId": "ChIJIWFNuFjFzRIRo7OJzrO6dOw"
+  },
+  {
+    "id": 17,
+    "name": "Massalia pêche initiation",
+    "lat": 43.4480189,
+    "lng": 5.6837474,
+    "address": "Rue des Minimes, 13530 Trets, France",
+    "rating": null,
+    "reviews": 0,
+    "phone": "",
+    "website": "",
+    "types": [
+      "sports_activity_location",
+      "point_of_interest",
+      "establishment"
+    ],
+    "googleId": "ChIJIQb6Sn6dyRIRladrsP8cHXU"
+  },
+  {
+    "id": 18,
+    "name": "peche méditerranée, sortie peche en mer",
+    "lat": 43.435145299999995,
+    "lng": 3.7735928999999997,
+    "address": "Zone Technique du Port, 34110 Frontignan, France",
+    "rating": 5,
+    "reviews": 8,
+    "phone": "06 64 74 88 94",
+    "website": "https://pechemediterranee.com/",
+    "types": [
+      "point_of_interest",
+      "establishment"
+    ],
+    "googleId": "ChIJaxpwJZi1thIRpgDyCo-t4tA"
+  },
+  {
+    "id": 19,
+    "name": "MÉDITERRANÉE SPORT FISHING - GUIDE DE PÊCHE - PÊCHE DU THON ROUGE EN MÉDITERRANÉE",
+    "lat": 43.38738010000001,
+    "lng": 4.8077347,
+    "address": "7-5 Quai de la Libération, 13230 Port-Saint-Louis-du-Rhône, France",
+    "rating": 4.9,
+    "reviews": 51,
+    "phone": "06 64 26 38 31",
+    "website": "https://méditerranée-sport-fishing.com/",
+    "types": [
+      "sports_club",
+      "association_or_organization",
+      "point_of_interest",
+      "establishment"
+    ],
+    "googleId": "ChIJZ2x64WsVthIRZUhVR0EDvdk"
+  },
+  {
+    "id": 20,
+    "name": "Durand Shipping Company",
+    "lat": 43.172710300000006,
+    "lng": 6.5335981,
+    "address": "Les régates, Rue du Port, 83240 Cavalaire-sur-Mer, France",
+    "rating": 5,
+    "reviews": 3,
+    "phone": "06 13 43 49 16",
+    "website": "https://www.durand-shipping-company.fr/?utm_source=google&utm_medium=wix_google_business_profile&utm_campaign=8416488476361551864",
+    "types": [
+      "fishing_charter",
+      "tour_agency",
+      "travel_agency",
+      "service",
+      "point_of_interest",
+      "establishment"
+    ],
+    "googleId": "ChIJjXyka03OzhIRdLt5AK7xqEE"
+  },
+  {
+    "id": 21,
+    "name": "Littoral Pêche sportive Guide de pêche en mer Carry-le-Rouet Côte bleue Eric Vilar",
+    "lat": 43.330331,
+    "lng": 5.152638,
+    "address": "11 Pl. Jean Jaurès, 13620 Carry-le-Rouet, France",
+    "rating": null,
+    "reviews": 0,
+    "phone": "06 72 90 22 55",
+    "website": "",
+    "types": [
+      "fishing_charter",
+      "point_of_interest",
+      "establishment"
+    ],
+    "googleId": "ChIJDcm5o_HdyRIR8dIiGtty5dE"
+  },
+  {
+    "id": 22,
+    "name": "Échappée Mer",
+    "lat": 43.3073535,
+    "lng": 6.6404083,
+    "address": "112 Av. Charles de Gaulle, 83120 Sainte-Maxime, France",
+    "rating": 4.8,
+    "reviews": 20,
+    "phone": "",
+    "website": "",
+    "types": [
+      "tour_agency",
+      "travel_agency",
+      "service",
+      "point_of_interest",
+      "establishment"
+    ],
+    "googleId": "ChIJ9RAHYXa5zhIRrGxC0ST3ddc"
+  },
+  {
+    "id": 23,
+    "name": "Roussillon Fishing Moniteur et Guide de Pêche",
+    "lat": 42.6156351,
+    "lng": 3.0361135,
+    "address": "Rue Marc Antoine Charpentier ponton N, 66750 Saint-Cyprien, France",
+    "rating": 4.6,
+    "reviews": 50,
+    "phone": "06 23 78 33 16",
+    "website": "http://www.roussillonfishing.com/",
+    "types": [
+      "sports_club",
+      "association_or_organization",
+      "point_of_interest",
+      "establishment"
+    ],
+    "googleId": "ChIJ948-MWt8sBIRW0aKTAA--Og"
+  },
+  {
+    "id": 24,
+    "name": "Sea4You Catamaran Expérience",
+    "lat": 43.109908999999995,
+    "lng": 5.9140673,
+    "address": "Rade de toulon, 83000 Toulon, France",
+    "rating": 5,
+    "reviews": 32,
+    "phone": "06 32 98 01 38",
+    "website": "",
+    "types": [
+      "tour_agency",
+      "travel_agency",
+      "service",
+      "point_of_interest",
+      "establishment"
+    ],
+    "googleId": "ChIJ08ZYF24byRIRidiREu6IsRM"
+  },
+  {
+    "id": 25,
+    "name": "Cote d'Azur - Saint Mandrier (PPR) Charters - Dream Yacht Worldwide",
+    "lat": 43.0781729,
+    "lng": 5.9066963,
+    "address": "CD 18, 83430 Saint-Mandrier-sur-Mer, France",
+    "rating": 3.7,
+    "reviews": 50,
+    "phone": "04 94 30 87 44",
+    "website": "https://www.dreamyachtcharter.com/destination/cote-dazur/?source=google&medium=organic&campaign=gbp",
+    "types": [
+      "tour_agency",
+      "travel_agency",
+      "point_of_interest",
+      "service",
+      "establishment"
+    ],
+    "googleId": "ChIJ-_gHFckcyRIRt0mcTsTGq10"
+  },
+  {
+    "id": 26,
+    "name": "SORTIES EN VOILIER 83 JOURNÉE Six Fours Hyères Iles Paul Ricard",
+    "lat": 43.0963178,
+    "lng": 5.811914799999999,
+    "address": "Port de, La Coudoulière, 83140 Six-Fours-les-Plages, France",
+    "rating": null,
+    "reviews": 0,
+    "phone": "06 88 64 34 60",
+    "website": "",
+    "types": [
+      "tour_agency",
+      "fishing_charter",
+      "travel_agency",
+      "point_of_interest",
+      "service",
+      "establishment"
+    ],
+    "googleId": "ChIJLefCL3wByRIR9DD66Pha0mE"
+  },
+  {
+    "id": 27,
+    "name": "Sea Ride esprit mer - balade nautique VAR",
+    "lat": 43.104678199999995,
+    "lng": 6.002233599999999,
+    "address": "LE CLOS ST G, 355 Rue Général Weygand, 83220 Le Pradet, France",
+    "rating": 4.9,
+    "reviews": 40,
+    "phone": "06 30 55 68 68",
+    "website": "http://www.sea-ride.eu/",
+    "types": [
+      "tour_agency",
+      "travel_agency",
+      "point_of_interest",
+      "service",
+      "establishment"
+    ],
+    "googleId": "ChIJLQhk_KUZyRIRfa-PjIU4lqw"
+  },
+  {
+    "id": 28,
+    "name": "SEA ADVENTURE",
+    "lat": 43.076305,
+    "lng": 5.8030672999999995,
+    "address": "Quai Saint Pierre Port du Brusc, 83140 Six-Fours-les-Plages, France",
+    "rating": 4.9,
+    "reviews": 381,
+    "phone": "06 83 91 42 96",
+    "website": "http://sea-adventure.net/",
+    "types": [
+      "tour_agency",
+      "travel_agency",
+      "point_of_interest",
+      "service",
+      "establishment"
+    ],
+    "googleId": "ChIJUchR_G8ByRIROVgqTwN0UXk"
+  },
+  {
+    "id": 29,
+    "name": "Des Milles & Des Vents",
+    "lat": 43.0797283,
+    "lng": 5.9072591999999995,
+    "address": "Port, Le Pin Rolland, 83430 Saint-Mandrier-sur-Mer, France",
+    "rating": 5,
+    "reviews": 77,
+    "phone": "06 46 12 91 72",
+    "website": "http://www.desmillesetdesvents.com/",
+    "types": [
+      "marina",
+      "tour_agency",
+      "sports_school",
+      "travel_agency",
+      "sports_club",
+      "association_or_organization",
+      "point_of_interest",
+      "service",
+      "establishment"
+    ],
+    "googleId": "ChIJV00TupQdyRIRRIebHwYAoO0"
+  },
+  {
+    "id": 30,
+    "name": "Moniteur et Guide de Pêche Fishing L’Encysia",
+    "lat": 43.447733,
+    "lng": 3.6446205,
+    "address": "Chem. de la Catonnière, 34140 Bouzigues, France",
+    "rating": 5,
+    "reviews": 28,
+    "phone": "06 84 22 29 16",
+    "website": "https://www.fishinglencysia.com/",
+    "types": [
+      "sports_club",
+      "association_or_organization",
+      "point_of_interest",
+      "establishment"
+    ],
+    "googleId": "ChIJh0GUlm9JsRIRQ1uKab5en9Y"
+  },
+  {
+    "id": 31,
+    "name": "Prédation pêche",
+    "lat": 43.5214631,
+    "lng": 4.1253309,
+    "address": "Ponton B 052, 30240 Le Grau-du-Roi, France",
+    "rating": 5,
+    "reviews": 57,
+    "phone": "06 85 61 82 49",
+    "website": "http://www.predation-peche.fr/",
+    "types": [
+      "fishing_charter",
+      "tour_agency",
+      "travel_agency",
+      "service",
+      "sports_club",
+      "point_of_interest",
+      "association_or_organization",
+      "establishment"
+    ],
+    "googleId": "ChIJ-2mS3KtJhQgRM8CWAEQ24Wg"
+  },
+  {
+    "id": 32,
+    "name": "Red Fish Pêche Au Gros",
+    "lat": 43.520452299999995,
+    "lng": 4.1280434999999995,
+    "address": "Quai Bougainville, 30240 Le Grau-du-Roi, France",
+    "rating": 4.9,
+    "reviews": 77,
+    "phone": "06 08 00 69 37",
+    "website": "",
+    "types": [
+      "tour_agency",
+      "travel_agency",
+      "service",
+      "point_of_interest",
+      "establishment"
+    ],
+    "googleId": "ChIJs_LDujuXthIRz6NU_2o21IA"
+  },
+  {
+    "id": 33,
+    "name": "Guide de pêche - Nicolas RENOUX \"De Rives en Dérives\"",
+    "lat": 43.623714,
+    "lng": 3.4723805,
+    "address": "13 Rte de Clermont, 34800 Brignac, France",
+    "rating": 5,
+    "reviews": 2,
+    "phone": "06 78 76 86 42",
+    "website": "http://www.guide-peche-mouche.fr/",
+    "types": [
+      "adventure_sports_center",
+      "sports_complex",
+      "sports_activity_location",
+      "sports_club",
+      "association_or_organization",
+      "point_of_interest",
+      "establishment"
+    ],
+    "googleId": "ChIJbRLnKZxdsRIRY6siA-IVrG0"
+  },
+  {
+    "id": 34,
+    "name": "L'évasion en mer",
+    "lat": 43.5203766,
+    "lng": 4.1271146,
+    "address": "Quai Bougainville, 30240 Le Grau-du-Roi, France",
+    "rating": 4.9,
+    "reviews": 341,
+    "phone": "07 54 32 25 64",
+    "website": "https://evasionenmer.fr/",
+    "types": [
+      "fishing_charter",
+      "tour_agency",
+      "travel_agency",
+      "service",
+      "point_of_interest",
+      "establishment"
+    ],
+    "googleId": "ChIJu4npKviXthIReu5x9xfq9Co"
+  },
+  {
+    "id": 35,
+    "name": "Xiphias Big Game Fishing - pêche au gros - pêche au thon - charter pêche",
+    "lat": 43.4002765,
+    "lng": 5.0613869000000005,
+    "address": "4 Quai Sainte-Anne, 13500 Martigues, France",
+    "rating": 2.3,
+    "reviews": 3,
+    "phone": "06 75 37 73 00",
+    "website": "https://www.xiphias-biggamefishing.fr/",
+    "types": [
+      "fishing_charter",
+      "sports_club",
+      "association_or_organization",
+      "point_of_interest",
+      "establishment"
+    ],
+    "googleId": "ChIJL7IH3ifgyRIR37Zlf7t9RvU"
+  },
+  {
+    "id": 36,
+    "name": "Guide de Pêche Pyrénées-Orientales 66",
+    "lat": 42.739791800000006,
+    "lng": 2.5724084,
+    "address": "D21, 66720 Caramany, France",
+    "rating": 4.9,
+    "reviews": 9,
+    "phone": "07 83 13 08 16",
+    "website": "https://cyprienastruc.fr/",
+    "types": [
+      "fishing_charter",
+      "sports_club",
+      "association_or_organization",
+      "point_of_interest",
+      "establishment"
+    ],
+    "googleId": "ChIJMcO68McbsBIR_JoKt8GcKSM"
+  },
+  {
+    "id": 37,
+    "name": "Croisières / Promenades en Mer / Pêche / Soirées - Port La Nouvelle",
+    "lat": 43.0166512,
+    "lng": 3.0595546,
+    "address": "1172 Av. de la Mer, 11210 Port-la-Nouvelle, France",
+    "rating": 3.4,
+    "reviews": 83,
+    "phone": "06 51 45 06 02",
+    "website": "",
+    "types": [
+      "tour_agency",
+      "travel_agency",
+      "service",
+      "point_of_interest",
+      "establishment"
+    ],
+    "googleId": "ChIJZUJ726pXsBIRNAbeicCE0to"
+  },
+  {
+    "id": 38,
+    "name": "Location Bateau | CAP-RAY Carnon / Pérols / Palavas / La Grande Motte",
+    "lat": 43.548625799999996,
+    "lng": 3.9701342000000004,
+    "address": "Chemin du petit canal, 34470 Pérols, France",
+    "rating": 5,
+    "reviews": 50,
+    "phone": "07 82 44 77 72",
+    "website": "https://cap-ray-location-bateaux.fr/?fbclid=PAQ0xDSwKzzKxleHRuA2FlbQIxMQABp2XNi0poPrF_cCnhiOWSyITfUgJBFnD_dlVvYjwmACBdhw_crk04aVU8-DDN_aem_1BIb4qrE5qa8Efattng25A",
+    "types": [
+      "fishing_charter",
+      "sports_activity_location",
+      "tour_agency",
+      "travel_agency",
+      "point_of_interest",
+      "service",
+      "establishment"
+    ],
+    "googleId": "ChIJux8FE5-7thIR8dHGGSFK4rU"
+  },
+  {
+    "id": 39,
+    "name": "Pêche et balade en mer by CAPEOLE Yachting Company",
+    "lat": 42.5420745,
+    "lng": 3.0486496,
+    "address": "Quai Vasco de Gama, 66700 Argelès-sur-Mer, France",
+    "rating": 4.2,
+    "reviews": 19,
+    "phone": "06 69 93 60 17",
+    "website": "https://www.capeole.net/copie-de-c%C3%B4t%C3%A9-balade",
+    "types": [
+      "tour_agency",
+      "travel_agency",
+      "sports_activity_location",
+      "point_of_interest",
+      "service",
+      "establishment"
+    ],
+    "googleId": "ChIJpyhLrxx_sBIRRMOSE9w1wYU"
+  },
+  {
+    "id": 40,
+    "name": "Salavin Sébastien Moniteur Guide de Pêche",
+    "lat": 43.578198,
+    "lng": 3.000864,
+    "address": "60 All. du Château, 34390 Colombières-sur-Orb, France",
+    "rating": 4.5,
+    "reviews": 2,
+    "phone": "06 12 78 91 85",
+    "website": "http://www.guide-peche-truite.com/",
+    "types": [
+      "sports_club",
+      "association_or_organization",
+      "point_of_interest",
+      "establishment"
+    ],
+    "googleId": "ChIJYWvcL2qbsRIR0rhpdS983fI"
+  },
+  {
+    "id": 41,
+    "name": "SMGPF - Syndicat des Moniteurs Guides de Pêche Français",
+    "lat": 42.679622599999995,
+    "lng": 2.7959888,
+    "address": "42bis Rue Pierre Semard, 66270 Le Soler, France",
+    "rating": 5,
+    "reviews": 2,
+    "phone": "07 68 24 66 10",
+    "website": "https://smgpf.fr/",
+    "types": [
+      "association_or_organization",
+      "point_of_interest",
+      "establishment"
+    ],
+    "googleId": "ChIJ7ezmbMNtsBIR6EUSo3nxa7w"
+  },
+  {
+    "id": 42,
+    "name": "Julien Rouge - Moniteur Guide de peche - Pyrenees orientales pêche",
+    "lat": 42.696371899999995,
+    "lng": 2.8493783,
+    "address": "66000 Perpignan, France",
+    "rating": null,
+    "reviews": 0,
+    "phone": "06 61 13 16 33",
+    "website": "https://www.pyreneesorientalespeche.com/",
+    "types": [
+      "tourist_attraction",
+      "point_of_interest",
+      "establishment"
+    ],
+    "googleId": "ChIJwZ5Py-BtsBIRp-clLe4WsQg"
+  },
+  {
+    "id": 43,
+    "name": "Fishing66 moniteur et guide de peche",
+    "lat": 42.7989375,
+    "lng": 3.0385625,
+    "address": "Q2XQ+HC, 66420 Le Barcarès, France",
+    "rating": 5,
+    "reviews": 8,
+    "phone": "06 03 93 55 25",
+    "website": "http://www.fishing66.fr/",
+    "types": [
+      "sports_club",
+      "association_or_organization",
+      "point_of_interest",
+      "establishment"
+    ],
+    "googleId": "ChIJj-4hegBhsBIRdY1kheR5v94"
+  },
+  {
+    "id": 44,
+    "name": "Pavia Cyril Guide Pêche",
+    "lat": 43.603062699999995,
+    "lng": 2.6685163999999997,
+    "address": "Gua des Brasses, 34330 La Salvetat-sur-Agout, France",
+    "rating": 5,
+    "reviews": 4,
+    "phone": "07 60 75 34 34",
+    "website": "http://www.peche-mequinenza.com/",
+    "types": [
+      "point_of_interest",
+      "establishment"
+    ],
+    "googleId": "ChIJ9-nmuaXvsRIRZiD7W-6lybE"
+  },
+  {
+    "id": 45,
+    "name": "Leucate Evasion Marine - Promenades & Pêche en mer",
+    "lat": 42.859064,
+    "lng": 3.0374102,
+    "address": "Quai Eric Tabarly, 11370 Leucate, France",
+    "rating": 4.6,
+    "reviews": 471,
+    "phone": "06 42 86 37 85",
+    "website": "http://leucate-evasion-marine.com/",
+    "types": [
+      "tour_agency",
+      "travel_agency",
+      "point_of_interest",
+      "service",
+      "establishment"
+    ],
+    "googleId": "ChIJ7yAFDzJZsBIRDJIqukOJw98"
+  },
+  {
+    "id": 46,
+    "name": "Roussillon Croisières Argelès",
+    "lat": 42.542829,
+    "lng": 3.051964,
+    "address": "Quai Marco Polo Roussillon Croisières, 66700 Argelès-sur-Mer, France",
+    "rating": 4.5,
+    "reviews": 1143,
+    "phone": "04 48 90 09 66",
+    "website": "https://www.roussillon-croisieres.com/",
+    "types": [
+      "tour_agency",
+      "travel_agency",
+      "point_of_interest",
+      "service",
+      "establishment"
+    ],
+    "googleId": "ChIJodvZLwR_sBIRNyKMmmpDMOQ"
+  },
+  {
+    "id": 47,
+    "name": "Northwind Fishing Charter - Roses",
+    "lat": 42.2537862,
+    "lng": 3.181692,
+    "address": "Av. de Rhode, Puerto, 17480 Roses, Girona, Espagne",
+    "rating": 5,
+    "reviews": 10,
+    "phone": "609 48 05 28",
+    "website": "https://northwindfishing.com/",
+    "types": [
+      "fishing_charter",
+      "point_of_interest",
+      "establishment"
+    ],
+    "googleId": "ChIJ9yVOc7hhuhIROeIwwq4Y4KI"
+  },
+  {
+    "id": 48,
+    "name": "Marine Charter Yachting",
+    "lat": 42.7048499,
+    "lng": 3.0289485999999997,
+    "address": "13 Rue Pen Duick, 66140 Canet-en-Roussillon, France",
+    "rating": 5,
+    "reviews": 2,
+    "phone": "07 56 43 74 31",
+    "website": "http://www.location-yacht.fr/",
+    "types": [
+      "storage",
+      "point_of_interest",
+      "service",
+      "establishment"
+    ],
+    "googleId": "ChIJkfmq-4BksBIRDAM5sYdarD4"
+  },
+  {
+    "id": 49,
+    "name": "Raph Fishing : moniteur guide de pêche en Corse",
+    "lat": 41.9178984,
+    "lng": 8.7420294,
+    "address": "Port Tino Rossi, 20000 Ajaccio, France",
+    "rating": 5,
+    "reviews": 138,
+    "phone": "06 08 13 78 53",
+    "website": "https://www.guide-peche-corse.com/",
+    "types": [
+      "sports_club",
+      "association_or_organization",
+      "point_of_interest",
+      "establishment"
+    ],
+    "googleId": "ChIJ8ZiewXlp2hIR5cFkXiKGQQI"
+  },
+  {
+    "id": 50,
+    "name": "Saint Florent Charter Fishing",
+    "lat": 42.6871222,
+    "lng": 9.3113751,
+    "address": "Hôtel Les Galets, 20217 Saint-Florent, France",
+    "rating": 5,
+    "reviews": 11,
+    "phone": "06 11 76 89 47",
+    "website": "http://www.fishing.corsica/",
+    "types": [
+      "fishing_charter",
+      "point_of_interest",
+      "establishment"
+    ],
+    "googleId": "ChIJO-RaCVAv1xIRfvZlXP-sF3g"
+  },
+  {
+    "id": 51,
+    "name": "promenades en mer u saone",
+    "lat": 42.1128487,
+    "lng": 8.6879032,
+    "address": "Plage de sagone, 20118 Sagone, France",
+    "rating": 4.6,
+    "reviews": 75,
+    "phone": "06 42 63 16 04",
+    "website": "https://www.promenades-en-mer-u-saone.com/",
+    "types": [
+      "fishing_charter",
+      "tour_agency",
+      "travel_agency",
+      "service",
+      "point_of_interest",
+      "establishment"
+    ],
+    "googleId": "ChIJm8Z0JDhx2hIRbTKvCvKuWjk"
+  },
+  {
+    "id": 52,
+    "name": "San Paulu - Bateau de Promenades en Mer - Sortie Dauphins - Pêche - Au Cap Corse",
+    "lat": 42.9578075,
+    "lng": 9.4553157,
+    "address": "Port de plaisance de Macinaggio CAP, 20248 Rogliano, France",
+    "rating": 4.8,
+    "reviews": 552,
+    "phone": "06 14 78 14 16",
+    "website": "http://www.sanpaulu.fr/",
+    "types": [
+      "park",
+      "tour_agency",
+      "travel_agency",
+      "service",
+      "point_of_interest",
+      "establishment"
+    ],
+    "googleId": "ChIJgRz195_E1hIRJL-_JhLRu68"
+  },
+  {
+    "id": 53,
+    "name": "CAP CORSE CROISIERE PROMENADES EN MER BASTIA-CAP CORSE",
+    "lat": 42.6961903,
+    "lng": 9.4517924,
+    "address": "Capitainerie du Vieux Port, Quai 1er Bataillon de Choc, 20200 Bastia, France",
+    "rating": 4.7,
+    "reviews": 158,
+    "phone": "06 79 65 70 78",
+    "website": "http://www.cap-corse-croisiere.fr/",
+    "types": [
+      "tour_agency",
+      "travel_agency",
+      "service",
+      "point_of_interest",
+      "establishment"
+    ],
+    "googleId": "ChIJi42L7Agk1xIRpsC8QNl5ZQg"
+  },
+  {
+    "id": 54,
+    "name": "San Paulu Navette Maritime - Sentier des Douaniers - Promenades en bateau - Cap Corse",
+    "lat": 43.006701799999995,
+    "lng": 9.4028767,
+    "address": "Port de, 20275 Ersa, France",
+    "rating": 4.8,
+    "reviews": 27,
+    "phone": "06 14 78 14 16",
+    "website": "http://www.sanpaulu.fr/",
+    "types": [
+      "tourist_attraction",
+      "fishing_charter",
+      "tour_agency",
+      "travel_agency",
+      "park",
+      "transportation_service",
+      "service",
+      "point_of_interest",
+      "establishment"
+    ],
+    "googleId": "ChIJ7fEtd93F1hIRohhkrlby07w"
+  }
+]
