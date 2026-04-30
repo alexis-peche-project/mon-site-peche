@@ -699,6 +699,90 @@ nav.main-nav { display: flex; gap: 4px; }
 .marine-row { display: flex; justify-content: space-between; font-size: 12px; padding: 3px 0; }
 .marine-row b { font-family: 'Fraunces', serif; color: var(--navy); }
 [data-theme="dark"] .marine-row b { color: var(--text); }
+/* Bouton flottant météo (mobile uniquement) */
+.marine-toggle-btn {
+  display: none;
+  position: absolute;
+  top: 70px;
+  right: 16px;
+  z-index: 401;
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 22px;
+  padding: 10px 14px;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  box-shadow: var(--shadow);
+  color: var(--coral);
+  font-weight: 600;
+  font-size: 13px;
+  transition: all 0.2s;
+}
+.marine-toggle-btn:hover {
+  background: var(--coral);
+  color: white;
+  transform: translateY(-1px);
+}
+.marine-toggle-btn::before {
+  content: '🔴';
+  font-size: 8px;
+  animation: pulse 2s infinite;
+}
+.marine-toggle-label {
+  display: inline-block;
+}
+
+/* Bouton de fermeture du widget (mobile uniquement) */
+.marine-close-btn {
+  display: none;
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: none;
+  border: none;
+  font-size: 18px;
+  color: var(--text-soft);
+  cursor: pointer;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+}
+.marine-close-btn:hover {
+  background: var(--sea);
+  color: var(--text);
+}
+
+/* Mode mobile : on cache le widget par défaut, on montre le bouton */
+@media (max-width: 768px) {
+  .marine-widget {
+    display: none;
+    top: 70px !important;
+    right: 8px !important;
+    left: 8px;
+    max-width: none;
+    min-width: 0;
+    padding: 16px 18px;
+    z-index: 600;
+  }
+  .marine-widget.mobile-open {
+    display: block;
+    animation: fadeInWidget 0.25s ease-out;
+  }
+  @keyframes fadeInWidget {
+    from { opacity: 0; transform: translateY(-6px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .marine-toggle-btn {
+    display: inline-flex;
+  }
+  .marine-close-btn {
+    display: flex;
+  }
+}  
 
 /* ========== SPECIES PAGE ========== */
 .species-hero {
@@ -1663,10 +1747,17 @@ footer {
       </div>
       <div id="map"></div>
       <div class="marine-widget" id="marine-widget">
+        <button class="marine-toggle-btn" id="marine-toggle-btn" onclick="toggleMarineWidget()" aria-label="Météo marine">
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M2 12h2l2-7 4 14 4-14 2 7h6"/>
+  </svg>
+  <span class="marine-toggle-label">Météo</span>
+</button>
+  <div class="marine-widget" id="marine-widget">
+  <button class="marine-close-btn" onclick="toggleMarineWidget()" aria-label="Fermer">✕</button>
   <div class="marine-widget-title">
     <span id="weather-location">Météo marine · Nice</span>
   </div>
-  <div id="weather-content">
     <div class="marine-row"><span>⏳ Chargement...</span></div>
   </div>
   <div class="marine-widget-update" id="weather-update"></div>
@@ -2394,7 +2485,14 @@ function evaluateConditions(weather, marine) {
   // Bonnes
   return { class: 'good', text: '✅ Conditions favorables' };
 }
-
+// Toggle du widget météo (mobile)
+function toggleMarineWidget() {
+  const widget = document.getElementById('marine-widget');
+  const btn = document.getElementById('marine-toggle-btn');
+  if (!widget) return;
+  const isOpen = widget.classList.toggle('mobile-open');
+  if (btn) btn.style.display = isOpen ? 'none' : 'inline-flex';
+}
 async function loadWeather(lat, lng, locationName) {
   const widget = document.getElementById('weather-content');
   const titleEl = document.getElementById('weather-location');
