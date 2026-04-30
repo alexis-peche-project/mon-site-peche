@@ -2234,33 +2234,7 @@ let SHOPS = []; // sera rempli depuis magasins.json au chargement
 
 let GUIDES = []; // sera rempli depuis guides.json au chargement
 
-const SPECIES = [
-  { id: "bar", name: "Bar (Loup)", latin: "Dicentrarchus labrax", photo: null, status: "ok", cat: "pelagic", size: "30 cm", quota: "—", note: "Autorisé toute l'année en Médit.", record: "89 cm", techniques: ["Leurres souples", "Poisson-nageur", "Vif", "Surfcasting"], habitat: "Côte rocheuse, plages à l'aube/crépuscule, embouchures", desc: "Prédateur emblématique de la Méditerranée, se nourrit de petits poissons. Les plus grosses prises se font aux heures bleues.", seasons: { best: [3,4,5,9,10,11], good: [1,2,6,7,8,12], closed: [] } },
-  { id: "daurade", name: "Daurade royale", latin: "Sparus aurata", photo: null, status: "ok", cat: "demersal", size: "23 cm", quota: "—", note: "Autorisée toute l'année", record: "4.2 kg", techniques: ["Moule/bibi", "Plombée", "Flotteur"], habitat: "Fonds sableux et mixtes, 5-30 m", desc: "Sparidé puissant, reconnaissable à sa tache dorée entre les yeux. Combat vigoureux.", seasons: { best: [5,6,7,8,9,10], good: [3,4,11], closed: [] } },
-  { id: "sar", name: "Sar commun", latin: "Diplodus sargus", photo: null, status: "ok", cat: "demersal", size: "23 cm", quota: "—", note: "OK", record: "2.1 kg", techniques: ["Toc", "Flotteur", "Buldo"], habitat: "Côte rocheuse, cailloux, entre 1 et 15 m", desc: "Poisson de roche très combatif. Pêche technique au toc, réputée pour les passionnés.", seasons: { best: [4,5,6,9,10], good: [3,7,8,11], closed: [] } },
-  { id: "oblade", name: "Oblade", latin: "Oblada melanura", photo: null, status: "ok", cat: "demersal", size: "17 cm", quota: "—", note: "OK", record: "1.1 kg", techniques: ["Flotteur", "Buldo", "Mouche"], habitat: "Côte rocheuse, bords de posidonies", desc: "Poisson grégaire, voracement attiré par l'amorçage. Idéal initiation.", seasons: { best: [5,6,7,8,9], good: [4,10,11], closed: [] } },
-  { id: "maquereau", name: "Maquereau", latin: "Scomber scombrus", photo: null, status: "ok", cat: "pelagic", size: "20 cm", quota: "10/jour", note: "Limite stricte 10 par pêcheur", record: "1.8 kg", techniques: ["Mitraillette", "Jig métal", "Traîne"], habitat: "Pleine eau, bancs en surface et mi-profondeur", desc: "Poisson de banc très prolifique au printemps. Combatif malgré sa taille.", seasons: { best: [4,5,6,10,11], good: [3,7,8,9], closed: [] } },
-  { id: "denti", name: "Denti", latin: "Dentex dentex", photo: null, status: "ok", cat: "demersal", size: "30 cm", quota: "Interdit dans Parc Golfe du Lion", note: "Prise de rêve", record: "14 kg", techniques: ["Vif", "Jig", "Leurre rigide profond"], habitat: "Tombants, secs, 20-80 m", desc: "Roi des sparidés méditerranéens. Prise exceptionnelle, souvent solitaire et méfiant.", seasons: { best: [5,6,9,10,11], good: [4,7,8], closed: [] } },
-  { id: "mero", name: "Mérou brun", latin: "Epinephelus marginatus", photo: null, status: "forbidden", cat: "demersal", size: "—", quota: "INTERDIT", note: "Moratoire renouvelé, interdiction totale", record: "—", techniques: ["Pêche interdite"], habitat: "Tombants rocheux profonds", desc: "Emblème menacé. Toute capture est strictement prohibée pour protéger la population.", seasons: { best: [], good: [], closed: [1,2,3,4,5,6,7,8,9,10,11,12] } },
-  { id: "corb", name: "Corb", latin: "Sciaena umbra", photo: null, status: "forbidden", cat: "demersal", size: "—", quota: "INTERDIT", note: "Moratoire 10 ans jusqu'en 2033", record: "—", techniques: ["Pêche interdite"], habitat: "Grottes, anfractuosités rocheuses", desc: "Espèce en déclin, protégée par moratoire décennal depuis déc. 2023.", seasons: { best: [], good: [], closed: [1,2,3,4,5,6,7,8,9,10,11,12] } },
-  { id: "thon", name: "Thon rouge", latin: "Thunnus thynnus", photo: null, status: "closed", cat: "pelagic", size: "—", quota: "Autorisation + bague", note: "Obligatoire : AMOP + bague", record: "+300 kg", techniques: ["Traîne", "Jigging vertical", "Stickbait"], habitat: "Pleine mer, souvent au large", desc: "Géant pélagique. Strictement réglementé : autorisation annuelle + bague de marquage obligatoires.", seasons: { best: [6,7,8,9,10], good: [5,11], closed: [1,2,3,4,12] } },
-  { id: "bonite", name: "Bonite à dos rayé", latin: "Sarda sarda", photo: null, status: "ok", cat: "pelagic", size: "—", quota: "Raisonnable", note: "Pas de taille min. officielle", record: "5 kg", techniques: ["Leurres rapides", "Stickbait", "Popper"], habitat: "Pleine eau, proche des tombants", desc: "Cousin du thon, combattif et rapide. Se pêche en bancs.", seasons: { best: [7,8,9,10], good: [6,11], closed: [] } },
-  { id: "liche", name: "Liche amie", latin: "Lichia amia", photo: null, status: "ok", cat: "pelagic", size: "—", quota: "—", note: "OK", record: "11 kg", techniques: ["Popper", "Stickbait", "Vif"], habitat: "Côte rocheuse, chasses en surface", desc: "Prédateur puissant, remonte les vagues. Une des pêches sportives les plus excitantes.", seasons: { best: [6,7,8,9], good: [5,10], closed: [] } },
-  { id: "pageot", name: "Pageot commun", latin: "Pagellus erythrinus", photo: null, status: "ok", cat: "demersal", size: "15 cm", quota: "—", note: "OK", record: "2.3 kg", techniques: ["Plombée lourde", "Esche naturelle"], habitat: "Fonds 30-100 m, sables et vases", desc: "Pêche profonde typique, chair excellente. Se pêche souvent avec le denti.", seasons: { best: [5,6,7,8,9], good: [4,10,11], closed: [] } },
-  { id: "calamar", name: "Calamar", latin: "Loligo vulgaris", photo: null, status: "ok", cat: "cephalopod", size: "—", quota: "—", note: "OK", record: "1.3 kg", techniques: ["Eging", "Turlutte", "Jig lumineux nuit"], habitat: "Pleine eau et fonds mixtes, souvent de nuit", desc: "Céphalopode très recherché. Pêche à l'eging de plus en plus populaire.", seasons: { best: [10,11,12,1,2], good: [3,9], closed: [] } },
-  { id: "seiche", name: "Seiche", latin: "Sepia officinalis", photo: null, status: "ok", cat: "cephalopod", size: "—", quota: "—", note: "OK", record: "4 kg", techniques: ["Eging", "Turlutte"], habitat: "Herbiers de posidonies, fonds mixtes", desc: "Se pêche au printemps à l'eging. Combat surprenant par son poids.", seasons: { best: [3,4,5,10], good: [6,11], closed: [] } },
-  { id: "poulpe", name: "Poulpe commun", latin: "Octopus vulgaris", photo: null, status: "ok", cat: "cephalopod", size: "—", quota: "Raisonnable", note: "Taille min. variable selon arrêtés", record: "6 kg", techniques: ["Turlutte de fond", "Chasse SM"], habitat: "Anfractuosités rocheuses, 2-40 m", desc: "Intelligent et méfiant. Se pêche à la turlutte ou à la chasse sous-marine.", seasons: { best: [9,10,11,12,1], good: [2,3,8], closed: [] } },
-  { id: "dorade-grise", name: "Dorade grise", latin: "Spondyliosoma cantharus", photo: null, status: "ok", cat: "demersal", size: "23 cm", quota: "—", note: "Autorisée toute l'année", record: "3.2 kg", techniques: ["Plombée", "Esche naturelle (ver, crevette)", "Fireball"], habitat: "Fonds rocheux et sableux mixtes, 10-50 m", desc: "Sparidé grégaire au corps argenté aux reflets mauves. Vit en bancs près des épaves et tombants. Chair fine et très appréciée.", seasons: { best: [5,6,7,8,9,10], good: [4,11], closed: [] } },
-  { id: "dorade-rose", name: "Dorade rose", latin: "Pagellus bogaraveo", photo: null, status: "closed", cat: "demersal", size: "33 cm", quota: "Déclaration obligatoire", note: "⚠️ Espèce sensible : déclaration RecFishing obligatoire le jour même", record: "4 kg", techniques: ["Pêche profonde au plomb", "Palangrotte", "Jig lent"], habitat: "Fonds profonds 100-700 m", desc: "Superbe sparidé aux reflets rosés, présent en profondeur. Longévité importante (30 ans), donc vulnérable : sa pêche est déclarative obligatoire depuis 2026.", seasons: { best: [5,6,7,8,9,10], good: [4,11], closed: [] } },
-  { id: "pagre", name: "Pagre commun", latin: "Pagrus pagrus", photo: null, status: "ok", cat: "demersal", size: "18 cm", quota: "—", note: "Marquage (ablation nageoire caudale) obligatoire après capture", record: "7.5 kg", techniques: ["Plombée", "Esche naturelle", "Jig lent"], habitat: "Fonds rocheux et mixtes, 10-80 m", desc: "Grand sparidé puissant aux teintes rosées. Prise sportive, combat remarquable. De plus en plus présent sur la Côte d'Azur.", seasons: { best: [5,6,7,8,9], good: [4,10,11], closed: [] } },
-  { id: "pageot-acarne", name: "Pageot acarne", latin: "Pagellus acarne", photo: null, status: "ok", cat: "demersal", size: "17 cm", quota: "—", note: "OK", record: "1.5 kg", techniques: ["Plombée profonde", "Palangrotte"], habitat: "Fonds sableux et graveleux, 40-200 m", desc: "Cousin du pageot commun, plus argenté. Vit plus en profondeur, souvent pêché en même temps que le pageot rouge.", seasons: { best: [5,6,7,8,9], good: [4,10,11], closed: [] } },
-  { id: "sar-museau", name: "Sar à museau pointu", latin: "Diplodus puntazzo", photo: null, status: "ok", cat: "demersal", size: "18 cm", quota: "—", note: "OK", record: "2.5 kg", techniques: ["Toc", "Flotteur", "Pêche de nuit"], habitat: "Côte rocheuse, herbiers de posidonies", desc: "Sar reconnaissable à son museau pointu et ses barres noires. Actif surtout de nuit et à l'aube, spot favori des pêcheurs au toc.", seasons: { best: [4,5,6,9,10,11], good: [3,7,8], closed: [] } },
-  { id: "sar-tete-noire", name: "Sar à tête noire", latin: "Diplodus vulgaris", photo: null, status: "ok", cat: "demersal", size: "18 cm", quota: "—", note: "OK", record: "1.8 kg", techniques: ["Toc", "Flotteur", "Buldo"], habitat: "Côte rocheuse, ports, 1-20 m", desc: "Reconnaissable à sa bande noire sur la tête et à la base de la queue. Très commun le long de la Côte d'Azur, idéal pour débutants.", seasons: { best: [4,5,6,9,10], good: [3,7,8,11], closed: [] } },
-  { id: "sparaillon", name: "Sparaillon", latin: "Diplodus annularis", photo: null, status: "ok", cat: "demersal", size: "12 cm", quota: "—", note: "OK", record: "0.6 kg", techniques: ["Flotteur", "Pêche fine", "Amorçage léger"], habitat: "Fonds sableux et herbiers, 1-15 m", desc: "Petit sar grégaire facile à pêcher, parfait pour initier les enfants. Vit en petits groupes près des posidonies.", seasons: { best: [5,6,7,8,9], good: [4,10], closed: [] } },
-  { id: "marbre", name: "Marbré", latin: "Lithognathus mormyrus", photo: null, status: "ok", cat: "demersal", size: "20 cm", quota: "—", note: "OK", record: "2.2 kg", techniques: ["Surfcasting", "Plombée légère", "Ver de sable"], habitat: "Plages de sable, petits fonds 1-20 m", desc: "Sparidé allongé aux rayures verticales grises. Roi du surfcasting méditerranéen, se pêche en bord de plage au ver.", seasons: { best: [5,6,7,8,9,10], good: [4,11], closed: [] } },
-  { id: "saupe", name: "Saupe", latin: "Sarpa salpa", photo: null, status: "ok", cat: "demersal", size: "—", quota: "Pas de taille mini officielle", note: "⚠️ Peut provoquer hallucinations si consommée à certaines périodes", record: "2 kg", techniques: ["Pêche au pain", "Mie de pain", "Flotteur"], habitat: "Côte rocheuse, herbiers, en bancs serrés", desc: "Sparidé herbivore unique (se nourrit d'algues). Se pêche au pain, surprenant mais efficace. Attention : chair parfois hallucinogène selon alimentation.", seasons: { best: [5,6,7,8,9,10], good: [4,11], closed: [] } }
-  
-];
+let SPECIES = []; // sera rempli depuis species-data.json au chargement
 
 const POSTS = [
   { user: "Pierre_Péchou_06", avatar: "PP", badge: "Expert", time: "il y a 2h", content: "Sortie matinale à Villefranche, loup de 47 cm au shad. Conditions parfaites : mer d'huile, marée montante. 🎣", fish: { emoji: "🐟", species: "Bar / Loup", size: "47 cm", weight: "1.2 kg", location: "Baie de Villefranche (~2km)" }, likes: 24, comments: [{user: "Marine_Azur", avatar: "MA", text: "Superbe prise ! Quel leurre exactement ?"}, {user: "JP_Nice", avatar: "JP", text: "Belle taille 👌"}] },
@@ -2867,11 +2841,10 @@ const FISH_PLACEHOLDER_SVG = `
 `;
 
 function speciesImageHTML(s) {
-  if (s.photo) {
-    return `<img src="${s.photo}" alt="${s.name}" class="species-photo" loading="lazy" onerror="this.style.display='none'; this.parentNode.innerHTML+='${FISH_PLACEHOLDER_SVG.replace(/'/g, "\\'")}'">`;
-  }
-  return FISH_PLACEHOLDER_SVG;
-}  
+  // On essaie d'afficher species-{id}.jpg en priorité, fallback sur le placeholder
+  const photoPath = `species-${s.id}.jpg`;
+  return `<img src="${photoPath}" alt="${s.name}" class="species-photo" loading="lazy" onerror="this.outerHTML='${FISH_PLACEHOLDER_SVG.replace(/'/g, "\\'")}'">`;
+}
 function renderSpecies(filter = 'all') {
   const grid = document.getElementById('species-grid');
   let list = SPECIES;
@@ -2902,29 +2875,33 @@ function openSpeciesDetail(id) {
   const s = SPECIES.find(x => x.id === id);
   if (!s) return;
   const months = ['J', 'F', 'M', 'A', 'M', 'J', 'J', 'A', 'S', 'O', 'N', 'D'];
+  const sourcesHTML = s.sources && s.sources.length
+    ? s.sources.map(src => `<span style="background: var(--sea); padding: 3px 8px; border-radius: 6px; font-size: 11px; color: var(--text-soft);">${src}</span>`).join(' ')
+    : '<em style="color: var(--text-soft);">—</em>';
+
   document.getElementById('modal-content').innerHTML = `
     <div class="modal-header">
       <div>
         <div class="modal-title">${s.name}</div>
         <div style="font-size: 13px; font-style: italic; color: var(--text-soft); margin-top: 2px;">${s.latin}</div>
+        ${s.family ? `<div style="font-size: 11px; color: var(--text-soft); text-transform: uppercase; letter-spacing: 0.08em; margin-top: 4px;">Famille : ${s.family}</div>` : ''}
       </div>
       <button class="modal-close" onclick="closeModal()">✕</button>
     </div>
     <div class="modal-body">
+
       <div class="species-detail-header">
         <div class="species-detail-image">${speciesImageHTML(s)}</div>
         <div style="flex: 1;">
           <div class="species-status-pill status-${s.status}" style="position: static; display: inline-block; margin-bottom: 8px;">
             ${s.status === 'ok' ? 'Pêche autorisée' : s.status === 'closed' ? 'Encadrée' : 'PÊCHE INTERDITE'}
           </div>
-          <div style="font-size: 13px; line-height: 1.5;">${s.desc}</div>
+          <div style="font-size: 13.5px; line-height: 1.5;">${s.desc_short || s.desc || ''}</div>
         </div>
       </div>
 
-      <div class="info-block"><h4>Description & habitat</h4><p>${s.habitat}</p></div>
-
       <div class="info-block">
-        <h4>Réglementation</h4>
+        <h4>📋 Réglementation</h4>
         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 8px;">
           <div style="background: var(--sea); padding: 10px; border-radius: 8px;">
             <div style="font-size: 11px; color: var(--text-soft); text-transform: uppercase; letter-spacing: 0.08em;">Taille minimum</div>
@@ -2939,7 +2916,7 @@ function openSpeciesDetail(id) {
       </div>
 
       <div class="info-block">
-        <h4>Calendrier de pêche</h4>
+        <h4>📅 Calendrier de pêche</h4>
         <div class="calendar-grid">
           ${months.map((m, i) => {
             const i1 = i + 1;
@@ -2958,15 +2935,57 @@ function openSpeciesDetail(id) {
       </div>
 
       <div class="info-block">
-        <h4>Techniques recommandées</h4>
+        <h4>🎣 Techniques recommandées</h4>
         <div style="display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px;">
           ${s.techniques.map(t => `<span style="background: var(--sea); padding: 4px 10px; border-radius: 10px; font-size: 12px;">${t}</span>`).join('')}
         </div>
       </div>
 
-      <div class="info-block"><h4>Record communauté</h4><p><b>${s.record}</b> — toutes tailles confondues</p></div>
+      ${s.description ? `
+      <div class="info-block">
+        <h4>📖 Description</h4>
+        <p style="font-size: 13.5px; line-height: 1.6;">${s.description}</p>
+      </div>` : ''}
 
-      <div style="display: flex; gap: 8px; margin-top: 20px;">
+      ${s.biology ? `
+      <div class="info-block">
+        <h4>🧬 Biologie</h4>
+        <p style="font-size: 13.5px; line-height: 1.6;">${s.biology}</p>
+      </div>` : ''}
+
+      ${s.reproduction ? `
+      <div class="info-block">
+        <h4>💕 Reproduction</h4>
+        <p style="font-size: 13.5px; line-height: 1.6;">${s.reproduction}</p>
+      </div>` : ''}
+
+      ${s.alimentation ? `
+      <div class="info-block">
+        <h4>🍽️ Alimentation</h4>
+        <p style="font-size: 13.5px; line-height: 1.6;">${s.alimentation}</p>
+      </div>` : ''}
+
+      <div class="info-block">
+        <h4>🏔️ Habitat</h4>
+        <p style="font-size: 13.5px; line-height: 1.6;">${s.habitat}</p>
+      </div>
+
+      <div class="info-block">
+        <h4>🏆 Record</h4>
+        <p style="font-size: 14px;"><b>${s.record}</b></p>
+      </div>
+
+      ${s.sources && s.sources.length ? `
+      <div class="info-block">
+        <h4>📚 Sources scientifiques</h4>
+        <div style="display: flex; flex-wrap: wrap; gap: 4px; margin-top: 6px;">${sourcesHTML}</div>
+      </div>` : ''}
+
+      <div style="font-size: 10px; color: var(--text-soft); margin-top: 16px; padding-top: 12px; border-top: 1px solid var(--border); text-align: center;">
+        Photo : Wikipedia / Wikimedia Commons (licence libre) · Fiche rédigée par l'équipe Sparus
+      </div>
+
+      <div style="display: flex; gap: 8px; margin-top: 16px;">
         <button class="btn-sm primary" style="flex: 1;" onclick="showToast('Filtré dans la carte')">🗺️ Voir sur la carte</button>
         <button class="btn-sm" onclick="showToast('Ajouté à mes espèces cibles')">🎯 Espèce cible</button>
       </div>
@@ -3599,11 +3618,23 @@ document.querySelectorAll('.chat-chips .chip-s').forEach(c => {
 // INIT
 // ==========================================
 renderHomeCatches();
-renderSpecies();
 renderPosts();
 renderLeaderboard();
 renderDirectory('shops');
 setTimeout(initMap, 300);
+
+// Charger les espèces depuis species-data.json
+fetch('species-data.json')
+  .then(r => r.json())
+  .then(data => {
+    SPECIES = data;
+    renderSpecies();
+    console.log(`✅ ${data.length} espèces chargées depuis species-data.json`);
+  })
+  .catch(err => {
+    console.error('❌ Erreur chargement espèces:', err);
+    document.getElementById('species-grid').innerHTML = '<div style="grid-column: 1/-1; text-align: center; padding: 40px;">Erreur de chargement de l\'encyclopédie</div>';
+  });
 </script>
 </body>
 </html>
