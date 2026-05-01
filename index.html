@@ -1971,19 +1971,19 @@ footer {
     <p class="section-subtitle">Magasins, guides et prestataires de la Côte d'Azur. Avis vérifiés et promotions exclusives pour les membres.</p>
   </div>
   <div class="directory-tabs">
-    <div class="dir-tab active" data-dir="shops">🏪 Magasins</div>
-    <div class="dir-tab" data-dir="guides">🎣 Guides</div>
-    <div class="dir-tab" data-dir="feds">🏛️ Fédérations (3)</div>
-  </div>
+  <div class="dir-tab active" data-dir="shops" onclick="switchDirTab(this)">🏪 Magasins</div>
+  <div class="dir-tab" data-dir="guides" onclick="switchDirTab(this)">🎣 Guides</div>
+  <div class="dir-tab" data-dir="feds" onclick="switchDirTab(this)">🏛️ Fédérations (3)</div>
+</div>
   <div class="directory-filters" id="directory-filters">
   <div class="filter-search">
     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
-    <input type="text" id="filter-search-input" placeholder="Rechercher un magasin, une ville...">
+    <input type="text" id="filter-search-input" placeholder="Rechercher un magasin, une ville..." oninput="reapplyFilters()">
   </div>
-  <select id="filter-location" class="filter-select">
+  <select id="filter-location" class="filter-select" onchange="reapplyFilters()">
     <option value="all">📍 Toutes les zones</option>
   </select>
-  <select id="filter-type" class="filter-select" style="display: none;">
+  <select id="filter-type" class="filter-select" style="display: none;" onchange="reapplyFilters()">
     <option value="all">🏪 Tous les types</option>
     <option value="decathlon">🏬 Decathlon uniquement</option>
     <option value="indep">🛍️ Indépendants uniquement</option>
@@ -3286,7 +3286,18 @@ function renderDirectory(type = 'shops') {
     `;
   }).join('');
 }
+// Fonction globale pour switcher d'onglet (appelée depuis onclick="" du HTML)
+function switchDirTab(el) {
+  document.querySelectorAll('.dir-tab').forEach(x => x.classList.remove('active'));
+  el.classList.add('active');
+  renderDirectory(el.dataset.dir);
+}
 
+// Fonction globale pour réappliquer les filtres
+function reapplyFilters() {
+  const activeTab = document.querySelector('.dir-tab.active')?.dataset.dir || 'shops';
+  renderDirectory(activeTab);
+}
 function updateLocationFilter(list) {
   const select = document.getElementById('filter-location');
   if (!select) return;
