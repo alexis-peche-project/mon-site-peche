@@ -1917,9 +1917,9 @@ footer {
     <p class="section-subtitle">Magasins, guides et prestataires de la Côte d'Azur. Avis vérifiés et promotions exclusives pour les membres.</p>
   </div>
   <div class="directory-tabs">
-    <div class="dir-tab active" data-dir="shops">🏪 Magasins (7)</div>
-    <div class="dir-tab" data-dir="guides">🎣 Guides (6)</div>
-    <div class="dir-tab" data-dir="feds">🏛️ Fédérations (3)</div>
+    <div class="dir-tab active" data-dir="shops">🏪 Magasins</div>
+    <div class="dir-tab" data-dir="guides">🎣 Guides</div>
+    <div class="dir-tab" data-dir="feds">🏛️ Fédérations</div>
   </div>
   <div class="directory-grid" id="directory-grid"></div>
 </section>
@@ -2358,6 +2358,11 @@ function initMap() {
         m.bindPopup(shopPopupHTML(s));
         markers.shops.push(m);
       });
+      // Re-render directory si on est dessus
+      if (document.getElementById('page-directory').classList.contains('active') ||
+          document.querySelector('.dir-tab.active')?.dataset.dir === 'shops') {
+        renderDirectory('shops');
+      }
       console.log(`✅ ${data.length} magasins chargés depuis Google Maps`);
       const counter = document.getElementById('count-shops');
       if (counter) counter.textContent = data.length;
@@ -2378,6 +2383,10 @@ function initMap() {
         m.bindPopup(guidePopupHTML(g));
         markers.guides.push(m);
       });
+      // Re-render directory si on est dessus
+      if (document.querySelector('.dir-tab.active')?.dataset.dir === 'guides') {
+        renderDirectory('guides');
+      }
       console.log(`✅ ${data.length} guides chargés depuis Google Maps`);
       const counter = document.getElementById('count-guides');
       if (counter) counter.textContent = data.length;
@@ -3097,33 +3106,61 @@ function renderDirectory(type = 'shops') {
   if (type === 'shops') list = SHOPS;
   else if (type === 'guides') list = GUIDES;
   else list = [
-    { name: "FDPPMA 06", lat: 0, lng: 0, city: "Alpes-Maritimes", desc: "Fédération départementale de pêche des Alpes-Maritimes.", rating: 4.5, reviews: 120, tags: ["Eau douce", "Carte pêche", "Cours d'eau"], promo: "" },
-    { name: "Fédération PACA mer", lat: 0, lng: 0, city: "Région PACA", desc: "Fédération des pêcheurs plaisanciers.", rating: 4.3, reviews: 88, tags: ["Mer", "Représentation"], promo: "" },
-    { name: "Prud'homie de pêche de Nice", lat: 0, lng: 0, city: "Nice", desc: "Institution traditionnelle des pêcheurs professionnels.", rating: 4.7, reviews: 12, tags: ["Pros", "Tradition"], promo: "" }
+    { name: "FDPPMA 06", city: "Alpes-Maritimes", address: "Nice", desc: "Fédération départementale de pêche des Alpes-Maritimes (eau douce).", website: "https://www.peche06.fr", phone: "" },
+    { name: "Comité Régional des Pêches Méditerranée", city: "Région PACA", address: "Marseille", desc: "Représentation des pêcheurs professionnels en Méditerranée.", website: "", phone: "" },
+    { name: "Fédération Française des Pêcheurs en Mer", city: "France", address: "National", desc: "Fédération nationale des pêcheurs plaisanciers et sportifs en mer.", website: "https://www.ffpm-national.com", phone: "" }
   ];
 
-  grid.innerHTML = list.map(item => `
-    <div class="dir-card">
-      <div class="dir-card-header">
-        <div class="dir-card-icon">${type === 'shops' ? '🏪' : type === 'guides' ? '🎯' : '🏛️'}</div>
-        <div style="flex: 1; min-width: 0;">
-          <div class="dir-card-name">${item.name}</div>
-          <div class="dir-card-location">${item.city}</div>
-          <div class="dir-card-rating">⭐ <b>${item.rating}</b> · ${item.reviews} avis</div>
+  if (!list || list.length === 0) {
+    grid.innerHTML = `<div style="grid-column: 1/-1; text-align: center; padding: 40px; color: var(--text-soft);">⏳ Chargement en cours...</div>`;
+    return;
+  }
+
+  // Trier par note décroissante (les meilleurs d'abord)
+  list = [...list].sort((a, b) => (b.rating || 0) - (a.rating || 0));
+
+  // Mettre à jour les compteurs dans les onglets
+  const tabs = document.querySelectorAll('.dir-tab');
+  if (tabs[0]) tabs[0].innerHTML = `🏪 Magasins (${SHOPS.length || 0})`;
+  if (tabs[1]) tabs[1].innerHTML = `🎣 Guides (${GUIDES.length || 0})`;
+
+  grid.innerHTML = list.map(item => {
+    const isDecathlon = item.name && item.name.toLowerCase().includes('decathlon');
+    const icon = type === 'shops' ? (isDecathlon ? '🏬' : '🏪') : type === 'guides' ? '🎯' : '🏛️';
+    const ratingHTML = item.rating
+      ? `<div class="dir-card-rating">⭐ <b>${item.rating}</b> · ${item.reviews || 0} avis</div>`
+      : `<div class="dir-card-rating" style="color: var(--text-soft);"><em>Pas encore noté</em></div>`;
+    const phoneHTML = item.phone
+      ? `<a href="tel:${item.phone.replace(/\s/g, '')}" class="btn-sm" style="text-decoration: none;">📞 Appeler</a>`
+      : '';
+    const webHTML = item.website
+      ? `<a href="${item.website}" target="_blank" class="btn-sm primary" style="text-decoration: none; flex: 1;">🌐 Site web</a>`
+      : '';
+    const badge = isDecathlon
+      ? '<span style="background: #0082C3; color: white; padding: 2px 6px; border-radius: 4px; font-size: 9px; font-weight: 700; margin-left: 6px;">DECATHLON</span>'
+      : '';
+
+    return `
+      <div class="dir-card">
+        <div class="dir-card-header">
+          <div class="dir-card-icon" style="${isDecathlon ? 'background: linear-gradient(135deg, #0082C3, #005a8c);' : ''}">${icon}</div>
+          <div style="flex: 1; min-width: 0;">
+            <div class="dir-card-name">${item.name}${badge}</div>
+            <div class="dir-card-location">${item.city || ''}</div>
+            ${ratingHTML}
+          </div>
         </div>
-        ${item.promo ? `<div class="promo-badge">${item.promo}</div>` : ''}
+        <div class="dir-card-desc">${item.address || item.desc || ''}</div>
+        <div class="dir-card-actions">
+          ${webHTML}
+          ${phoneHTML}
+        </div>
+        <div style="font-size: 10px; color: var(--text-soft); margin-top: 8px; padding-top: 8px; border-top: 1px solid var(--border); text-align: center;">
+          Source : Google Maps
+        </div>
       </div>
-      <div class="dir-card-desc">${item.desc}</div>
-      <div class="dir-card-tags">
-        ${item.tags.map(t => `<span class="dir-tag">${t}</span>`).join('')}
-      </div>
-      <div class="dir-card-actions">
-        ${type === 'guides' ? '<button class="btn-sm primary" onclick="showToast(\'Réservation bientôt dispo\')">📅 Réserver</button>' : ''}
-        ${type === 'shops' ? '<button class="btn-sm primary" onclick="showToast(\'Promo affichée en magasin sur présentation du badge\')">🎁 Voir promo</button>' : ''}
-        <button class="btn-sm" onclick="showToast('Fiche détaillée bientôt dispo')">Détails</button>
-      </div>
-    </div>
-  `).join('');
+    `;
+  }).join('');
 }
 
 document.querySelectorAll('.dir-tab').forEach(t => {
