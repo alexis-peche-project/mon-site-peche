@@ -1973,7 +1973,7 @@ footer {
   <div class="directory-tabs">
     <div class="dir-tab active" data-dir="shops">🏪 Magasins</div>
     <div class="dir-tab" data-dir="guides">🎣 Guides</div>
-    <div class="dir-tab" data-dir="feds">🏛️ Fédérations</div>
+    <div class="dir-tab" data-dir="feds">🏛️ Fédérations (3)</div>
   </div>
   <div class="directory-filters" id="directory-filters">
   <div class="filter-search">
@@ -3211,7 +3211,7 @@ function renderDirectory(type = 'shops') {
     }
     // Filtre lieu
     if (location !== 'all') {
-      const itemLoc = (item.city || item.address || '').toLowerCase();
+      const itemLoc = (item._city || item.city || item.address || '').toLowerCase();
       if (!itemLoc.includes(location.toLowerCase())) return false;
     }
     // Filtre Decathlon (uniquement pour shops)
@@ -3270,7 +3270,7 @@ function renderDirectory(type = 'shops') {
           <div class="dir-card-icon" style="${isDecathlon ? 'background: linear-gradient(135deg, #0082C3, #005a8c);' : ''}">${icon}</div>
           <div style="flex: 1; min-width: 0;">
             <div class="dir-card-name">${item.name}${badge}</div>
-            <div class="dir-card-location">${item.city || ''}</div>
+            <div class="dir-card-location">${item._city || item.city || ''}</div>
             ${ratingHTML}
           </div>
         </div>
@@ -3290,8 +3290,25 @@ function renderDirectory(type = 'shops') {
 function updateLocationFilter(list) {
   const select = document.getElementById('filter-location');
   if (!select) return;
+
+  // Extraire la ville depuis l'adresse si pas de champ city
+  function extractCity(item) {
+    if (item.city) return item.city;
+    if (!item.address) return null;
+    // Format type : "rue, 06220 Vallauris, France" → on cherche "code postal + ville"
+    const match = item.address.match(/\d{5}\s+([A-ZÀ-Ÿa-zà-ÿ\-' ]+?)(?:,|$)/);
+    if (match) return match[1].trim();
+    return null;
+  }
+
+  // Stocker la ville extraite dans chaque item pour réutilisation
+  list.forEach(item => {
+    if (!item._city) item._city = extractCity(item);
+  });
+
   // Récupérer les villes uniques
-  const cities = [...new Set(list.map(item => item.city).filter(Boolean))].sort();
+  const cities = [...new Set(list.map(item => item._city).filter(Boolean))].sort();
+
   // Conserver la sélection actuelle
   const current = select.value;
   // Reconstruire les options
@@ -3302,27 +3319,6 @@ function updateLocationFilter(list) {
     select.value = current;
   }
 }
-
-// Brancher les onglets de l'annuaire (clic = changer de catégorie)
-document.querySelectorAll('.dir-tab').forEach(t => {
-  t.onclick = () => {
-    document.querySelectorAll('.dir-tab').forEach(x => x.classList.remove('active'));
-    t.classList.add('active');
-    renderDirectory(t.dataset.dir);
-  };
-});
-  // Brancher les filtres sur les changements
-document.addEventListener('DOMContentLoaded', () => {
-  ['filter-search-input', 'filter-location', 'filter-type'].forEach(id => {
-    const el = document.getElementById(id);
-    if (el) {
-      el.addEventListener('input', () => {
-        const activeTab = document.querySelector('.dir-tab.active')?.dataset.dir || 'shops';
-        renderDirectory(activeTab);
-      });
-    }
-  });
-});
 
 // ==========================================
 // CHATBOT
