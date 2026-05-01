@@ -2437,6 +2437,25 @@ function toggleTheme() {
 // ==========================================
 // TOAST
 // ==========================================
+// ==========================================
+// ITINÉRAIRES (M'y rendre)
+// ==========================================
+function openDirections(lat, lng, name = '') {
+  // Détection iOS/macOS pour proposer Apple Maps
+  const isApple = /iPad|iPhone|iPod|Mac/.test(navigator.userAgent) && !window.MSStream;
+
+  // Construire les URLs
+  const googleUrl = `https://www.google.com/maps/dir/?api=1&destination=${lat},${lng}&travelmode=driving`;
+  const appleUrl = `https://maps.apple.com/?daddr=${lat},${lng}&dirflg=d`;
+
+  if (isApple) {
+    // Sur iOS/Mac : ouvre Apple Maps directement
+    window.open(appleUrl, '_blank');
+  } else {
+    // Sinon : Google Maps
+    window.open(googleUrl, '_blank');
+  }
+}
 function showToast(msg) {
   const toast = document.getElementById('toast');
   document.getElementById('toast-msg').textContent = msg;
@@ -2873,6 +2892,7 @@ function shopPopupHTML(s) {
       <div style="font-size: 11px; color: #333; margin-top: 6px;">${ratingHTML}</div>
       ${phoneHTML}
       ${webHTML}
+      <button onclick="openDirections(${s.lat}, ${s.lng})" style="background: #e8734f; color: white; border: none; padding: 6px 12px; border-radius: 6px; font-size: 12px; cursor: pointer; width: 100%; margin-top: 8px;">🧭 M'y rendre</button>
       <div style="font-size: 10px; color: #999; margin-top: 8px; padding-top: 6px; border-top: 1px solid #eee;">Données Google Maps</div>
     </div>
   `;
@@ -2890,6 +2910,7 @@ function guidePopupHTML(g) {
       <div style="font-size: 11px; color: #333; margin-top: 6px;">${ratingHTML}</div>
       ${phoneHTML}
       ${webHTML}
+      <button onclick="openDirections(${g.lat}, ${g.lng})" style="background: #e8734f; color: white; border: none; padding: 8px 12px; border-radius: 6px; font-size: 12px; cursor: pointer; width: 100%; margin-top: 6px; font-weight: 600;">🧭 M'y rendre</button>
       <div style="font-size: 10px; color: #999; margin-top: 8px; padding-top: 6px; border-top: 1px solid #eee;">Données Google Maps · Vous êtes ce guide ? Contactez-nous</div>
     </div>
   `;
@@ -2947,7 +2968,7 @@ function openSpotDetail(id) {
         </div>
       </div>
       <div style="display: flex; gap: 8px; margin-top: 20px;">
-        <button class="btn-sm primary" style="flex: 1;" onclick="showToast('Itinéraire bientôt disponible')">🧭 M'y rendre</button>
+        <button class="btn-sm primary" style="flex: 1;" onclick="openDirections(${s.lat}, ${s.lng}, '${s.name.replace(/'/g, "\\'")}')">🧭 M'y rendre</button>
         <button class="btn-sm" onclick="showToast('Ajouté aux favoris ⭐')">⭐ Favoris</button>
         <button class="btn-sm" onclick="showToast('Signalement à la modération envoyé')">⚠️ Signaler</button>
       </div>
@@ -3343,8 +3364,8 @@ function renderDirectory(type = 'shops') {
     const webHTML = item.website
       ? `<a href="${item.website}" target="_blank" class="btn-sm primary">🌐 Site</a>`
       : '';
-    const detailsBtn = (!item.phone && !item.website)
-      ? `<button class="btn-sm" onclick="showToast('Aucun contact disponible — recherche Google')">ℹ️ Voir Google</button>`
+   const directionsBtn = (item.lat && item.lng)
+      ? `<button class="btn-sm" onclick="openDirections(${item.lat}, ${item.lng}, '${(item.name || '').replace(/'/g, "\\'")}')">🧭 M'y rendre</button>`
       : '';
     const badge = isDecathlon
       ? '<span style="background: #0082C3; color: white; padding: 2px 6px; border-radius: 4px; font-size: 9px; font-weight: 700; margin-left: 6px; vertical-align: middle;">DECATHLON</span>'
@@ -3364,7 +3385,7 @@ function renderDirectory(type = 'shops') {
         <div class="dir-card-actions">
           ${webHTML}
           ${phoneHTML}
-          ${detailsBtn}
+          ${directionsBtn}
         </div>
         <div class="dir-card-source">Source : Google Maps</div>
       </div>
