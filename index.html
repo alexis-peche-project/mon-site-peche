@@ -3303,7 +3303,15 @@ function updateLocationFilter(list) {
   }
 }
 
-// Brancher les filtres sur les changements
+// Brancher les onglets de l'annuaire (clic = changer de catégorie)
+document.querySelectorAll('.dir-tab').forEach(t => {
+  t.onclick = () => {
+    document.querySelectorAll('.dir-tab').forEach(x => x.classList.remove('active'));
+    t.classList.add('active');
+    renderDirectory(t.dataset.dir);
+  };
+});
+  // Brancher les filtres sur les changements
 document.addEventListener('DOMContentLoaded', () => {
   ['filter-search-input', 'filter-location', 'filter-type'].forEach(id => {
     const el = document.getElementById(id);
