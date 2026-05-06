@@ -1101,6 +1101,16 @@ nav.main-nav { display: flex; gap: 4px; }
   transition: all 0.2s;
   font-size: 14px;
 }
+@media (max-width: 768px) {
+  .directory-tabs { gap: 0; }
+  .dir-tab { 
+    padding: 10px 8px; 
+    font-size: 12px; 
+    flex: 1; 
+    text-align: center; 
+    white-space: nowrap;
+  }
+}  
 .dir-tab.active { color: var(--coral); border-bottom-color: var(--coral); font-weight: 600; }
 
 .directory-grid {
@@ -1249,6 +1259,21 @@ nav.main-nav { display: flex; gap: 4px; }
   position: relative;
   overflow: hidden;
 }
+.signout-btn {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: rgba(255,255,255,0.15);
+  color: white;
+  border: 1px solid rgba(255,255,255,0.2);
+}
+@media (max-width: 768px) {
+  .signout-btn {
+    position: static;
+    margin-top: 12px;
+    display: inline-block;
+  }
+}  
 .profile-header::before {
   content: '';
   position: absolute;
@@ -1461,6 +1486,93 @@ nav.main-nav { display: flex; gap: 4px; }
 .cal-month.hot { background: var(--coral-dark); color: white; }
 .cal-month.closed { background: rgba(208, 74, 58, 0.2); color: #d04a3a; }
 
+/* ========== MOBILE BURGER MENU ========== */
+.mobile-burger {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--header-text);
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 8px;
+}
+.mobile-burger:hover { background: rgba(255,255,255,0.1); }
+
+@media (max-width: 768px) {
+  .mobile-burger { display: flex; align-items: center; justify-content: center; margin-right: 4px; }
+}
+
+.mobile-drawer-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1900;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s;
+}
+.mobile-drawer-overlay.open {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.mobile-drawer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 280px;
+  max-width: 85vw;
+  background: var(--header-bg);
+  z-index: 2000;
+  transform: translateX(-100%);
+  transition: transform 0.25s;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 4px 0 20px rgba(0,0,0,0.3);
+  padding: 16px;
+}
+.mobile-drawer.open { transform: translateX(0); }
+
+.mobile-drawer-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 14px;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  margin-bottom: 14px;
+  color: var(--header-text);
+}
+.mobile-drawer-header h3 {
+  font-family: 'Fraunces', serif;
+  font-size: 17px;
+  font-weight: 600;
+}
+.mobile-drawer-close {
+  background: none;
+  border: none;
+  color: var(--header-text);
+  font-size: 22px;
+  cursor: pointer;
+  padding: 4px 8px;
+  opacity: 0.7;
+}
+.mobile-drawer-close:hover { opacity: 1; }
+
+.mobile-drawer-link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 14px;
+  color: var(--header-text);
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+.mobile-drawer-link:hover { background: rgba(255,255,255,0.08); }
+.mobile-drawer-link.active { background: rgba(255, 122, 0, 0.15); color: var(--coral); }
 /* ========== CHATBOT FAB ========== */
 .chat-fab {
   position: fixed;
@@ -1670,9 +1782,10 @@ footer {
   .map-page-layout { grid-template-columns: 1fr; }
   .map-sidebar { display: none; position: absolute; z-index: 800; width: 85%; max-width: 320px; height: 100%; box-shadow: var(--shadow-lg); }
   .map-sidebar.mobile-open { display: block; }
-  .marine-widget { top: 56px; right: 8px; font-size: 11px; }
+  .marine-widget { top: 110px; right: 8px; font-size: 11px; }
   .chat-panel { width: calc(100vw - 20px); right: 10px; bottom: 10px; height: calc(100vh - 20px); }
   .section-wrap { padding: 40px 16px; }
+  #mobile-filter-btn { display: inline-flex !important; }
 }
 
 
@@ -1903,6 +2016,7 @@ footer {
 .auth-bottom a { color: var(--coral); cursor: pointer; }
 
 /* ========== AUTH PAGE (mobile) ========== */
+#mobile-filter-btn { display: none; }
 @media (max-width: 768px) {
   .auth-modal-overlay { display: none !important; }
 }
@@ -2949,6 +3063,9 @@ footer {
 
 <!-- ============ HEADER ============ -->
 <header class="topbar">
+  <button class="mobile-burger" onclick="toggleMobileDrawer()" title="Menu">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+  </button>
   <div class="logo" onclick="goTo('home')">
     <img src="sparus-logo-s.png" alt="Sparus" class="logo-mark">
     <div class="logo-text">
@@ -2975,6 +3092,23 @@ footer {
     <button class="btn-signin" onclick="openAuth('signup')">S'inscrire</button>
   </div>
 </header>
+
+<!-- ============ MOBILE DRAWER ============ -->
+<div class="mobile-drawer-overlay" id="mobile-drawer-overlay" onclick="closeMobileDrawer()"></div>
+<aside class="mobile-drawer" id="mobile-drawer">
+  <div class="mobile-drawer-header">
+    <h3>Menu</h3>
+    <button class="mobile-drawer-close" onclick="closeMobileDrawer()">✕</button>
+  </div>
+  <div class="mobile-drawer-link" data-page="home" onclick="goToFromDrawer('home')">🏠 Accueil</div>
+  <div class="mobile-drawer-link" data-page="map" onclick="goToFromDrawer('map')">🗺️ Carte</div>
+  <div class="mobile-drawer-link" data-page="species" onclick="goToFromDrawer('species')">🐟 Espèces</div>
+  <div class="mobile-drawer-link" data-page="community" onclick="goToFromDrawer('community')">👥 Communauté</div>
+  <div class="mobile-drawer-link" data-page="directory" onclick="goToFromDrawer('directory')">🏪 Pros</div>
+  <div class="mobile-drawer-link" data-page="add-spot" onclick="goToFromDrawer('add-spot')">📍 Ajouter un spot</div>
+  <div class="mobile-drawer-link" data-page="profile" onclick="goToFromDrawer('profile')">👤 Mon profil</div>
+  <div class="mobile-drawer-link" id="drawer-admin-link" data-page="admin" onclick="goToFromDrawer('admin')" style="display: none;">🛡️ Admin</div>
+</aside>
 
 <!-- ============ PANEL NOTIFICATIONS (dropdown) ============ -->
 <div class="notif-panel" id="notif-panel">
@@ -3153,7 +3287,7 @@ footer {
 
     <div class="map-container">
       <div class="map-topbar">
-        <button class="btn-sm" onclick="document.getElementById('map-sidebar').classList.toggle('mobile-open')" style="display: none;" id="mobile-filter-btn">☰ Filtres</button>
+        <button class="btn-sm" onclick="document.getElementById('map-sidebar').classList.toggle('mobile-open')" id="mobile-filter-btn">☰ Filtres</button>
         <div class="search-box">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
           <input type="text" id="search" placeholder="Rechercher : Nice, Villefranche, Cap Ferrat...">
@@ -3792,7 +3926,43 @@ let SPECIES = []; // sera rempli depuis species-data.json au chargement
 // Données communauté chargées depuis Supabase
 let COMMUNITY_POSTS = [];
 let MY_LIKED_POSTS = new Set();
+// ==========================================
+// MOBILE DRAWER (menu burger)
+// ==========================================
+function toggleMobileDrawer() {
+  const drawer = document.getElementById('mobile-drawer');
+  const overlay = document.getElementById('mobile-drawer-overlay');
+  if (!drawer || !overlay) return;
+  const willOpen = !drawer.classList.contains('open');
+  drawer.classList.toggle('open', willOpen);
+  overlay.classList.toggle('open', willOpen);
+  document.body.style.overflow = willOpen ? 'hidden' : '';
+  
+  // Mettre à jour le lien admin selon le statut
+  const adminLink = document.getElementById('drawer-admin-link');
+  if (adminLink) adminLink.style.display = isCurrentUserAdmin ? 'flex' : 'none';
+  
+  // Marquer la page active
+  document.querySelectorAll('.mobile-drawer-link').forEach(l => l.classList.remove('active'));
+  const activePage = document.querySelector('.page.active')?.id?.replace('page-', '');
+  if (activePage) {
+    const link = document.querySelector(`.mobile-drawer-link[data-page="${activePage}"]`);
+    if (link) link.classList.add('active');
+  }
+}
 
+function closeMobileDrawer() {
+  const drawer = document.getElementById('mobile-drawer');
+  const overlay = document.getElementById('mobile-drawer-overlay');
+  if (drawer) drawer.classList.remove('open');
+  if (overlay) overlay.classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+function goToFromDrawer(page) {
+  closeMobileDrawer();
+  goTo(page);
+}
 // ==========================================
 // NAVIGATION
 // ==========================================
@@ -6398,7 +6568,7 @@ function renderProfilePage() {
           <div class="profile-badge">📧 ${currentUser.email}</div>
         </div>
       </div>
-      <button class="btn-sm" style="position: absolute; top: 16px; right: 16px; background: rgba(255,255,255,0.15); color: white; border: 1px solid rgba(255,255,255,0.2);" onclick="signOut()">↪ Déconnexion</button>
+      <button class="btn-sm signout-btn" onclick="signOut()">↪ Déconnexion</button>
     `;
     
     // Charger les vraies stats et préférences
