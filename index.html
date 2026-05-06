@@ -11,6 +11,44 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;0,9..144,800&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
+/* Overlay derrière la sidebar map en mobile */
+.map-sidebar-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 799;
+}
+@media (max-width: 768px) {
+  .map-sidebar-overlay.active {
+    display: block;
+  }
+}
+
+/* Bouton X dans la sidebar mobile */
+.map-sidebar-close {
+  display: none;
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 16px;
+  align-items: center;
+  justify-content: center;
+  color: var(--text);
+  z-index: 10;
+}
+@media (max-width: 768px) {
+  .map-sidebar.mobile-open .map-sidebar-close {
+    display: flex;
+  }
+  .map-sidebar { padding-top: 50px; }
+}  
 /* ========== THEME & BASE ========== */
 :root {
   --navy: #1a3a5c;            /* Bleu ciel foncé (moins sombre) */
@@ -761,7 +799,7 @@ nav.main-nav { display: flex; gap: 4px; }
 @media (max-width: 768px) {
   .marine-widget {
     display: none;
-    top: 90px !important;
+    top: 140px !important;
     right: 8px !important;
     left: 8px;
     max-width: none;
@@ -779,11 +817,12 @@ nav.main-nav { display: flex; gap: 4px; }
   }
   .marine-toggle-btn {
     display: inline-flex;
+    top: 140px !important;
   }
   .marine-close-btn {
     display: flex;
   }
-}  
+} 
 
 /* ========== SPECIES PAGE ========== */
 .species-hero {
@@ -3256,7 +3295,9 @@ footer {
 <!-- ============ MAP PAGE ============ -->
 <section id="page-map" class="page page-fullheight">
   <div class="map-page-layout">
-    <aside class="map-sidebar" id="map-sidebar">
+    <div class="map-sidebar-overlay" id="map-sidebar-overlay" onclick="closeMobileMapSidebar()"></div>
+<aside class="map-sidebar" id="map-sidebar">
+  <button class="map-sidebar-close" onclick="closeMobileMapSidebar()" aria-label="Fermer">✕</button>
       <div class="sidebar-title">Afficher sur la carte</div>
       <div class="filter-list">
         <div class="filter-item active" data-filter="spots"><span class="filter-dot spot"></span>Spots de pêche <span class="filter-count" id="count-spots">50</span></div>
@@ -3287,7 +3328,7 @@ footer {
 
     <div class="map-container">
       <div class="map-topbar">
-        <button class="btn-sm" onclick="document.getElementById('map-sidebar').classList.toggle('mobile-open')" id="mobile-filter-btn">☰ Filtres</button>
+        <button class="btn-sm" onclick="toggleMobileMapSidebar()" id="mobile-filter-btn">☰ Filtres</button>
         <div class="search-box">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
           <input type="text" id="search" placeholder="Rechercher : Nice, Villefranche, Cap Ferrat...">
@@ -3950,6 +3991,23 @@ function toggleMobileDrawer() {
     if (link) link.classList.add('active');
   }
 }
+function toggleMobileMapSidebar() {
+  const sidebar = document.getElementById('map-sidebar');
+  const overlay = document.getElementById('map-sidebar-overlay');
+  if (!sidebar) return;
+  const willOpen = !sidebar.classList.contains('mobile-open');
+  sidebar.classList.toggle('mobile-open', willOpen);
+  if (overlay) overlay.classList.toggle('active', willOpen);
+}
+
+function closeMobileMapSidebar() {
+  const sidebar = document.getElementById('map-sidebar');
+  const overlay = document.getElementById('map-sidebar-overlay');
+  if (sidebar) sidebar.classList.remove('mobile-open');
+  if (overlay) overlay.classList.remove('active');
+}  
+  
+  
 
 function closeMobileDrawer() {
   const drawer = document.getElementById('mobile-drawer');
