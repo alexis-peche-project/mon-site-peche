@@ -3067,12 +3067,12 @@ footer {
           <option value="Bateau">Uniquement en bateau</option>
         </select>
       </div>
-      <div class="form-group">
-        <label style="font-weight: 400; font-size: 13px; display: flex; align-items: flex-start; gap: 10px; cursor: pointer; line-height: 1.5; margin-bottom: 0; width: 100%; box-sizing: border-box;">
-          <input type="checkbox" id="spot-attest" required style="margin-top: 3px; flex-shrink: 0;">
-          <span style="flex: 1;">J'atteste que les infos sont exactes et que je respecte la réglementation. Je comprends que les spots dans des zones protégées seront refusés.</span>
-        </label>
-      </div>
+      <div class="form-group" style="display: flex; align-items: flex-start; gap: 10px;">
+  <input type="checkbox" id="spot-attest" required style="margin-top: 3px; flex-shrink: 0;">
+  <label for="spot-attest" style="font-weight: 400; font-size: 13px; cursor: pointer; line-height: 1.5; margin-bottom: 0; flex: 1;">
+    J'atteste que les infos sont exactes et que je respecte la réglementation. Je comprends que les spots dans des zones protégées seront refusés.
+  </label>
+</div>
       <div style="display: flex; gap: 10px; margin-top: 20px;">
         <button type="submit" class="btn-primary" id="spot-submit-btn" style="flex: 1;">📮 Soumettre pour modération</button>
         <button type="button" class="btn-sm" onclick="goTo('map')">Annuler</button>
