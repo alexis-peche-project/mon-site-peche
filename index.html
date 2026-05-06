@@ -4032,7 +4032,9 @@ function goTo(page) {
   if (activeLink) activeLink.classList.add('active');
   window.scrollTo(0, 0);
   if (page === 'map' && window._mapInstance) {
-    setTimeout(() => window._mapInstance.invalidateSize(), 100);
+  setTimeout(() => window._mapInstance.invalidateSize(), 50);
+  setTimeout(() => window._mapInstance.invalidateSize(), 250);
+}
     // Charger les marées de la sidebar (Nice par défaut)
     const sidebarTides = document.getElementById('sidebar-tides-content');
     if (sidebarTides && !sidebarTides.dataset.loaded) {
@@ -8020,7 +8022,13 @@ function updateNotifBellVisibility() {
 renderHomeCatches();
 loadPosts();
 renderDirectory('shops');
-setTimeout(initMap, 300);
+setTimeout(() => {
+  initMap();
+  // Force Leaflet à recalculer ses dimensions une fois le layout stable
+  setTimeout(() => {
+    if (window._mapInstance) window._mapInstance.invalidateSize();
+  }, 100);
+}, 300);
 
 // Charger les espèces depuis species-data.json
 fetch('species-data.json')
