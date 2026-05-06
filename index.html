@@ -8020,7 +8020,12 @@ function updateNotifBellVisibility() {
 renderHomeCatches();
 loadPosts();
 renderDirectory('shops');
-setTimeout(initMap, 300);
+setTimeout(() => {
+  initMap();
+  setTimeout(() => {
+    if (window._mapInstance) window._mapInstance.invalidateSize();
+  }, 100);
+}, 300);
 
 // Charger les espèces depuis species-data.json
 fetch('species-data.json')
