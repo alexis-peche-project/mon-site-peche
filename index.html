@@ -1671,6 +1671,26 @@ nav.main-nav { display: flex; gap: 4px; }
   overflow: hidden;
   border: 1px solid var(--border);
 }
+/* Chat plein écran sur mobile */
+@media (max-width: 640px) {
+  .chat-panel {
+    bottom: 0;
+    right: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    max-height: 100vh;
+    border-radius: 0;
+  }
+  .chat-fab {
+    bottom: 16px;
+    right: 16px;
+  }
+  .chat-close {
+    font-size: 26px;
+    padding: 8px 12px;
+  }
+}  
 .chat-panel.open { display: flex; animation: slideUp 0.25s ease-out; }
 @keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
 
