@@ -1674,13 +1674,20 @@ nav.main-nav { display: flex; gap: 4px; }
 /* Chat plein écran sur mobile */
 @media (max-width: 640px) {
   .chat-panel {
+    top: 0;
     bottom: 0;
     right: 0;
     left: 0;
     width: 100%;
-    height: 100vh;
-    max-height: 100vh;
+    height: auto;
+    max-height: 100%;
     border-radius: 0;
+  }
+  .chat-hdr {
+    padding-top: calc(14px + env(safe-area-inset-top));
+  }
+  .chat-input-wrap {
+    padding-bottom: calc(10px + env(safe-area-inset-bottom));
   }
   .chat-fab {
     bottom: 16px;
@@ -1690,7 +1697,7 @@ nav.main-nav { display: flex; gap: 4px; }
     font-size: 26px;
     padding: 8px 12px;
   }
-}  
+} 
 .chat-panel.open { display: flex; animation: slideUp 0.25s ease-out; }
 @keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
 
