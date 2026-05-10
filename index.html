@@ -3993,33 +3993,33 @@ footer {
     <h1 class="section-title">Nous contacter</h1>
     <p class="section-subtitle">Une question, une remarque, un partenariat ? On lit tout, on répond à tout.</p>
 
-    <form onsubmit="event.preventDefault(); showToast('✉️ Message envoyé ! On revient vers toi sous 48h.'); this.reset();">
-      <div class="form-group">
-        <label>Ton nom</label>
-        <input type="text" required placeholder="Ex : Pierre Pêcheur">
-      </div>
-      <div class="form-group">
-        <label>Ton email</label>
-        <input type="email" required placeholder="ex@email.fr">
-      </div>
-      <div class="form-group">
-        <label>Sujet</label>
-        <select required>
-          <option value="">— Choisir —</option>
-          <option>Question générale</option>
-          <option>Bug / Problème technique</option>
-          <option>Suggestion / Feedback</option>
-          <option>Partenariat / Pro</option>
-          <option>Presse / Média</option>
-          <option>Autre</option>
-        </select>
-      </div>
-      <div class="form-group">
-        <label>Ton message</label>
-        <textarea required rows="6" placeholder="Dis-nous tout..."></textarea>
-      </div>
-      <button type="submit" class="btn-primary" style="width: 100%;">Envoyer le message 🎣</button>
-    </form>
+    <form onsubmit="event.preventDefault(); handleFormSubmit(this, 'contact', '✉️ Message envoyé ! On revient vers toi sous 48h.');">
+  <div class="form-group">
+    <label>Ton nom</label>
+    <input type="text" name="nom" required placeholder="Ex : Pierre Pêcheur">
+  </div>
+  <div class="form-group">
+    <label>Ton email</label>
+    <input type="email" name="email" required placeholder="ex@email.fr">
+  </div>
+  <div class="form-group">
+    <label>Sujet</label>
+    <select name="sujet" required>
+      <option value="">— Choisir —</option>
+      <option>Question générale</option>
+      <option>Bug / Problème technique</option>
+      <option>Suggestion / Feedback</option>
+      <option>Partenariat / Pro</option>
+      <option>Presse / Média</option>
+      <option>Autre</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label>Ton message</label>
+    <textarea name="message" required rows="6" placeholder="Dis-nous tout..."></textarea>
+  </div>
+  <button type="submit" class="btn-primary" style="width: 100%;">Envoyer le message 🎣</button>
+</form>
 
     <div class="settings-card" style="margin-top: 24px;">
       <h2 class="settings-title">📍 Autres canaux</h2>
@@ -4084,21 +4084,21 @@ footer {
     <div class="settings-card" style="border-color: var(--coral);">
       <h2 class="settings-title" style="color: var(--coral);">🎯 Intéressé ?</h2>
       <p>Laisse-nous tes coordonnées, on revient vers toi sous 48h pour discuter.</p>
-      <form onsubmit="event.preventDefault(); showToast('🎣 Demande reçue ! On te recontacte sous 48h.'); this.reset();">
-        <div class="form-group" style="margin-top: 14px;">
-          <label>Nom du magasin</label>
-          <input type="text" required>
-        </div>
-        <div class="form-group">
-          <label>Ville</label>
-          <input type="text" required placeholder="Ex : Nice, Antibes...">
-        </div>
-        <div class="form-group">
-          <label>Email de contact</label>
-          <input type="email" required>
-        </div>
-        <button type="submit" class="btn-primary" style="width: 100%;">Demander à être contacté</button>
-      </form>
+      <form onsubmit="event.preventDefault(); handleFormSubmit(this, 'pro_magasin', '🎣 Demande reçue ! On te recontacte sous 48h.');">
+  <div class="form-group" style="margin-top: 14px;">
+    <label>Nom du magasin</label>
+    <input type="text" name="nom_magasin" required>
+  </div>
+  <div class="form-group">
+    <label>Ville</label>
+    <input type="text" name="ville" required placeholder="Ex : Nice, Antibes...">
+  </div>
+  <div class="form-group">
+    <label>Email de contact</label>
+    <input type="email" name="email" required>
+  </div>
+  <button type="submit" class="btn-primary" style="width: 100%;">Demander à être contacté</button>
+</form>
     </div>
   </div>
 </section>
@@ -4131,29 +4131,29 @@ footer {
     <div class="settings-card" style="border-color: var(--coral);">
       <h2 class="settings-title" style="color: var(--coral);">🚀 Candidater</h2>
       <p>Envoie-nous ton dossier, on revient vers toi sous une semaine.</p>
-      <form onsubmit="event.preventDefault(); showToast('🎣 Candidature envoyée ! On te recontacte sous 7 jours.'); this.reset();">
-        <div class="form-group" style="margin-top: 14px;">
-          <label>Nom complet</label>
-          <input type="text" required>
-        </div>
-        <div class="form-group">
-          <label>Zone d'activité</label>
-          <input type="text" required placeholder="Ex : Antibes, Cap d'Antibes, îles de Lérins...">
-        </div>
-        <div class="form-group">
-          <label>Spécialités</label>
-          <input type="text" required placeholder="Ex : pêche au gros, jigging, denti...">
-        </div>
-        <div class="form-group">
-          <label>Email de contact</label>
-          <input type="email" required>
-        </div>
-        <div class="form-group">
-          <label>Site web / réseaux (optionnel)</label>
-          <input type="text" placeholder="https://...">
-        </div>
-        <button type="submit" class="btn-primary" style="width: 100%;">Envoyer ma candidature</button>
-      </form>
+      <form onsubmit="event.preventDefault(); handleFormSubmit(this, 'pro_guide', '🎣 Candidature envoyée ! On te recontacte sous 7 jours.');">
+  <div class="form-group" style="margin-top: 14px;">
+    <label>Nom complet</label>
+    <input type="text" name="nom_complet" required>
+  </div>
+  <div class="form-group">
+    <label>Zone d'activité</label>
+    <input type="text" name="zone" required placeholder="Ex : Antibes, Cap d'Antibes, îles de Lérins...">
+  </div>
+  <div class="form-group">
+    <label>Spécialités</label>
+    <input type="text" name="specialites" required placeholder="Ex : pêche au gros, jigging, denti...">
+  </div>
+  <div class="form-group">
+    <label>Email de contact</label>
+    <input type="email" name="email" required>
+  </div>
+  <div class="form-group">
+    <label>Site web / réseaux (optionnel)</label>
+    <input type="text" name="site_web" placeholder="https://...">
+  </div>
+  <button type="submit" class="btn-primary" style="width: 100%;">Envoyer ma candidature</button>
+</form>
     </div>
   </div>
 </section>
@@ -4186,32 +4186,32 @@ footer {
     <div class="settings-card" style="border-color: var(--coral);">
       <h2 class="settings-title" style="color: var(--coral);">💼 Discutons-en</h2>
       <p>Les modalités d'accès dépendent de votre cas d'usage. Décrivez-nous votre projet, nous vous répondons sous 7 jours.</p>
-      <form onsubmit="event.preventDefault(); showToast('📨 Demande reçue ! On revient vers vous sous 7 jours.'); this.reset();">
-        <div class="form-group" style="margin-top: 14px;">
-          <label>Nom de l'organisation</label>
-          <input type="text" required>
-        </div>
-        <div class="form-group">
-          <label>Type d'organisation</label>
-          <select required>
-            <option value="">— Choisir —</option>
-            <option>Fédération / Institution</option>
-            <option>Recherche scientifique</option>
-            <option>Média</option>
-            <option>Entreprise privée</option>
-            <option>Autre</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label>Email de contact</label>
-          <input type="email" required>
-        </div>
-        <div class="form-group">
-          <label>Décrivez votre cas d'usage</label>
-          <textarea required rows="5" placeholder="Quelles données vous intéressent ? Pour quel projet ?"></textarea>
-        </div>
-        <button type="submit" class="btn-primary" style="width: 100%;">Envoyer la demande</button>
-      </form>
+      <form onsubmit="event.preventDefault(); handleFormSubmit(this, 'pro_api', '📨 Demande reçue ! On revient vers vous sous 7 jours.');">
+  <div class="form-group" style="margin-top: 14px;">
+    <label>Nom de l'organisation</label>
+    <input type="text" name="organisation" required>
+  </div>
+  <div class="form-group">
+    <label>Type d'organisation</label>
+    <select name="type_organisation" required>
+      <option value="">— Choisir —</option>
+      <option>Fédération / Institution</option>
+      <option>Recherche scientifique</option>
+      <option>Média</option>
+      <option>Entreprise privée</option>
+      <option>Autre</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label>Email de contact</label>
+    <input type="email" name="email" required>
+  </div>
+  <div class="form-group">
+    <label>Décrivez votre cas d'usage</label>
+    <textarea name="cas_usage" required rows="5" placeholder="Quelles données vous intéressent ? Pour quel projet ?"></textarea>
+  </div>
+  <button type="submit" class="btn-primary" style="width: 100%;">Envoyer la demande</button>
+</form>
     </div>
   </div>
 </section>
@@ -4244,29 +4244,29 @@ footer {
     <div class="settings-card" style="border-color: var(--coral);">
       <h2 class="settings-title" style="color: var(--coral);">📩 Construisons</h2>
       <p>Présentez-nous votre marque et vos objectifs, on revient avec une proposition adaptée sous 7 jours.</p>
-      <form onsubmit="event.preventDefault(); showToast('🎣 Demande reçue ! On revient vers vous sous 7 jours.'); this.reset();">
-        <div class="form-group" style="margin-top: 14px;">
-          <label>Nom de la marque</label>
-          <input type="text" required>
-        </div>
-        <div class="form-group">
-          <label>Site web</label>
-          <input type="text" required placeholder="https://...">
-        </div>
-        <div class="form-group">
-          <label>Votre rôle</label>
-          <input type="text" required placeholder="Ex : Marketing manager, Fondateur...">
-        </div>
-        <div class="form-group">
-          <label>Email de contact</label>
-          <input type="email" required>
-        </div>
-        <div class="form-group">
-          <label>Vos objectifs</label>
-          <textarea required rows="5" placeholder="Ce que vous cherchez à accomplir avec Sparus..."></textarea>
-        </div>
-        <button type="submit" class="btn-primary" style="width: 100%;">Envoyer la proposition</button>
-      </form>
+      <form onsubmit="event.preventDefault(); handleFormSubmit(this, 'pro_marques', '🎣 Demande reçue ! On revient vers vous sous 7 jours.');">
+  <div class="form-group" style="margin-top: 14px;">
+    <label>Nom de la marque</label>
+    <input type="text" name="nom_marque" required>
+  </div>
+  <div class="form-group">
+    <label>Site web</label>
+    <input type="text" name="site_web" required placeholder="https://...">
+  </div>
+  <div class="form-group">
+    <label>Votre rôle</label>
+    <input type="text" name="role" required placeholder="Ex : Marketing manager, Fondateur...">
+  </div>
+  <div class="form-group">
+    <label>Email de contact</label>
+    <input type="email" name="email" required>
+  </div>
+  <div class="form-group">
+    <label>Vos objectifs</label>
+    <textarea name="objectifs" required rows="5" placeholder="Ce que vous cherchez à accomplir avec Sparus..."></textarea>
+  </div>
+  <button type="submit" class="btn-primary" style="width: 100%;">Envoyer la proposition</button>
+</form>
     </div>
   </div>
 </section>
@@ -8737,7 +8737,47 @@ function updateNotifBellVisibility() {
     updateNotifBadge();
   }
 }
+// ==========================================
+// SOUMISSION FORMULAIRES → SUPABASE
+// ==========================================
+async function submitForm(type, formData) {
+  if (!supabaseClient) {
+    showToast('⚠️ Erreur de connexion. Réessaie dans un instant.');
+    return false;
+  }
+  // Si l'utilisateur est connecté, on stocke aussi son ID
+  if (currentUser) {
+    formData.user_id = currentUser.id;
+  }
+  try {
+    const { error } = await supabaseClient
+      .from('form_submissions')
+      .insert({ type: type, data: formData, status: 'new' });
+    if (error) {
+      console.error('Erreur Supabase:', error);
+      showToast('❌ Une erreur est survenue. Réessaie.');
+      return false;
+    }
+    return true;
+  } catch (err) {
+    console.error('Erreur réseau:', err);
+    showToast('❌ Problème de connexion. Réessaie.');
+    return false;
+  }
+}
 
+async function handleFormSubmit(formElement, type, successMsg) {
+  const data = Object.fromEntries(new FormData(formElement));
+  const submitBtn = formElement.querySelector('button[type="submit"]');
+  const originalText = submitBtn ? submitBtn.textContent : '';
+  if (submitBtn) { submitBtn.disabled = true; submitBtn.textContent = 'Envoi...'; }
+  const ok = await submitForm(type, data);
+  if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = originalText; }
+  if (ok) {
+    showToast(successMsg);
+    formElement.reset();
+  }
+}
 // ==========================================
 // INIT
 // ==========================================
