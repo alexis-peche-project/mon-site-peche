@@ -7400,13 +7400,13 @@ function renderProfilePage() {
       <div class="profile-avatar">${initials}</div>
       <div style="position: relative; z-index: 1; flex: 1; min-width: 0;">
         <div id="profile-name-display">
-          <span class="profile-name">${currentProfile.username}</span>
+          <span class="profile-name">${escapeHtml(currentProfile.username)}</span>
           <button class="username-edit-pencil" style="${pencilOpacity}" title="${pencilTitle}" onclick="${pencilOnclick}">✏️</button>
         </div>
-        <div style="font-size: 13px; opacity: 0.85; margin-top: 4px;">${currentProfile.city || 'Côte d\'Azur'} · Membre depuis ${memberSince}</div>
+        <div style="font-size: 13px; opacity: 0.85; margin-top: 4px;">${escapeHtml(currentProfile.city || 'Côte d\'Azur')} · Membre depuis ${memberSince}</div>
         <div class="profile-badges-row">
           <div class="profile-badge" id="profile-rank-badge">🐟 Novice</div>
-          <div class="profile-badge">📧 ${currentUser.email}</div>
+          <div class="profile-badge">📧 ${escapeHtml(currentUser.email)}</div>
         </div>
       </div>
       <button class="btn-sm signout-btn" onclick="signOut()">↪ Déconnexion</button>
@@ -7630,7 +7630,7 @@ function openUsernameEditor() {
   displayEl.innerHTML = `
     <div class="username-editor">
       <div class="username-editor-row">
-        <input type="text" id="username-input" value="${currentProfile.username}" 
+        <input type="text" id="username-input" value="${escapeHtml(currentProfile.username)}" 
                maxlength="30" autocomplete="off" spellcheck="false"
                oninput="validateUsernameInput()" onkeydown="handleUsernameKeydown(event)">
         <button class="username-edit-btn primary" id="username-save-btn" onclick="submitUsernameChange()">✓ Valider</button>
@@ -8945,7 +8945,12 @@ async function markMessage(id, newStatus) {
 }
 
 function escapeHtml(s) {
-  return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+  return String(s == null ? '' : s)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;');
 }
 
 // Click sur les onglets
