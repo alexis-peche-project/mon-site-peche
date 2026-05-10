@@ -5180,14 +5180,38 @@ function initMap() {
   fetch('magasins.json')
     .then(r => r.json())
     .then(data => {
-      // 🎣 Filtrer pour exclure armureries, paintball, etc.
-      const before = data.length;
-      data = data.filter(shop => {
-        const name = (shop.name || '').toLowerCase();
-        const blocked = ['armurerie', 'armurier', 'armes', 'munitions', 'tabac', 'paintball', 'archerie', 'fusils'];
-        return !blocked.some(word => name.includes(word));
-      });
-      console.log(`🧹 ${before - data.length} faux magasins filtrés (armureries, etc.)`);
+      // 🎣 Filtre strict : on garde uniquement les vrais magasins de pêche
+const before = data.length;
+data = data.filter(shop => {
+  const name = (shop.name || '').toLowerCase();
+
+  // 1) Mots qui DISQUALIFIENT (armureries, sports non-pêche, jardineries, etc.)
+  const blocked = [
+    'armurerie', 'armurier', 'armes', 'munitions', 'tabac', 'paintball', 'archerie', 'fusils',
+    'running', 'véloland', 'veloland', 'cycle', 'vélo ', ' vélo', 'velo ', ' velo',
+    'go sport', 'intersport', 'sport 2000',
+    'truffaut', 'jardiland', 'gamm vert', 'botanic', 'jardinerie',
+    'bricomarché', 'bricomarche', 'mr.bricolage', 'bricolage',
+    'tabac', 'presse', 'librairie',
+    'casino', 'carrefour', 'leclerc', 'auchan', 'super u', 'intermarché'
+  ];
+  if (blocked.some(word => name.includes(word))) return false;
+
+  // 2) Mots qui QUALIFIENT (au moins un est requis)
+  const allowed = [
+    'pêche', 'peche', 'pêcher', 'pecher', 'pêcheur', 'pecheur',
+    'fishing', 'fisher', 'fisherman', 'angler', 'angling',
+    'tackle', 'leurre', 'leurres', 'hameçon', 'hamecon',
+    'appât', 'appat', 'bait', 'reel', 'fly fishing',
+    'surfcasting', 'jigging', 'spinning',
+    'nautique', 'aquapeche', 'aqua-pêche',
+    'decathlon',
+    'rapala', 'shimano', 'daiwa', 'penn',
+    'fish ', ' fish', 'fish-'
+  ];
+  return allowed.some(word => name.includes(word));
+});
+console.log(`🧹 ${before - data.length} magasins filtrés (non-pêche)`);
       SHOPS = data;
       data.forEach(s => {
         const isDecathlon = s.name.toLowerCase().includes('decathlon');
