@@ -3801,6 +3801,24 @@ footer {
       <div style="text-align: center; padding: 40px; color: var(--text-soft);">⏳ Chargement...</div>
     </div>
   </div>
+  <!-- ============ MESSAGES REÇUS ============ -->
+<div class="settings-card" style="margin-top: 32px;">
+  <h2 class="settings-title" style="display: flex; align-items: center; justify-content: space-between;">
+    📬 Messages reçus
+    <span id="msg-count-new" style="background: var(--coral); color: white; padding: 2px 10px; border-radius: 12px; font-size: 12px; font-weight: 700;">0</span>
+  </h2>
+  <p style="font-size: 13px; color: var(--text-soft);">Soumissions des formulaires : contact, pro magasin, guide, API, marques.</p>
+
+  <div class="directory-tabs" style="margin: 18px 0 0; padding: 0;">
+    <div class="dir-tab active" data-msg-tab="new">📥 Nouveaux <span id="tab-count-new">0</span></div>
+    <div class="dir-tab" data-msg-tab="read">👁 Lus <span id="tab-count-read">0</span></div>
+    <div class="dir-tab" data-msg-tab="processed">✅ Traités <span id="tab-count-processed">0</span></div>
+  </div>
+
+  <div id="messages-list" style="margin-top: 18px;">
+    <div style="text-align: center; padding: 40px; color: var(--text-soft); font-size: 13px;">Chargement des messages...</div>
+  </div>
+</div>
 </section>
 
 <!-- ============ AUTH MODAL (desktop) ============ -->
@@ -4805,6 +4823,7 @@ function goTo(page) {
       }
       switchAdminTab('pending');
       updateAdminPendingTabCount();
+      loadAdminMessages();
     });
   }
 }
@@ -8778,6 +8797,125 @@ async function handleFormSubmit(formElement, type, successMsg) {
     formElement.reset();
   }
 }
+// ==========================================
+// ADMIN — MESSAGES REÇUS
+// ==========================================
+const FORM_TYPE_LABELS = {
+  contact: { label: 'Contact', emoji: '✉️', color: '#3a84d6' },
+  pro_magasin: { label: 'Pro Magasin', emoji: '🏪', color: '#d6a23a' },
+  pro_guide: { label: 'Pro Guide', emoji: '🎯', color: '#8a3ad6' },
+  pro_api: { label: 'Pro API', emoji: '🔗', color: '#4a7c74' },
+  pro_marques: { label: 'Pro Marques', emoji: '🤝', color: '#e8734f' }
+};
+
+async function loadAdminMessages() {
+  if (!supabaseClient) return;
+  const list = document.getElementById('messages-list');
+  if (!list) return;
+
+  const { data, error } = await supabaseClient
+    .from('form_submissions')
+    .select('*')
+    .order('created_at', { ascending: false });
+
+  if (error) {
+    list.innerHTML = `<div style="padding: 20px; color: var(--coral); font-size: 13px;">❌ Erreur de chargement : ${error.message}</div>`;
+    return;
+  }
+
+  window._adminMessages = data || [];
+  updateMessageCounters();
+  renderMessages('new');
+}
+
+function updateMessageCounters() {
+  const msgs = window._adminMessages || [];
+  const counts = {
+    new: msgs.filter(m => m.status === 'new').length,
+    read: msgs.filter(m => m.status === 'read').length,
+    processed: msgs.filter(m => m.status === 'processed').length
+  };
+  document.getElementById('msg-count-new').textContent = counts.new;
+  document.getElementById('tab-count-new').textContent = `(${counts.new})`;
+  document.getElementById('tab-count-read').textContent = `(${counts.read})`;
+  document.getElementById('tab-count-processed').textContent = `(${counts.processed})`;
+}
+
+function renderMessages(status) {
+  const list = document.getElementById('messages-list');
+  const msgs = (window._adminMessages || []).filter(m => m.status === status);
+
+  if (msgs.length === 0) {
+    list.innerHTML = `<div style="text-align: center; padding: 40px; color: var(--text-soft); font-size: 13px;">Aucun message dans cette catégorie.</div>`;
+    return;
+  }
+
+  list.innerHTML = msgs.map(msg => {
+    const typeInfo = FORM_TYPE_LABELS[msg.type] || { label: msg.type, emoji: '📩', color: '#888' };
+    const date = new Date(msg.created_at).toLocaleString('fr-FR', { dateStyle: 'short', timeStyle: 'short' });
+    const data = msg.data || {};
+    const dataRows = Object.entries(data)
+      .filter(([k]) => k !== 'user_id')
+      .map(([k, v]) => `<div style="display: flex; gap: 8px; padding: 4px 0; font-size: 13px;"><b style="color: var(--text-soft); min-width: 110px; text-transform: capitalize;">${k.replace(/_/g, ' ')} :</b> <span>${escapeHtml(String(v))}</span></div>`)
+      .join('');
+
+    let actions = '';
+    if (msg.status === 'new') {
+      actions = `<button class="btn-sm" onclick="markMessage('${msg.id}', 'read')">👁 Marquer comme lu</button>
+                 <button class="btn-sm primary" onclick="markMessage('${msg.id}', 'processed')">✅ Marquer comme traité</button>`;
+    } else if (msg.status === 'read') {
+      actions = `<button class="btn-sm" onclick="markMessage('${msg.id}', 'new')">↩ Remettre en nouveau</button>
+                 <button class="btn-sm primary" onclick="markMessage('${msg.id}', 'processed')">✅ Marquer comme traité</button>`;
+    } else {
+      actions = `<button class="btn-sm" onclick="markMessage('${msg.id}', 'read')">↩ Remettre en lu</button>`;
+    }
+
+    return `
+      <div style="border: 1px solid var(--border); border-radius: 10px; padding: 14px 16px; margin-bottom: 10px; background: var(--card-bg);">
+        <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
+          <span style="background: ${typeInfo.color}22; color: ${typeInfo.color}; padding: 3px 10px; border-radius: 10px; font-size: 11px; font-weight: 700;">${typeInfo.emoji} ${typeInfo.label}</span>
+          <span style="font-size: 11px; color: var(--text-soft);">${date}</span>
+        </div>
+        <div style="background: var(--foam); padding: 10px 12px; border-radius: 8px; margin-bottom: 10px;">
+          ${dataRows}
+        </div>
+        <div style="display: flex; gap: 6px;">${actions}</div>
+      </div>
+    `;
+  }).join('');
+}
+
+async function markMessage(id, newStatus) {
+  if (!supabaseClient) return;
+  const { error } = await supabaseClient
+    .from('form_submissions')
+    .update({ status: newStatus })
+    .eq('id', id);
+
+  if (error) {
+    showToast('❌ Erreur : ' + error.message);
+    return;
+  }
+  showToast('✅ Statut mis à jour');
+  // Rafraîchir
+  await loadAdminMessages();
+  // Garder l'onglet actif
+  const activeTab = document.querySelector('[data-msg-tab].active');
+  if (activeTab) renderMessages(activeTab.dataset.msgTab);
+}
+
+function escapeHtml(s) {
+  return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+}
+
+// Click sur les onglets
+document.addEventListener('click', (e) => {
+  const tab = e.target.closest('[data-msg-tab]');
+  if (!tab) return;
+  document.querySelectorAll('[data-msg-tab]').forEach(t => t.classList.remove('active'));
+  tab.classList.add('active');
+  renderMessages(tab.dataset.msgTab);
+});  
 // ==========================================
 // INIT
 // ==========================================
