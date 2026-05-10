@@ -5180,6 +5180,14 @@ function initMap() {
   fetch('magasins.json')
     .then(r => r.json())
     .then(data => {
+      // 🎣 Filtrer pour exclure armureries, paintball, etc.
+      const before = data.length;
+      data = data.filter(shop => {
+        const name = (shop.name || '').toLowerCase();
+        const blocked = ['armurerie', 'armurier', 'armes', 'munitions', 'tabac', 'paintball', 'archerie', 'fusils'];
+        return !blocked.some(word => name.includes(word));
+      });
+      console.log(`🧹 ${before - data.length} faux magasins filtrés (armureries, etc.)`);
       SHOPS = data;
       data.forEach(s => {
         const isDecathlon = s.name.toLowerCase().includes('decathlon');
