@@ -2056,6 +2056,34 @@ footer {
   transition: all 0.15s;
   margin-top: 8px;
 }
+.password-wrapper {
+  position: relative;
+}
+.password-wrapper input {
+  padding-right: 44px !important;
+}
+.password-toggle {
+  position: absolute;
+  right: 6px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  padding: 6px 10px;
+  color: var(--text-soft);
+  border-radius: 8px;
+  transition: background 0.15s;
+  line-height: 1;
+}
+.password-toggle:hover {
+  background: var(--sea);
+}
+.password-toggle:focus {
+  outline: none;
+  background: var(--sea);
+}  
 .auth-submit:hover:not(:disabled) { background: var(--coral-dark); transform: translateY(-1px); }
 .auth-submit:disabled { opacity: 0.6; cursor: not-allowed; }
 .auth-error {
@@ -3881,7 +3909,10 @@ footer {
         </div>
         <div class="form-group">
           <label for="auth-password">Mot de passe</label>
-          <input type="password" id="auth-password" required minlength="8" autocomplete="current-password" placeholder="Au moins 8 caractères">
+          <div class="password-wrapper">
+  <input type="password" id="auth-password" required minlength="8" autocomplete="current-password" placeholder="Au moins 8 caractères">
+  <button type="button" class="password-toggle" onclick="togglePasswordVisibility('auth-password', this)" aria-label="Afficher le mot de passe">👁</button>
+</div>
           <div class="auth-hint" id="auth-password-hint">Minimum 8 caractères</div>
         </div>
         <button type="submit" class="auth-submit" id="auth-submit-btn">Se connecter</button>
@@ -3914,7 +3945,10 @@ footer {
       </div>
       <div class="form-group">
         <label for="auth-page-password">Mot de passe</label>
-        <input type="password" id="auth-page-password" required minlength="8" autocomplete="current-password" placeholder="Au moins 8 caractères">
+        <div class="password-wrapper">
+  <input type="password" id="auth-page-password" required minlength="8" autocomplete="current-password" placeholder="Au moins 8 caractères">
+  <button type="button" class="password-toggle" onclick="togglePasswordVisibility('auth-page-password', this)" aria-label="Afficher le mot de passe">👁</button>
+</div>
         <div class="auth-hint" id="auth-page-password-hint">Minimum 8 caractères</div>
       </div>
       <button type="submit" class="auth-submit" id="auth-page-submit-btn">Se connecter</button>
@@ -7293,7 +7327,20 @@ function switchAuthMode(mode) {
   });
   clearAuthMessages();
 }
-
+// Toggle visibilité mot de passe (œil)
+function togglePasswordVisibility(inputId, btn) {
+  const input = document.getElementById(inputId);
+  if (!input) return;
+  if (input.type === 'password') {
+    input.type = 'text';
+    btn.textContent = '🙈';
+    btn.setAttribute('aria-label', 'Masquer le mot de passe');
+  } else {
+    input.type = 'password';
+    btn.textContent = '👁';
+    btn.setAttribute('aria-label', 'Afficher le mot de passe');
+  }
+}
 // Gérer la soumission du formulaire (login ou signup)
 async function handleAuthSubmit(event, source) {
   event.preventDefault();
