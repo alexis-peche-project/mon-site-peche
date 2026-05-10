@@ -1,0 +1,25 @@
+{
+  "name": "Sparus — Le compagnon du pêcheur méditerranéen",
+  "short_name": "Sparus",
+  "description": "Carte interactive, encyclopédie des espèces, assistant IA et communauté pour les pêcheurs de Méditerranée.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0a1f33",
+  "theme_color": "#0a1f33",
+  "orientation": "portrait-primary",
+  "lang": "fr",
+  "icons": [
+    {
+      "src": "/icon.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icon.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}
