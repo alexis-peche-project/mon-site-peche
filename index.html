@@ -159,6 +159,16 @@ nav.main-nav { display: flex; gap: 4px; }
   align-items: center;
   gap: 6px;
 }
+.nav-icon {
+  width: 16px;
+  height: 16px;
+  stroke-width: 1.8;
+  flex-shrink: 0;
+}
+.mobile-drawer-link .nav-icon {
+  width: 18px;
+  height: 18px;
+}  
 .nav-link:hover { opacity: 1; background: rgba(15, 23, 42, 0.05); color: var(--coral); }
 [data-theme="dark"] .nav-link:hover { background: rgba(255,255,255,0.05); color: var(--coral); }
 .nav-link.active { opacity: 1; background: rgba(255, 122, 0, 0.12); color: var(--coral); font-weight: 600; }
@@ -3155,8 +3165,10 @@ footer {
   background: linear-gradient(135deg, rgba(232, 115, 79, 0.28), rgba(232, 115, 79, 0.10));
   border-color: rgba(232, 115, 79, 0.45);
   transform: scale(1.06);
-}  
-</style>
+}
+<!-- Lucide Icons (icônes SVG line art) -->
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js" defer></script>  
+</style>  
 </head>
 <body>
 
@@ -3173,12 +3185,12 @@ footer {
     </div>
   </div>
   <nav class="main-nav">
-    <div class="nav-link" data-page="map" onclick="goTo('map')">🗺️ Carte</div>
-    <div class="nav-link" data-page="species" onclick="goTo('species')">🐟 Espèces</div>
-    <div class="nav-link" data-page="community" onclick="goTo('community')">👥 Communauté</div>
-    <div class="nav-link" data-page="directory" onclick="goTo('directory')">🏪 Pros</div>
-    <div class="nav-link" data-page="add-spot" onclick="goTo('add-spot')">➕ Ajouter un spot</div>
-  </nav>
+    <div class="nav-link" data-page="map" onclick="goTo('map')"><i data-lucide="map" class="nav-icon"></i> Carte</div>
+    <div class="nav-link" data-page="species" onclick="goTo('species')"><i data-lucide="fish" class="nav-icon"></i> Espèces</div>
+    <div class="nav-link" data-page="community" onclick="goTo('community')"><i data-lucide="users" class="nav-icon"></i> Communauté</div>
+    <div class="nav-link" data-page="directory" onclick="goTo('directory')"><i data-lucide="store" class="nav-icon"></i> Pros</div>
+    <div class="nav-link" data-page="add-spot" onclick="goTo('add-spot')"><i data-lucide="plus" class="nav-icon"></i> Ajouter un spot</div>
+</nav>
   <div class="topbar-right">
     <button class="lang-btn" onclick="showToast('Version EN bientôt disponible 🇬🇧')">FR</button>
     <button class="notif-bell" id="notif-bell" onclick="toggleNotifPanel(event)" title="Notifications" style="display: none;">
@@ -3199,15 +3211,14 @@ footer {
     <h3>Menu</h3>
     <button class="mobile-drawer-close" onclick="closeMobileDrawer()">✕</button>
   </div>
-  <div class="mobile-drawer-link" data-page="home" onclick="goToFromDrawer('home')">🏠 Accueil</div>
-  <div class="mobile-drawer-link" data-page="map" onclick="goToFromDrawer('map')">🗺️ Carte</div>
-  <div class="mobile-drawer-link" data-page="species" onclick="goToFromDrawer('species')">🐟 Espèces</div>
-  <div class="mobile-drawer-link" data-page="community" onclick="goToFromDrawer('community')">👥 Communauté</div>
-  <div class="mobile-drawer-link" data-page="directory" onclick="goToFromDrawer('directory')">🏪 Pros</div>
-  <div class="mobile-drawer-link" data-page="add-spot" onclick="goToFromDrawer('add-spot')">📍 Ajouter un spot</div>
-  <div class="mobile-drawer-link" data-page="profile" onclick="goToFromDrawer('profile')">👤 Mon profil</div>
-  <div class="mobile-drawer-link" id="drawer-admin-link" data-page="admin" onclick="goToFromDrawer('admin')" style="display: none;">🛡️ Admin</div>
-</aside>
+  <div class="mobile-drawer-link" data-page="home" onclick="goToFromDrawer('home')"><i data-lucide="home" class="nav-icon"></i> Accueil</div>
+<div class="mobile-drawer-link" data-page="map" onclick="goToFromDrawer('map')"><i data-lucide="map" class="nav-icon"></i> Carte</div>
+<div class="mobile-drawer-link" data-page="species" onclick="goToFromDrawer('species')"><i data-lucide="fish" class="nav-icon"></i> Espèces</div>
+<div class="mobile-drawer-link" data-page="community" onclick="goToFromDrawer('community')"><i data-lucide="users" class="nav-icon"></i> Communauté</div>
+<div class="mobile-drawer-link" data-page="directory" onclick="goToFromDrawer('directory')"><i data-lucide="store" class="nav-icon"></i> Pros</div>
+<div class="mobile-drawer-link" data-page="add-spot" onclick="goToFromDrawer('add-spot')"><i data-lucide="map-pin" class="nav-icon"></i> Ajouter un spot</div>
+<div class="mobile-drawer-link" data-page="profile" onclick="goToFromDrawer('profile')"><i data-lucide="user" class="nav-icon"></i> Mon profil</div>
+<div class="mobile-drawer-link" id="drawer-admin-link" data-page="admin" onclick="goToFromDrawer('admin')" style="display: none;"><i data-lucide="shield" class="nav-icon"></i> Admin</div>
 
 <!-- ============ PANEL NOTIFICATIONS (dropdown) ============ -->
 <div class="notif-panel" id="notif-panel">
@@ -4796,6 +4807,7 @@ function goTo(page) {
   const activeLink = document.querySelector(`[data-page="${page}"]`);
   if (activeLink) activeLink.classList.add('active');
   window.scrollTo(0, 0);
+  setTimeout(refreshIcons, 50);
   if (page === 'map' && window._mapInstance) {
     setTimeout(() => window._mapInstance.invalidateSize(), 100);
     // Charger les marées de la sidebar (Nice par défaut)
@@ -9001,7 +9013,16 @@ setTimeout(() => {
     if (window._mapInstance) window._mapInstance.invalidateSize();
   }, 100);
 }, 300);
+  
+// Initialiser/Rafraîchir les icônes Lucide
+function refreshIcons() {
+  if (typeof lucide !== 'undefined' && lucide.createIcons) {
+    lucide.createIcons();
+  }
+}
 
+// Au chargement initial
+window.addEventListener('load', refreshIcons);
 // Charger les espèces depuis species-data.json
 fetch('species-data.json')
   .then(r => r.json())
