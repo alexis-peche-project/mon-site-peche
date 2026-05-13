@@ -3622,9 +3622,9 @@ footer {
         <div class="profile-name">Vous, pêcheur anonyme</div>
         <div style="font-size: 13px; opacity: 0.85; margin-top: 4px;">Nice · Membre depuis avril 2026</div>
         <div class="profile-badges-row">
-          <div class="profile-badge">🐟 Novice</div>
-          <div class="profile-badge">🎯 Premier défi</div>
-          <div class="profile-badge">📸 Premier partage</div>
+          <div class="profile-badge">Novice</div>
+          <div class="profile-badge">Premier défi</div>
+          <div class="profile-badge">Premier partage</div>
         </div>
       </div>
     </div>
@@ -3638,18 +3638,18 @@ footer {
     </div>
 
     <div class="settings-card" id="my-submissions-card" style="display: none;">
-      <div class="settings-title">📍 Mes spots soumis</div>
+      <div class="settings-title"><svg class="icon-inline" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Mes spots soumis</div>
       <div id="my-submissions-list" class="my-submissions-list"></div>
     </div>
 
     <div class="settings-card">
-      <div class="settings-title">🎯 Mes espèces cibles</div>
+      <div class="settings-title"><svg class="icon-inline" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>Mes espèces cibles</div>
       <div style="font-size: 12px; color: var(--text-soft); margin-bottom: 8px;">Les espèces que tu cherches à pêcher. Clique pour voir la fiche, ✕ pour retirer.</div>
       <div id="target-species-list" class="target-species-list"></div>
     </div>
 
     <div class="settings-card">
-      <div class="settings-title">🔔 Notifications</div>
+      <div class="settings-title"><svg class="icon-inline" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>Notifications</div>
       <div style="font-size: 11px; color: var(--text-soft); margin-bottom: 10px; font-style: italic;">Tes préférences sont sauvegardées. Les notifications réelles (push/email) seront activées prochainement.</div>
       <div class="settings-row">
         <div>
@@ -4089,7 +4089,7 @@ footer {
     <label>Ton message</label>
     <textarea name="message" required rows="6" placeholder="Dis-nous tout..."></textarea>
   </div>
-  <button type="submit" class="btn-primary" style="width: 100%;">Envoyer le message 🎣</button>
+  <button type="submit" class="btn-primary" style="width: 100%;">Envoyer le message</button>
 </form>
 
     <div class="settings-card" style="margin-top: 24px;">
@@ -4612,10 +4612,10 @@ footer {
 </div>
 
 <!-- ============ CHATBOT FAB ============ -->
-<button class="chat-fab" id="chat-fab" onclick="toggleChat()" title="Assistant pêche">🐟</button>
+<button class="chat-fab" id="chat-fab" onclick="toggleChat()" title="Assistant pêche"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width: 22px; height: 22px;"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></button>
 <div class="chat-panel" id="chat-panel">
   <div class="chat-hdr">
-    <div class="chat-hdr-avatar">🐟</div>
+    <div class="chat-hdr-avatar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width: 20px; height: 20px; color: var(--coral);"><path d="M3 12c2-4 6-6 10-6 3 0 6 1.5 8 4-2 2.5-5 4-8 4-4 0-8-2-10-2z"/><circle cx="16" cy="10" r="0.8" fill="currentColor"/></svg></div>
     <div class="chat-hdr-info">
       <div class="chat-hdr-title">Assistant Pêche IA</div>
       <div class="chat-hdr-status">En ligne · spécialisé France</div>
@@ -7459,7 +7459,7 @@ function renderProfilePage() {
       <div style="position: relative; z-index: 1; flex: 1; min-width: 0;">
         <div id="profile-name-display">
           <span class="profile-name">${escapeHtml(currentProfile.username)}</span>
-          <button class="username-edit-pencil" style="${pencilOpacity}" title="${pencilTitle}" onclick="${pencilOnclick}">✏️</button>
+          <button class="username-edit-pencil" ...><svg class="icon-inline" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" style="margin-right:0;"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg></button>
         </div>
         <div style="font-size: 13px; opacity: 0.85; margin-top: 4px;">${escapeHtml(currentProfile.city || 'Côte d\'Azur')} · Membre depuis ${memberSince}</div>
         <div class="profile-badges-row">
@@ -7572,11 +7572,11 @@ function computeBadgesCount(prisesCount) {
 
 // Calcul du badge principal (rang) selon nb prises
 function computeUserRank(prisesCount) {
-  if (prisesCount === 0) return '🐟 Novice';
-  if (prisesCount < 5) return '🎣 Apprenti';
-  if (prisesCount < 20) return '🐠 Pêcheur';
-  if (prisesCount < 50) return '🦈 Confirmé';
-  return '⚓ Expert';
+  if (prisesCount === 0) return 'Novice';
+  if (prisesCount < 5) return 'Apprenti';
+  if (prisesCount < 20) return 'Pêcheur';
+  if (prisesCount < 50) return 'Confirmé';
+  return 'Expert';
 }
 
 // Charger les préférences depuis profiles et appliquer aux switches
