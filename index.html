@@ -3441,7 +3441,7 @@ footer {
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
           <input type="text" id="search" placeholder="Rechercher : Nice, Villefranche, Cap Ferrat...">
         </div>
-        <button class="btn-sm primary" id="locate-btn">📍 Ma position</button>
+        <button class="btn-sm primary" id="locate-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -2px; margin-right: 4px;"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Ma position</button>
         <button class="btn-sm" onclick="goTo('add-spot')">➕ Ajouter</button>
       </div>
       <div id="map"></div>
@@ -3503,7 +3503,7 @@ footer {
           </select>
           <input type="number" id="composer-size" placeholder="Taille (cm)" min="1" max="500">
           <select id="composer-zone">
-            <option value="">📍 Zone (optionnel)</option>
+            <option value="">Zone (optionnel)</option>
             <option value="Nice">Nice</option>
             <option value="Antibes">Antibes</option>
             <option value="Cannes">Cannes</option>
@@ -3586,11 +3586,11 @@ footer {
 <!-- ============ DIRECTORY PAGE ============ -->
 <section id="page-directory" class="page">
   <div class="species-hero">
-    <h1 class="section-title">🏪 L'annuaire des pros</h1>
+    <h1 class="section-title"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -4px; margin-right: 8px;"><path d="m2 7 4.41-4.41A2 2 0 0 1 7.83 2h8.34a2 2 0 0 1 1.42.59L22 7"/><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><path d="M15 22v-4a2 2 0 0 0-2-2h-2a2 2 0 0 0-2 2v4"/><path d="M2 7h20"/><path d="M22 7v3a2 2 0 0 1-2 2v0a2 2 0 0 1-2-2V7"/></svg>L'annuaire des pros</h1>
     <p class="section-subtitle">Magasins, guides et prestataires de la Côte d'Azur. Avis vérifiés et promotions exclusives pour les membres.</p>
   </div>
   <div class="directory-tabs">
-  <div class="dir-tab active" data-dir="shops" onclick="switchDirTab(this)">🏪 Magasins</div>
+  <div class="dir-tab active" data-dir="shops" onclick="switchDirTab(this)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -2px; margin-right: 5px;"><path d="m2 7 4.41-4.41A2 2 0 0 1 7.83 2h8.34a2 2 0 0 1 1.42.59L22 7"/><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><path d="M15 22v-4a2 2 0 0 0-2-2h-2a2 2 0 0 0-2 2v4"/><path d="M2 7h20"/><path d="M22 7v3a2 2 0 0 1-2 2v0a2 2 0 0 1-2-2V7"/></svg>Magasins</div>
   <div class="dir-tab" data-dir="guides" onclick="switchDirTab(this)">🎣 Guides</div>
   <div class="dir-tab" data-dir="feds" onclick="switchDirTab(this)">🏛️ Fédérations (3)</div>
 </div>
@@ -3600,10 +3600,10 @@ footer {
     <input type="text" id="filter-search-input" placeholder="Rechercher un magasin, une ville..." oninput="reapplyFilters()">
   </div>
   <select id="filter-location" class="filter-select" onchange="reapplyFilters()">
-    <option value="all">📍 Toutes les zones</option>
+    <option value="all">Toutes les zones</option>
   </select>
   <select id="filter-type" class="filter-select" style="display: none;" onchange="reapplyFilters()">
-    <option value="all">🏪 Tous les types</option>
+    <option value="all">Tous les types</option>
     <option value="decathlon">🏬 Decathlon uniquement</option>
     <option value="indep">🛍️ Indépendants uniquement</option>
   </select>
@@ -3723,7 +3723,7 @@ footer {
 <!-- ============ ADD SPOT PAGE ============ -->
 <section id="page-add-spot" class="page">
   <div class="form-page">
-    <h1 class="section-title">📍 Ajouter un spot</h1>
+    <h1 class="section-title"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -4px; margin-right: 8px;"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Ajouter un spot</h1>
     <p class="section-subtitle">Contribue à la plus grande base de spots de Méditerranée. Modéré avant publication.</p>
 
     <div class="form-intro">
@@ -3763,9 +3763,9 @@ footer {
         <label>Position GPS *</label>
         <div id="spot-form-map"></div>
         <div class="spot-coords-display">
-          <span>📍 Position :</span>
+          <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -2px; margin-right: 4px;"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Position :</span>
           <span id="spot-coords-text" class="coords-empty">Clique sur la carte pour placer ton spot</span>
-          <button type="button" class="spot-form-locate-btn" id="spot-form-locate" style="margin-left: auto;">📍 Ma position</button>
+          <button type="button" class="spot-form-locate-btn" id="spot-form-locate" style="margin-left: auto;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -2px; margin-right: 4px;"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Ma position</button>
         </div>
         <div class="form-hint">Tu peux aussi déplacer le marker en le faisant glisser. Les coords seront floutées au km² une fois publié.</div>
       </div>
@@ -5556,7 +5556,7 @@ function communitySpotPopupHTML(s) {
       <div style="border-top: 1px solid #e8f1f5; padding-top: 8px; margin-top: 8px; font-size: 11px; color: #666;">
         👤 Soumis par <b style="color: #1a2430;">${(s.contributor_username || 'Anonyme').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')}</b><br>
         📅 ${date}<br>
-        <em style="color: #FF7A00; font-size: 10px;">📍 Position approximative (floutée au km²)</em>
+        <em style="color: #FF7A00; font-size: 10px;"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -1px; margin-right: 3px;"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Position approximative (floutée au km²)</em>
       </div>
     </div>
   `;
@@ -5741,7 +5741,7 @@ function shopPopupHTML(s) {
 
   return `
     <div style="min-width: 240px;">
-      <strong style="font-family: Fraunces, serif; font-size: 15px;">🏪 ${s.name}</strong>${badge}
+      <strong style="font-family: Fraunces, serif; font-size: 15px;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -2px; margin-right: 5px;"><path d="m2 7 4.41-4.41A2 2 0 0 1 7.83 2h8.34a2 2 0 0 1 1.42.59L22 7"/><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><path d="M15 22v-4a2 2 0 0 0-2-2h-2a2 2 0 0 0-2 2v4"/><path d="M2 7h20"/><path d="M22 7v3a2 2 0 0 1-2 2v0a2 2 0 0 1-2-2V7"/></svg>${s.name}</strong>${badge}
       <div style="color: #666; font-size: 11px; margin: 4px 0;">${s.address || ''}</div>
       <div style="font-size: 11px; color: #333; margin-top: 6px;">${ratingHTML}</div>
       ${phoneHTML}
@@ -6220,7 +6220,7 @@ function renderSinglePost(p, isBlurred) {
   let fishCard = '';
   if (speciesName) {
     const sizeStr = p.fish_size_cm ? ` · ${p.fish_size_cm} cm` : '';
-    const zoneTag = p.zone ? `<span class="post-zone-tag">📍 ${escapeHtml(p.zone)}</span>` : '';
+    const zoneTag = p.zone ? `<span class="post-zone-tag"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -1px; margin-right: 3px;"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>${escapeHtml(p.zone)}</span>` : '';
     fishCard = `
       <div class="post-fish-card">
         <div class="post-fish-icon">${emoji}</div>
@@ -6231,7 +6231,7 @@ function renderSinglePost(p, isBlurred) {
       </div>
     `;
   } else if (p.zone) {
-    fishCard = `<div style="margin-bottom: 12px;"><span class="post-zone-tag">📍 ${escapeHtml(p.zone)}</span></div>`;
+    fishCard = `<div style="margin-bottom: 12px;"><span class="post-zone-tag"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -1px; margin-right: 3px;"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>${escapeHtml(p.zone)}</span></div>`;
   }
 
   const deleteBtn = isMine 
@@ -6542,7 +6542,7 @@ function renderDirectory(type = 'shops') {
           <div class="dir-card-icon" style="${isDecathlon ? 'background: linear-gradient(135deg, #0082C3, #005a8c);' : ''}">${icon}</div>
           <div class="dir-card-info">
             <div class="dir-card-name">${item.name}${badge}</div>
-            <div class="dir-card-location">📍 ${cityDisplay || 'Localisation non précisée'}</div>
+            <div class="dir-card-location"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -1px; margin-right: 3px;"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>${cityDisplay || 'Localisation non précisée'}</div>
             ${ratingHTML}
           </div>
         </div>
@@ -6594,7 +6594,7 @@ function updateLocationFilter(list) {
   // Conserver la sélection actuelle
   const current = select.value;
   // Reconstruire les options
-  select.innerHTML = `<option value="all">📍 Toutes les zones (${cities.length} villes)</option>` +
+  select.innerHTML = `<option value="all">Toutes les zones (${cities.length} villes)</option>` +
     cities.map(c => `<option value="${c}">${c}</option>`).join('');
   // Restaurer la sélection si possible
   if ([...select.options].some(o => o.value === current)) {
