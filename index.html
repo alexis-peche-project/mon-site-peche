@@ -5453,6 +5453,7 @@ function closeWindyModal() {
   const modal = document.getElementById('windy-modal');
   if (modal) modal.classList.remove('active');
 }
+window.closeWindyModal = closeWindyModal;
 
   // Geolocation
   document.getElementById('locate-btn').onclick = () => {
