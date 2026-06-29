@@ -1780,6 +1780,1041 @@
     "sources": [
       "FishBase",
       "FAO"
+    {
+    "id": "bogue",
+    "name": "Bogue",
+    "latin": "Boops boops",
+    "family": "Sparidés",
+    "status": "ok",
+    "cat": "pelagic",
+    "size": "—",
+    "quota": "—",
+    "note": "Pas de taille minimale. Très utilisée comme appât pour les pêches du large.",
+    "record": "37 cm / 0.7 kg",
+    "techniques": [
+      "Mitraillette",
+      "Flotteur",
+      "Pêche au pain"
+    ],
+    "habitat": "Pleine eau côtière et fonds mixtes. De 0 à 350 m. Forme des bancs serrés près des bouées et des ports.",
+    "desc_short": "Sparidé grégaire aux grands yeux, fournisseur officiel d'appâts pour le large.",
+    "description": "Reconnaissable à ses très grands yeux et son corps allongé argenté barré de fines lignes longitudinales jaunes, la bogue est l'un des poissons les plus communs de Méditerranée. Sa pêche au mitraillette autour des ports et des bouées fournit les vifs idéaux pour aller chercher dentis, sérioles ou pagres au large.",
+    "biology": "Espèce planctonophage atypique chez les sparidés. Hermaphrodite protogyne. Forme des bancs nocturnes en surface. Croissance moyenne, maturité à 12 cm.",
+    "reproduction": "Reproduction étalée du printemps à l'automne (avril à octobre). Œufs pélagiques.",
+    "alimentation": "Régime atypique pour un sparidé : zooplancton, petits crustacés, larves. Filtre les eaux en surface la nuit.",
+    "sources": [
+      "FishBase",
+      "Doris (FFESSM)"
+    ],
+    "seasons": {
+      "best": [
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "good": [
+        3,
+        11
+      ],
+      "closed": []
+    }
+  },
+  {
+    "id": "picarel",
+    "name": "Picarel (Mendole)",
+    "latin": "Spicara maena",
+    "family": "Sparidés",
+    "status": "ok",
+    "cat": "demersal",
+    "size": "—",
+    "quota": "—",
+    "note": "Pas de taille minimale. Fréquemment confondue avec la bogue.",
+    "record": "25 cm / 0.3 kg",
+    "techniques": [
+      "Mitraillette",
+      "Flotteur",
+      "Petits hameçons"
+    ],
+    "habitat": "Fonds mixtes, herbiers, ports. De 5 à 130 m. Forme des bancs denses à proximité du fond.",
+    "desc_short": "Petit sparidé grégaire des herbiers, mâles aux couleurs vives en période nuptiale.",
+    "description": "Reconnaissable à sa bouche protractile très extensible et à une tache sombre carrée sur les flancs, le picarel forme des bancs importants au-dessus des herbiers. Les mâles en période de reproduction adoptent des couleurs spectaculaires (bandes bleues et jaunes vives), un spectacle très apprécié des plongeurs.",
+    "biology": "Hermaphrodite protogyne avec dimorphisme sexuel marqué. Espèce grégaire. Croissance lente. Souvent observée en pleine eau au-dessus des herbiers.",
+    "reproduction": "Reproduction au printemps (février à mai). Les mâles construisent et défendent des aires de ponte sur le sable, parades nuptiales spectaculaires.",
+    "alimentation": "Carnivore : zooplancton, petits crustacés, larves de poissons.",
+    "sources": [
+      "FishBase",
+      "Doris (FFESSM)"
+    ],
+    "seasons": {
+      "best": [
+        4,
+        5,
+        6,
+        9,
+        10
+      ],
+      "good": [
+        3,
+        7,
+        8,
+        11
+      ],
+      "closed": []
+    }
+  },
+  {
+    "id": "espadon",
+    "name": "Espadon",
+    "latin": "Xiphias gladius",
+    "family": "Xiphiidés",
+    "status": "closed",
+    "cat": "pelagic",
+    "size": "100 cm (LJFL)",
+    "quota": "Autorisation + bague obligatoires",
+    "note": "🏷️ Réglementation stricte : autorisation AMOP, bague de marquage par poisson, déclaration RecFishing. Période de fermeture annuelle.",
+    "record": "455 cm / 537 kg",
+    "techniques": [
+      "Traîne profonde de nuit",
+      "Pêche au broumé",
+      "Pêche au vif (calamar)"
+    ],
+    "habitat": "Pleine mer, surface à 800 m. Migrations verticales nocturnes vers la surface.",
+    "desc_short": "Géant pélagique au rostre en forme d'épée, prise de rêve absolue.",
+    "description": "Reconnaissable entre tous grâce à son long rostre aplati en forme d'épée (d'où son nom), l'espadon est l'un des prédateurs les plus rapides de l'océan (jusqu'à 100 km/h). Son corps fuselé argenté à reflets bleu foncé, sa nageoire dorsale en forme de croissant et sa puissance en font une prise mythique. Réglementation très stricte en France.",
+    "biology": "Animal partiellement à sang chaud (organe thermique près des yeux). Très grande longévité (15 à 20 ans). Maturité tardive (5-6 ans). Migrations verticales nycthémérales spectaculaires.",
+    "reproduction": "Reproduction en Méditerranée centrale en été (juin à août). Les femelles peuvent pondre plusieurs millions d'œufs. Larves pélagiques.",
+    "alimentation": "Prédateur de surface et de pleine eau : calamars, sardines, maquereaux, anchois. Utilise son rostre pour assommer les bancs de proies.",
+    "sources": [
+      "ICCAT",
+      "DIRM Méditerranée",
+      "FishBase"
+    ],
+    "seasons": {
+      "best": [
+        7,
+        8,
+        9
+      ],
+      "good": [
+        6,
+        10
+      ],
+      "closed": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        11,
+        12
+      ]
+    }
+  },
+  {
+    "id": "tassergal",
+    "name": "Tassergal (Bluefish)",
+    "latin": "Pomatomus saltatrix",
+    "family": "Pomatomidés",
+    "status": "ok",
+    "cat": "pelagic",
+    "size": "30 cm",
+    "quota": "—",
+    "note": "Marquage obligatoire. Attention : morsure très puissante, manipulation prudente.",
+    "record": "130 cm / 14 kg",
+    "techniques": [
+      "Stickbait",
+      "Popper",
+      "Leurres rapides",
+      "Pêche au vif"
+    ],
+    "habitat": "Côtes rocheuses, plages, embouchures. Surface à 200 m. En expansion en Méditerranée nord-occidentale.",
+    "desc_short": "Prédateur côtier vorace aux dents tranchantes, en pleine expansion.",
+    "description": "Le tassergal est un prédateur féroce reconnaissable à son corps trapu argenté-bleuté, sa large mâchoire armée de dents acérées comme des rasoirs, et son comportement de chasse en banc spectaculaire. Quasi absent de la Côte d'Azur il y a 20 ans, il y est désormais courant l'été avec le réchauffement des eaux.",
+    "biology": "Espèce thermophile en pleine expansion. Croissance rapide : 50 cm en 3 ans. Chasse en bancs synchronisés provoquant des bouillons spectaculaires en surface.",
+    "reproduction": "Reproduction en été (juin à août) en pleine mer. Œufs pélagiques.",
+    "alimentation": "Carnivore strict et particulièrement vorace : mulets, sardines, anchois, maquereaux. Chasse coopérative en banc, souvent en surface.",
+    "sources": [
+      "FishBase",
+      "FAO",
+      "MEDPAN"
+    ],
+    "seasons": {
+      "best": [
+        7,
+        8,
+        9,
+        10
+      ],
+      "good": [
+        6,
+        11
+      ],
+      "closed": []
+    }
+  },
+  {
+    "id": "thon-blanc",
+    "name": "Thon blanc (Germon)",
+    "latin": "Thunnus alalunga",
+    "family": "Scombridés",
+    "status": "ok",
+    "cat": "pelagic",
+    "size": "—",
+    "quota": "Réglementation ICCAT",
+    "note": "Marquage obligatoire. Réglementation ICCAT applicable.",
+    "record": "140 cm / 40 kg",
+    "techniques": [
+      "Traîne au leurre",
+      "Pêche au vif",
+      "Jigging"
+    ],
+    "habitat": "Pleine mer, surface à 600 m.",
+    "desc_short": "Cousin migrateur du thon rouge, reconnaissable à ses très longues nageoires pectorales.",
+    "description": "Le germon ou thon blanc se distingue facilement du thon rouge par ses nageoires pectorales très longues (atteignant souvent l'anale) et sa robe bleu-acier plus claire. Espèce migratrice présente en Méditerranée occidentale en été. Sa chair blanche est très appréciée (souvent utilisée pour le 'thon en boîte' haut de gamme).",
+    "biology": "Espèce hautement migratrice. Vit en bancs lâches au large. Croissance rapide. Peut vivre 13 ans. Animal partiellement à sang chaud comme les autres thonidés.",
+    "reproduction": "Reproduction en Méditerranée en été. Œufs et larves pélagiques.",
+    "alimentation": "Prédateur de pleine eau : sardines, anchois, maquereaux, calamars. Chasse en bancs.",
+    "sources": [
+      "ICCAT",
+      "FishBase",
+      "DIRM"
+    ],
+    "seasons": {
+      "best": [
+        7,
+        8,
+        9
+      ],
+      "good": [
+        6,
+        10
+      ],
+      "closed": []
+    }
+  },
+  {
+    "id": "bonitou",
+    "name": "Bonitou",
+    "latin": "Auxis rochei",
+    "family": "Scombridés",
+    "status": "ok",
+    "cat": "pelagic",
+    "size": "—",
+    "quota": "—",
+    "note": "Marquage obligatoire.",
+    "record": "50 cm / 1.7 kg",
+    "techniques": [
+      "Leurres rapides",
+      "Petits stickbaits",
+      "Traîne légère"
+    ],
+    "habitat": "Pleine eau côtière. Surface à 200 m.",
+    "desc_short": "Petite bonite estivale, idéale pour pêche aux leurres en surface.",
+    "description": "Plus petite que la bonite à dos rayé, le bonitou se distingue par son corps plus rond et son ventre nu (sans écailles). Sa robe arbore des motifs sombres ondulés sur le dos. Très réactive aux leurres rapides, c'est une pêche estivale ludique et accessible.",
+    "biology": "Espèce thermophile arrivant en Méditerranée nord-occidentale en été. Forme des bancs serrés en surface. Croissance rapide. Cycle de vie court (4-5 ans).",
+    "reproduction": "Reproduction estivale en eaux chaudes (juin à août). Œufs pélagiques.",
+    "alimentation": "Carnivore strict : petits poissons fourrage (anchois, sardines, sprats), céphalopodes juvéniles.",
+    "sources": [
+      "FishBase",
+      "FAO",
+      "ICCAT"
+    ],
+    "seasons": {
+      "best": [
+        7,
+        8,
+        9,
+        10
+      ],
+      "good": [
+        6,
+        11
+      ],
+      "closed": []
+    }
+  },
+  {
+    "id": "coryphene",
+    "name": "Dorade coryphène (Mahi-mahi)",
+    "latin": "Coryphaena hippurus",
+    "family": "Coryphaénidés",
+    "status": "ok",
+    "cat": "pelagic",
+    "size": "—",
+    "quota": "—",
+    "note": "Espèce tropicale en expansion estivale en Méditerranée. Marquage obligatoire.",
+    "record": "210 cm / 40 kg",
+    "techniques": [
+      "Traîne sous objets flottants",
+      "Stickbait",
+      "Vif"
+    ],
+    "habitat": "Pleine mer, en surface. Très attirée par les objets flottants (FAD).",
+    "desc_short": "Poisson tropical aux couleurs spectaculaires, visiteur estival en expansion.",
+    "description": "Sublime poisson aux couleurs irisées (vert, bleu, jaune, or) qui s'éteignent rapidement après la capture, la dorade coryphène ou mahi-mahi est un visiteur estival de plus en plus régulier en Méditerranée nord-occidentale. Son front haut et carré chez les mâles adultes ('chiens') et sa croissance fulgurante en font une espèce fascinante.",
+    "biology": "Croissance la plus rapide chez les téléostéens : peut atteindre 1 m en 1 an. Cycle de vie court (4 ans). Très attirée par les objets flottants en surface (techniques DCP/FAD).",
+    "reproduction": "Reproduction toute l'année en eaux tropicales, principalement en été en Méditerranée. Très fertile.",
+    "alimentation": "Prédateur de surface : poissons-volants, calamars, sardines, juvéniles de pélagiques.",
+    "sources": [
+      "FishBase",
+      "FAO",
+      "MEDPAN"
+    ],
+    "seasons": {
+      "best": [
+        7,
+        8,
+        9,
+        10
+      ],
+      "good": [
+        11
+      ],
+      "closed": []
+    }
+  },
+  {
+    "id": "mostelle",
+    "name": "Mostelle",
+    "latin": "Phycis phycis",
+    "family": "Phycidés",
+    "status": "ok",
+    "cat": "demersal",
+    "size": "30 cm",
+    "quota": "—",
+    "note": "Autorisée toute l'année.",
+    "record": "65 cm / 5 kg",
+    "techniques": [
+      "Pêche profonde au vif",
+      "Palangrotte",
+      "Esches naturelles (poisson, calmar)"
+    ],
+    "habitat": "Fonds rocheux profonds, grottes, anfractuosités. De 10 à 600 m. Très sédentaire.",
+    "desc_short": "Gadidé méditerranéen aux longues nageoires, prise discrète des fonds rocheux.",
+    "description": "Cousine méditerranéenne du lieu et de la morue, la mostelle est reconnaissable à son corps allongé brun-violacé et à ses deux longues nageoires ventrales filiformes. Très sédentaire, elle se cache dans les anfractuosités rocheuses et n'en sort qu'à la nuit. Chair blanche d'excellente qualité.",
+    "biology": "Espèce nocturne et sédentaire. Croissance lente. Peut vivre 15 ans. Maturité tardive.",
+    "reproduction": "Reproduction au printemps (mars à mai). Œufs pélagiques.",
+    "alimentation": "Carnivore : poissons, crustacés, céphalopodes. Chasse principalement la nuit.",
+    "sources": [
+      "FishBase",
+      "Doris (FFESSM)",
+      "FAO"
+    ],
+    "seasons": {
+      "best": [
+        4,
+        5,
+        6,
+        9,
+        10,
+        11
+      ],
+      "good": [
+        3,
+        7,
+        8,
+        12
+      ],
+      "closed": []
+    }
+  },
+  {
+    "id": "rascasse-brune",
+    "name": "Rascasse brune",
+    "latin": "Scorpaena porcus",
+    "family": "Scorpénidés",
+    "status": "ok",
+    "cat": "demersal",
+    "size": "—",
+    "quota": "—",
+    "note": "Attention : épines venimeuses douloureuses. Plus petite que le chapon.",
+    "record": "37 cm / 0.8 kg",
+    "techniques": [
+      "Pêche au vif",
+      "Plombée légère",
+      "Esches naturelles"
+    ],
+    "habitat": "Fonds rocheux, herbiers, ports. De 0 à 80 m.",
+    "desc_short": "Cousine du chapon, plus petite et plus commune, reine des fonds rocheux côtiers.",
+    "description": "Beaucoup plus commune que le chapon, la rascasse brune est aussi plus petite. Sa robe brun-marbrée la rend quasi invisible posée sur les rochers couverts d'algues. Comme tous les scorpénidés, ses épines dorsales sont venimeuses : manipulation avec un dégorgeoir et un linge épais.",
+    "biology": "Espèce sédentaire et territoriale. Maître du camouflage. Croissance lente. Peut vivre 10 ans.",
+    "reproduction": "Reproduction de mai à août. Œufs enrobés dans une masse gélatineuse caractéristique des scorpénidés.",
+    "alimentation": "Prédateur d'affût : petits poissons, crustacés, vers. Reste immobile et capture toute proie passant à portée.",
+    "sources": [
+      "FishBase",
+      "Doris (FFESSM)"
+    ],
+    "seasons": {
+      "best": [
+        4,
+        5,
+        6,
+        9,
+        10,
+        11
+      ],
+      "good": [
+        3,
+        7,
+        8
+      ],
+      "closed": []
+    }
+  },
+  {
+    "id": "rouget-barbet",
+    "name": "Rouget barbet (de vase)",
+    "latin": "Mullus barbatus",
+    "family": "Mullidés",
+    "status": "ok",
+    "cat": "demersal",
+    "size": "11 cm",
+    "quota": "—",
+    "note": "Autorisé toute l'année. Distinguer du rouget de roche (Mullus surmuletus).",
+    "record": "33 cm / 0.6 kg",
+    "techniques": [
+      "Plombée légère",
+      "Palangrotte",
+      "Esches naturelles (vers de sable)"
+    ],
+    "habitat": "Fonds vaseux et sableux, 10 à 300 m. Préfère les fonds meubles plus profonds que le rouget de roche.",
+    "desc_short": "Cousin de vase du rouget de roche, robe plus pâle, fonds plus profonds.",
+    "description": "Souvent confondu avec le rouget de roche, le rouget barbet de vase s'en distingue par sa robe rose-pâle plus uniforme, l'absence de bandes jaunes longitudinales nettes, et un front plus vertical. Ses deux barbillons mentonniers servent à détecter ses proies dans le sédiment. Chair fine très appréciée.",
+    "biology": "Vit en petits groupes. Croissance moyenne. Espèce de fonds meubles.",
+    "reproduction": "Reproduction au printemps-été (mai à juillet). Œufs pélagiques.",
+    "alimentation": "Carnivore détritivore : vers, petits crustacés, mollusques fouisseurs détectés grâce aux barbillons.",
+    "sources": [
+      "FishBase",
+      "FAO"
+    ],
+    "seasons": {
+      "best": [
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "good": [
+        4,
+        10,
+        11
+      ],
+      "closed": []
+    }
+  },
+  {
+    "id": "murene",
+    "name": "Murène commune",
+    "latin": "Muraena helena",
+    "family": "Murénidés",
+    "status": "ok",
+    "cat": "demersal",
+    "size": "—",
+    "quota": "—",
+    "note": "⚠️ Morsure dangereuse. Mucus toxique. Pêche déconseillée, manipulation très prudente.",
+    "record": "150 cm / 15 kg",
+    "techniques": [
+      "Pêche au vif",
+      "Bas de ligne acier obligatoire",
+      "Pêche de nuit"
+    ],
+    "habitat": "Anfractuosités rocheuses, grottes, épaves. De 5 à 100 m. Très sédentaire.",
+    "desc_short": "Serpent marin emblématique des grottes, redoutable mais essentiel à l'écosystème.",
+    "description": "Reconnaissable à son corps anguilliforme jaune-brun moucheté et sa large gueule armée de dents acérées en arrière, la murène est l'un des prédateurs les plus discrets et les plus craints de Méditerranée. Sa morsure inflige des plaies déchiquetées (les dents sont orientées vers l'arrière) et son mucus est légèrement toxique. À relâcher avec prudence si capturée.",
+    "biology": "Espèce sédentaire fidèle à son trou. Très territoriale. Croissance lente. Peut vivre 30 ans. N'a pas d'écailles, peau couverte de mucus.",
+    "reproduction": "Reproduction en été (juillet-septembre). Larves pélagiques (leptocéphales) qui dérivent longtemps avant de se métamorphoser.",
+    "alimentation": "Prédateur nocturne : poissons, poulpes, crustacés. Chasse à l'embuscade depuis son trou. Symbiose connue avec certaines crevettes nettoyeuses.",
+    "sources": [
+      "FishBase",
+      "Doris (FFESSM)"
+    ],
+    "seasons": {
+      "best": [],
+      "good": [
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "closed": []
+    }
+  },
+  {
+    "id": "vive",
+    "name": "Vive grande",
+    "latin": "Trachinus draco",
+    "family": "Trachinidés",
+    "status": "ok",
+    "cat": "demersal",
+    "size": "—",
+    "quota": "—",
+    "note": "🚨 DANGER : épines dorsales très venimeuses. Piqûre extrêmement douloureuse. Manipulation à éviter, couper la ligne en cas de capture.",
+    "record": "53 cm / 1.7 kg",
+    "techniques": [
+      "Surfcasting (capture accidentelle fréquente)",
+      "Pêche en plage"
+    ],
+    "habitat": "Fonds sableux et vaseux, plages. De 0 à 150 m. S'enterre dans le sable.",
+    "desc_short": "Poisson venimeux des plages, prudence absolue lors de la manipulation.",
+    "description": "Corps allongé jaune-brun avec des taches sombres, la vive grande passe sa vie enterrée dans le sable, seuls les yeux et les épines dorsales dépassant. Ses épines venimeuses provoquent une douleur intense (l'une des plus douloureuses de la faune française), généralement non mortelle mais nécessitant souvent une consultation médicale. Premier secours : eau très chaude (40-45°C) pour dénaturer le venin.",
+    "biology": "Espèce sédentaire et fouisseuse. Croissance moyenne. Activité plutôt nocturne.",
+    "reproduction": "Reproduction en été (juin à août). Œufs pélagiques.",
+    "alimentation": "Prédateur d'affût enterré : petits poissons, crevettes, gobies passant à portée.",
+    "sources": [
+      "FishBase",
+      "Doris (FFESSM)",
+      "ANSES Santé"
+    ],
+    "seasons": {
+      "best": [],
+      "good": [
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "closed": []
+    }
+  },
+  {
+    "id": "baudroie",
+    "name": "Baudroie (Lotte)",
+    "latin": "Lophius piscatorius",
+    "family": "Lophiidés",
+    "status": "ok",
+    "cat": "demersal",
+    "size": "30 cm",
+    "quota": "—",
+    "note": "Autorisée toute l'année.",
+    "record": "200 cm / 57 kg",
+    "techniques": [
+      "Pêche profonde au vif",
+      "Pêche au gros"
+    ],
+    "habitat": "Fonds sableux et vaseux profonds, 20 à 1000 m.",
+    "desc_short": "Prédateur abyssal grotesque, chair excellente (queue de lotte).",
+    "description": "Avec son immense tête aplatie représentant les deux tiers de son corps, sa large gueule garnie de crocs en aiguille et son leurre pendant entre les yeux (premier rayon dorsal modifié), la baudroie est l'un des poissons les plus impressionnants des fonds méditerranéens. Sa chair (la fameuse 'queue de lotte') est très recherchée en cuisine.",
+    "biology": "Prédateur d'embuscade utilisant son 'leurre' pour attirer les proies. Croissance lente. Migrations bathymétriques.",
+    "reproduction": "Reproduction en hiver-printemps. Ponte d'une nappe gélatineuse géante de 1 million d'œufs.",
+    "alimentation": "Prédateur opportuniste : poissons de toutes tailles (y compris ses propres jeunes), céphalopodes, parfois oiseaux marins.",
+    "sources": [
+      "FishBase",
+      "FAO",
+      "IFREMER"
+    ],
+    "seasons": {
+      "best": [
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "good": [
+        4,
+        11
+      ],
+      "closed": []
+    }
+  },
+  {
+    "id": "saint-pierre",
+    "name": "Saint-Pierre",
+    "latin": "Zeus faber",
+    "family": "Zéidés",
+    "status": "ok",
+    "cat": "demersal",
+    "size": "25 cm",
+    "quota": "—",
+    "note": "Autorisé toute l'année.",
+    "record": "90 cm / 8 kg",
+    "techniques": [
+      "Pêche au vif",
+      "Jigging slow",
+      "Esches naturelles (vif)"
+    ],
+    "habitat": "Fonds mixtes, 5 à 400 m. Solitaire.",
+    "desc_short": "Poisson plat à la tache noire 'de Saint-Pierre', chair exceptionnelle.",
+    "description": "Corps très haut et comprimé latéralement, le Saint-Pierre se reconnaît immédiatement à la grande tache noire ronde sur chaque flanc (selon la légende, l'empreinte du pouce de Saint-Pierre quand il sortit le poisson de l'eau). Sa bouche extensible se déploie en un instant pour aspirer ses proies. Chair exceptionnelle.",
+    "biology": "Croissance moyenne. Solitaire. Capable de gonfler ses joues pour intimider les concurrents.",
+    "reproduction": "Reproduction au printemps-été. Œufs pélagiques.",
+    "alimentation": "Prédateur lent et patient : approche les bancs de petits poissons (sardines, anchois) puis aspire d'un coup. Mange aussi céphalopodes et crustacés.",
+    "sources": [
+      "FishBase",
+      "Doris (FFESSM)"
+    ],
+    "seasons": {
+      "best": [
+        4,
+        5,
+        6,
+        9,
+        10,
+        11
+      ],
+      "good": [
+        3,
+        7,
+        8,
+        12
+      ],
+      "closed": []
+    }
+  },
+  {
+    "id": "serran-ecriture",
+    "name": "Serran écriture",
+    "latin": "Serranus scriba",
+    "family": "Serranidés",
+    "status": "ok",
+    "cat": "demersal",
+    "size": "—",
+    "quota": "—",
+    "note": "Pas de taille minimale.",
+    "record": "36 cm / 0.6 kg",
+    "techniques": [
+      "Pêche au toc",
+      "Petits leurres",
+      "Esches naturelles"
+    ],
+    "habitat": "Côtes rocheuses, herbiers de posidonies. De 1 à 150 m.",
+    "desc_short": "Petit cousin du mérou aux motifs cunéiformes spectaculaires.",
+    "description": "Petit serranidé de seulement 25-30 cm, le serran écriture porte un nom évocateur : sa tête est ornée de zébrures bleu-violet en forme de caractères cunéiformes (d'où 'écriture'). Sa robe rougeâtre tachée de noir est superbe. Territorial et curieux, c'est l'un des poissons préférés des plongeurs.",
+    "biology": "Hermaphrodite simultané (rare !) : possède des tissus ovariens et testiculaires fonctionnels en même temps. Très territorial. Croissance lente.",
+    "reproduction": "Reproduction au printemps-été. Autofécondation possible en théorie mais rare (préfère les fécondations croisées).",
+    "alimentation": "Carnivore : petits poissons, crevettes, vers, juvéniles de céphalopodes.",
+    "sources": [
+      "FishBase",
+      "Doris (FFESSM)"
+    ],
+    "seasons": {
+      "best": [
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "good": [
+        4,
+        11
+      ],
+      "closed": []
+    }
+  },
+  {
+    "id": "roussette",
+    "name": "Petite roussette",
+    "latin": "Scyliorhinus canicula",
+    "family": "Scyliorhinidés",
+    "status": "ok",
+    "cat": "demersal",
+    "size": "—",
+    "quota": "—",
+    "note": "Petit requin inoffensif. Manipulation avec gants conseillée (peau abrasive).",
+    "record": "100 cm / 4 kg",
+    "techniques": [
+      "Surfcasting de nuit",
+      "Pêche profonde",
+      "Palangrotte"
+    ],
+    "habitat": "Fonds sableux et graveleux, 10 à 400 m.",
+    "desc_short": "Petit requin commun aux mouchetures sombres, pêche nocturne fréquente.",
+    "description": "Petit squale inoffensif de 80 cm environ, la roussette est facilement reconnaissable à son corps allongé brun-jaune couvert de petites taches sombres. Sa peau râpeuse (denticules dermiques) servait autrefois de papier de verre. Pêche fréquente en surfcasting de nuit. À relâcher avec précaution, espèce en déclin.",
+    "biology": "Squale ovipare : pond des œufs en capsules cornées noires ('bourses de sirène') avec vrilles de fixation. Croissance lente. Maturité à 4-5 ans.",
+    "reproduction": "Reproduction étalée toute l'année. Œufs déposés un par un sur les algues ou gorgones. Éclosion après 9 mois.",
+    "alimentation": "Carnivore opportuniste : crustacés, mollusques, petits poissons, vers.",
+    "sources": [
+      "FishBase",
+      "IUCN",
+      "Doris (FFESSM)"
+    ],
+    "seasons": {
+      "best": [
+        4,
+        5,
+        6,
+        9,
+        10,
+        11
+      ],
+      "good": [
+        3,
+        7,
+        8,
+        12
+      ],
+      "closed": []
+    }
+  },
+  {
+    "id": "emissole",
+    "name": "Émissole lisse",
+    "latin": "Mustelus mustelus",
+    "family": "Triakidés",
+    "status": "ok",
+    "cat": "demersal",
+    "size": "—",
+    "quota": "—",
+    "note": "Petit requin inoffensif. Espèce en déclin, relâcher recommandé.",
+    "record": "200 cm / 30 kg",
+    "techniques": [
+      "Surfcasting lourd",
+      "Pêche profonde au vif"
+    ],
+    "habitat": "Fonds sableux et vaseux, 5 à 350 m.",
+    "desc_short": "Petit requin côtier au museau pointu, prise sportive de surfcasting.",
+    "description": "Squale élégant au corps allongé gris-brun uniforme et au museau pointu, l'émissole peut atteindre 2 m. Inoffensive pour l'homme (dents broyeuses et non coupantes), elle offre de beaux combats en surfcasting. Pêche à pratiquer en no-kill, ses populations méditerranéennes étant fragiles.",
+    "biology": "Squale vivipare : développement complet à l'intérieur de la femelle, naissance de petits déjà autonomes. Croissance lente. Maturité tardive (5-10 ans).",
+    "reproduction": "Reproduction au printemps-été. Gestation de 10-12 mois. Portées de 4 à 15 petits.",
+    "alimentation": "Carnivore spécialisé : crustacés (crabes surtout), mollusques. Dents en mosaïque adaptées au broyage.",
+    "sources": [
+      "FishBase",
+      "IUCN Vulnérable",
+      "Doris (FFESSM)"
+    ],
+    "seasons": {
+      "best": [
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "good": [
+        4,
+        10,
+        11
+      ],
+      "closed": []
+    }
+  },
+  {
+    "id": "pastenague",
+    "name": "Pastenague commune",
+    "latin": "Dasyatis pastinaca",
+    "family": "Dasyatidés",
+    "status": "ok",
+    "cat": "demersal",
+    "size": "—",
+    "quota": "—",
+    "note": "🚨 DANGER : épine caudale venimeuse. À relâcher en coupant la ligne, sans la manipuler. Population en déclin.",
+    "record": "250 cm (envergure) / 30 kg",
+    "techniques": [
+      "Surfcasting (capture accidentelle)"
+    ],
+    "habitat": "Fonds sableux et vaseux, plages, embouchures. De 0 à 200 m.",
+    "desc_short": "Grande raie au dard venimeux, à relâcher en toute prudence.",
+    "description": "Avec son corps en forme de losange aplati pouvant dépasser 2 m d'envergure, la pastenague commune est l'une des grandes raies de Méditerranée. Sa queue effilée porte un dard venimeux pouvant infliger des blessures graves. À relâcher rapidement en cas de capture, sans tentative de récupération de l'hameçon : couper le bas de ligne près de la bouche.",
+    "biology": "Squale (raie est un sous-groupe). Vivipare aplacentaire : embryons nourris par sécrétions utérines. Maturité tardive. Espèce vulnérable.",
+    "reproduction": "Reproduction estivale. Gestation 4 mois. Portées de 4 à 9 petits.",
+    "alimentation": "Carnivore benthique : crustacés, mollusques, petits poissons fouisseurs. Détecte ses proies par électroréception.",
+    "sources": [
+      "FishBase",
+      "IUCN Vulnérable",
+      "ANSES"
+    ],
+    "seasons": {
+      "best": [],
+      "good": [
+        6,
+        7,
+        8,
+        9
+      ],
+      "closed": []
+    }
+  },
+  {
+    "id": "eledone",
+    "name": "Élédone musquée",
+    "latin": "Eledone moschata",
+    "family": "Octopodidés",
+    "status": "ok",
+    "cat": "cephalopod",
+    "size": "—",
+    "quota": "—",
+    "note": "Pas de taille minimale. Distinguer du poulpe commun (une seule rangée de ventouses).",
+    "record": "40 cm / 1.5 kg",
+    "techniques": [
+      "Turlutte de fond",
+      "Casier",
+      "Pêche à pied de nuit"
+    ],
+    "habitat": "Fonds sableux et vaseux, 20 à 500 m.",
+    "desc_short": "Cousin du poulpe à une seule rangée de ventouses, plus profond et plus discret.",
+    "description": "Distinguable du poulpe commun par sa **seule** rangée de ventouses par bras (au lieu de deux), l'élédone est plus petite et préfère les fonds meubles plus profonds. Son corps brun-violacé dégage une légère odeur musquée caractéristique (d'où son nom). Souvent prise accessoirement avec les calmars.",
+    "biology": "Cycle court (1-2 ans). Mort après reproduction unique. Plus active la nuit.",
+    "reproduction": "Reproduction toute l'année. Ponte de quelques milliers d'œufs gardés par la femelle.",
+    "alimentation": "Carnivore : crustacés, petits poissons, mollusques. Chasse principalement la nuit.",
+    "sources": [
+      "FishBase",
+      "FAO",
+      "Doris (FFESSM)"
+    ],
+    "seasons": {
+      "best": [
+        9,
+        10,
+        11,
+        12,
+        1,
+        2
+      ],
+      "good": [
+        3,
+        8
+      ],
+      "closed": []
+    }
+  },
+  {
+    "id": "cigale-mer",
+    "name": "Cigale de mer",
+    "latin": "Scyllarus arctus",
+    "family": "Scyllaridés",
+    "status": "ok",
+    "cat": "cephalopod",
+    "size": "—",
+    "quota": "—",
+    "note": "Pêche réglementée selon zones. Espèce en raréfaction.",
+    "record": "16 cm / 0.4 kg",
+    "techniques": [
+      "Chasse sous-marine",
+      "Pêche à pied de nuit",
+      "Casier"
+    ],
+    "habitat": "Fonds rocheux, anfractuosités, herbiers. De 5 à 100 m.",
+    "desc_short": "Petit crustacé aplati aux antennes en forme de palettes, très discret.",
+    "description": "Curieux crustacé au corps aplati brun-orangé et aux antennes transformées en larges palettes, la cigale de mer (ou cigale grande) est l'une des prises les plus convoitées des chasseurs sous-marins méditerranéens. Très discrète, elle se cache la journée dans les anfractuosités et sort la nuit. Sa chair est excellente.",
+    "biology": "Croissance lente. Vie nocturne. Très territoriale.",
+    "reproduction": "Reproduction au printemps. Femelle porte les œufs sous l'abdomen jusqu'à éclosion.",
+    "alimentation": "Détritivore et omnivore : algues, mollusques morts, débris organiques.",
+    "sources": [
+      "FishBase",
+      "Doris (FFESSM)",
+      "MEDPAN"
+    ],
+    "seasons": {
+      "best": [
+        5,
+        6,
+        7,
+        8
+      ],
+      "good": [
+        4,
+        9,
+        10
+      ],
+      "closed": []
+    }
+  },
+  {
+    "id": "crabe-vert",
+    "name": "Crabe vert (enragé)",
+    "latin": "Carcinus aestuarii",
+    "family": "Portunidés",
+    "status": "ok",
+    "cat": "cephalopod",
+    "size": "—",
+    "quota": "—",
+    "note": "Pêche à pied libre. Appât roi pour la daurade royale.",
+    "record": "10 cm largeur carapace",
+    "techniques": [
+      "Pêche à pied",
+      "Filet à crabe"
+    ],
+    "habitat": "Zones rocheuses côtières, ports, eaux saumâtres. De 0 à 60 m.",
+    "desc_short": "Petit crabe vert vif, appât légendaire des daurades et sars.",
+    "description": "Petit crabe vert-olive aux pattes orangées (mâles) ou verdâtres (femelles), le crabe vert ou 'enragé' est l'appât absolu pour qui veut traquer la daurade royale. Sa pêche à pied dans les rochers, à marée basse, est un grand classique méditerranéen. Très combatif, d'où son surnom.",
+    "biology": "Cycle 4-5 ans. Très agressif et territorial. Capable de survivre longtemps hors de l'eau (idéal comme appât vivant).",
+    "reproduction": "Reproduction au printemps. Femelles 'grainées' (œufs sous l'abdomen) facilement reconnaissables.",
+    "alimentation": "Omnivore opportuniste : algues, mollusques, charognes, autres crustacés.",
+    "sources": [
+      "FishBase",
+      "Doris (FFESSM)"
+    ],
+    "seasons": {
+      "best": [
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "good": [
+        3,
+        11
+      ],
+      "closed": []
+    }
+  },
+  {
+    "id": "poisson-lapin",
+    "name": "Poisson-lapin (Sigan)",
+    "latin": "Siganus luridus",
+    "family": "Siganidés",
+    "status": "ok",
+    "cat": "demersal",
+    "size": "—",
+    "quota": "—",
+    "note": "🚨 Espèce invasive (lessepsien). Épines venimeuses : manipulation prudente. Capture encouragée.",
+    "record": "30 cm / 0.8 kg",
+    "techniques": [
+      "Pêche au pain",
+      "Esches végétales",
+      "Flotteur"
+    ],
+    "habitat": "Côtes rocheuses, herbiers. De 1 à 20 m.",
+    "desc_short": "Espèce invasive ravageant les herbiers, à capturer prioritairement.",
+    "description": "Arrivé par le canal de Suez (espèce 'lessepsienne'), le poisson-lapin colonise rapidement la Méditerranée nord-occidentale et constitue une menace majeure pour les herbiers de posidonies qu'il dévore. Reconnaissable à son corps ovale gris-brun à reflets jaunes et son museau de lapin (d'où son nom), il porte des épines venimeuses douloureuses. Sa pêche est encouragée pour réguler les populations.",
+    "biology": "Espèce thermophile en pleine expansion. Herbivore vorace responsable de la destruction d'herbiers entiers en quelques années. Forme des bancs nombreux.",
+    "reproduction": "Reproduction estivale en eau chaude.",
+    "alimentation": "Strictement herbivore : posidonies, algues. Impact écologique majeur sur les écosystèmes méditerranéens.",
+    "sources": [
+      "MEDPAN",
+      "FishBase",
+      "Parc Marin du Cap Corse"
+    ],
+    "seasons": {
+      "best": [
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "good": [
+        5,
+        11
+      ],
+      "closed": []
+    }
+  },
+  {
+    "id": "baliste",
+    "name": "Baliste cabri",
+    "latin": "Balistes capriscus",
+    "family": "Balistidés",
+    "status": "ok",
+    "cat": "demersal",
+    "size": "—",
+    "quota": "—",
+    "note": "Espèce en expansion. Attention : dents très puissantes, manipulation prudente.",
+    "record": "60 cm / 6 kg",
+    "techniques": [
+      "Pêche au crabe",
+      "Esches naturelles",
+      "Petits hameçons résistants"
+    ],
+    "habitat": "Côtes rocheuses, épaves, bouées flottantes. De 5 à 100 m.",
+    "desc_short": "Poisson tropical en expansion, dents redoutables et chair excellente.",
+    "description": "Reconnaissable à son corps haut comprimé, sa peau coriace gris-brun-vert et ses puissantes dents en incisives, le baliste cabri était rare en Méditerranée nord-occidentale il y a 20 ans. En pleine expansion avec le réchauffement, il offre désormais de belles pêches estivales. Ses incisives peuvent sectionner des hameçons fins. Chair excellente.",
+    "biology": "Espèce thermophile. Forme des couples territoriaux pour la reproduction. Très intelligente, capable d'utiliser le souffle d'eau pour retourner des oursins.",
+    "reproduction": "Reproduction estivale. Nids creusés dans le sable, gardés par le mâle.",
+    "alimentation": "Carnivore : crustacés, oursins (broyés par les dents), mollusques, juvéniles de poissons.",
+    "sources": [
+      "FishBase",
+      "Doris (FFESSM)",
+      "MEDPAN"
+    ],
+    "seasons": {
+      "best": [
+        7,
+        8,
+        9,
+        10
+      ],
+      "good": [
+        6,
+        11
+      ],
+      "closed": []
+    }
+  },
+  {
+    "id": "loup-tachete",
+    "name": "Loup tacheté",
+    "latin": "Dicentrarchus punctatus",
+    "family": "Moronidés",
+    "status": "ok",
+    "cat": "pelagic",
+    "size": "30 cm",
+    "quota": "—",
+    "note": "Marquage obligatoire. Plus rare et plus côtier que le bar européen.",
+    "record": "70 cm / 4 kg",
+    "techniques": [
+      "Leurres souples",
+      "Pêche au vif",
+      "Surfcasting"
+    ],
+    "habitat": "Côtes rocheuses, embouchures, lagunes. De 0 à 60 m.",
+    "desc_short": "Cousin tacheté du bar, plus rare et plus côtier.",
+    "description": "Cousin proche du bar européen, le loup tacheté s'en distingue immédiatement par les nombreuses taches sombres qu'il porte sur les flancs et le dos (alors que le bar européen est uniformément argenté). Plus côtier, il fréquente les eaux saumâtres et les lagunes. Plus rare en Méditerranée nord-occidentale que son cousin.",
+    "biology": "Espèce eurytherme et euryhaline. Croissance similaire au bar européen. Plus territorial.",
+    "reproduction": "Reproduction en hiver-printemps. Œufs pélagiques.",
+    "alimentation": "Carnivore opportuniste : petits poissons, crevettes, crabes. Chasse principalement à l'aube et au crépuscule.",
+    "sources": [
+      "FishBase",
+      "FAO"
+    ],
+    "seasons": {
+      "best": [
+        3,
+        4,
+        5,
+        9,
+        10,
+        11
+      ],
+      "good": [
+        2,
+        6,
+        7,
+        8,
+        12
+      ],
+      "closed": []
+    }
+  },
+  {
+    "id": "anguille",
+    "name": "Anguille européenne",
+    "latin": "Anguilla anguilla",
+    "family": "Anguillidés",
+    "status": "forbidden",
+    "cat": "demersal",
+    "size": "—",
+    "quota": "INTERDIT",
+    "note": "🚫 Pêche de loisir INTERDITE depuis 2021 pour la phase argentée. Espèce en danger critique d'extinction (IUCN). Toute capture doit être relâchée immédiatement.",
+    "record": "150 cm / 6 kg",
+    "techniques": [
+      "Pêche interdite — observation et sensibilisation uniquement"
+    ],
+    "habitat": "Eaux saumâtres, lagunes, embouchures, fleuves. De 0 à 100 m.",
+    "desc_short": "Migrateur en danger critique, pêche de loisir totalement interdite.",
+    "description": "Avec son corps serpentiforme brun-doré et ses migrations transatlantiques fascinantes (reproduction dans la mer des Sargasses, à 6000 km), l'anguille européenne est l'un des poissons les plus mystérieux d'Europe. Ses populations se sont effondrées de 95% depuis 1980 (pollution, barrages, surpêche, parasites). Sa pêche de loisir est désormais totalement interdite.",
+    "biology": "Cycle de vie unique en Europe : larves leptocéphales qui dérivent depuis l'Atlantique, métamorphose en civelles, croissance en eau douce/saumâtre pendant 10-20 ans, puis migration mortelle de retour aux Sargasses pour se reproduire.",
+    "reproduction": "Reproduction dans la mer des Sargasses (océan Atlantique). Une seule reproduction en fin de vie. Mortalité quasi totale après reproduction.",
+    "alimentation": "Carnivore nocturne : poissons, crustacés, vers. Activité essentiellement nocturne en eau peu profonde.",
+    "sources": [
+      "IUCN En Danger Critique",
+      "Règlement européen 1100/2007",
+      "Arrêtés ministériels FR"
     ],
     "seasons": {
       "best": [
