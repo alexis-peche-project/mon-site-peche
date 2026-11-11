@@ -5198,8 +5198,9 @@ function initMap() {
   window._mapInstance = map;
 
     // Carte de base : CartoDB Voyager (style élégant moderne)
-L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { 
-  attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+L.tileLayer('https://tiles.stadiamaps.com/tiles/alidade_smooth/{z}/{x}/{y}{r}.png?api_key=ed7ab268-c01d-40b2-8760-4d0aabda1fc0', {
+    attribution: '© <a href="https://stadiamaps.com/">Stadia Maps</a> © <a href="https://openmaptiles.org/">OpenMapTiles</a> © <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+    maxZoom: 20,
     subdomains: 'abcd',
     maxZoom: 19
   }).addTo(map);
@@ -8092,10 +8093,9 @@ function initSpotFormMap() {
   const mapEl = document.getElementById('spot-form-map');
   if (!mapEl) return;
   
-  spotFormMap = L.map('spot-form-map').setView([43.7009, 7.2683], 11);
-  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    attribution: '© OpenStreetMap',
-    maxZoom: 18
+  L.tileLayer('https://tiles.stadiamaps.com/tiles/alidade_smooth/{z}/{x}/{y}{r}.png?api_key=ed7ab268-c01d-40b2-8760-4d0aabda1fc0', {
+    attribution: '© Stadia Maps © OpenStreetMap',
+    maxZoom: 20
   }).addTo(spotFormMap);
   
   // Click sur la carte = place le marker
@@ -8492,8 +8492,7 @@ function initAdminSpotMap(spot) {
   const lat = parseFloat(spot.lat_precise);
   const lng = parseFloat(spot.lng_precise);
   const m = L.map(el, { scrollWheelZoom: false }).setView([lat, lng], 13);
-  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 18 }).addTo(m);
-  L.marker([lat, lng]).addTo(m);
+  L.tileLayer('https://tiles.stadiamaps.com/tiles/alidade_smooth/{z}/{x}/{y}{r}.png?api_key=ed7ab268-c01d-40b2-8760-4d0aabda1fc0', { maxZoom: 20, attribution: '© Stadia Maps © OpenStreetMap' }).addTo(m);
   el._map = m;
   setTimeout(() => m.invalidateSize(), 100);
 }
